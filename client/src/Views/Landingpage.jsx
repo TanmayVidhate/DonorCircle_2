@@ -38,9 +38,9 @@ function Landingpage() {
                                 />
                             </div>
 
-                                {/* second div */}
-                            <div className='p-3  w-full h-2/5 grid place-items-center border-2  '>
-                                <Image img_url={img} className="w-auto object-scale-down " />
+                            {/* second div */}
+                            <div className='p-3 my-5 w-full  grid place-items-center border-2  '>
+                                <Image img_url={img} className="w-auto h-3/6 -mt-7 object-scale-down  border-2" />
                             </div>
                         </div>
                     </div>
