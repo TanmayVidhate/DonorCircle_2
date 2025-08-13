@@ -17,19 +17,19 @@ function Landingpage() {
 
     return (
         <>
-            <div className='flex flex-col w-screen h-screen bg-[#ffd6a5]  '>
+            <div className='flex flex-col w-screen max-h-max bg-[#ffd6a5]  '>
                 <Navbar />
-                <div className='flex-1 grid place-items-center'>
-                    <div className='flex justify-center items-center rounded bg-[#FFFFFF] w-3/5 h-4/5  '>
-                        <div className='flex justify-center items-center p-4  '>
+                <div className='flex-1 grid place-items-center '>
+                    <div className='flex justify-center items-center rounded m-5  bg-[#FFFFFF] w-5/6 max-h-max   '>
+                        <div className='p-3'>
 
                             {/* First div */}
-                            <div className='p-3 m-3 w-[50%] mt-3 '>
-                                <div className='text-[#FBA943] text-5xl font-bold uppercase m-5 tracking-wide  '>Donor<br />Circle</div>
-                                <div className='m-5 tracking-wide '>
+                            <div className='p-3  my-5 w-full  border-2  '>
+                                <div className='text-[#FBA943] text-4xl font-bold uppercase mx-5 tracking-wide '>Donor<br />Circle</div>
+                                <div className='mx-5 my-4 tracking-wide border-2'>
                                     Accidents, Surgeries, Cancer treatments,
                                     All need blood. Every single day.
-                                    Be someone’s miracle.<br/> <span className='text-[#FBA943] text-2xl font-bold opacity-0 animate-fadeIn mt-5' >Join DonorCircle.</span>
+                                    Be someone’s miracle.<br/> <span className='text-[#FBA943] text-2xl font-bold opacity-0 animate-fadeIn mt-5 '  >Join DonorCircle.</span>
                                 </div>
                                 <Button name={"SignUp"} className={" ml-5 bg-[#FBA943] text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-400/50 "}
                                     onClick={() => {
@@ -39,8 +39,8 @@ function Landingpage() {
                             </div>
 
                                 {/* second div */}
-                            <div className='p-3 m-3 w-[70%] grid place-items-center  '>
-                                <Image img_url={img} className="w-auto " />
+                            <div className='p-3  w-full h-2/5 grid place-items-center border-2  '>
+                                <Image img_url={img} className="w-auto object-scale-down " />
                             </div>
                         </div>
                     </div>
