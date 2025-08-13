@@ -23,7 +23,7 @@ function Navbar() {
         <>
             <div className='flex justify-between  w-full p-1 pb-0 bg-[#f7c789]  relative'>
                 <div className=''>
-                    <img src={img} alt='logo' className='w-2/5 sm:w-2/6 md:w-2/6 lg:w-3/12 border-2' />
+                    <img src={img} alt='logo' className='w-2/5 sm:w-2/6 md:w-2/6 lg:w-3/12 ' />
                 </div>
                 <div className='lg:hidden'>
 
