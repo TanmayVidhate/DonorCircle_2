@@ -101,8 +101,8 @@ function Signin() {
                     <div className='border rounded-md bg-white w-5/6  p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 '>
 
                         {/* first div    */}
-                        <div className=' lg:w-96 '>
-                            <form className='h-[500px] ' onSubmit={handleSubmit(onSubmit)} >
+                        <div className='  '>
+                            <form className='lg:w-96 h-[500px] ' onSubmit={handleSubmit(onSubmit)} >
                                 <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl '>Sign In</p>
 
                                 <div className='flex flex-col p-1 relative '>
