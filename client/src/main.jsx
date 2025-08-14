@@ -15,7 +15,7 @@ import AddUserProfile from "./Views/AddUserProfile.jsx"
 import ShowAllUserinfo from "./Views/ShowAllUserInfo.jsx"
 
 //Components Import
-import SingupForm from "./Components/singupForm.jsx"
+import SingupForm from "./Components/SingupForm.jsx"
 // import Cards from "./Components/Cards.jsx"
 
 createRoot(document.getElementById('root')).render(
