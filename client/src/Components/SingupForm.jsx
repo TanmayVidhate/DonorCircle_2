@@ -81,7 +81,7 @@ function SingupForm() {
                 <div className='flex flex-col border rounded-md w-5/6 p-5 bg-white lg:flex-row lg:justify-center lg:items-center lg:w-3/5 lg:relative'>
 
                     {/* First Div */}
-                    <div className='order-2  lg:order-1 lg:w-2/5 border-4 '>
+                    <div className='order-2  lg:order-1 lg:w-2/5  '>
                         <p className='invisible  text-2xl font-semibold ml-2 tracking-wider lg:visible lg:absolute lg:top-3 lg:left-16   '>Sign Up</p>
                         <Image img_url={imgurl} className="!w-5/6 !object-scale-down sm:!object-scale-down md:!object-scale-down lg:!object-contain h-80  " />
                     </div>
