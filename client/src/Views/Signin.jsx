@@ -98,11 +98,11 @@ function Signin() {
             <div className='flex flex-col w-screen h-screen bg-[#ffd6a5] '>
 
                 <div className='flex-1 grid place-items-center'>
-                    <div className='flex justify-center items-center  rounded bg-white w-3/5 h-4/5 p-4'>
-                        {/* first div    */}
+                    <div className='border rounded-md bg-white w-5/6  p-4 '>
 
-                        <div className=' '>
-                            <form className='w-auto h-[450px]' onSubmit={handleSubmit(onSubmit)} >
+                        {/* first div    */}
+                        <div className='border-4'>
+                            <form className='w-auto ' onSubmit={handleSubmit(onSubmit)} >
                                 <p className='text-2xl font-semibold ml-2 tracking-wider'>Sign In</p>
 
                                 <div className='flex flex-col p-1 relative '>
@@ -122,11 +122,11 @@ function Signin() {
                                         icon={<Mail />}
                                     />
                                     {
-                                        errors?.email_field && <span className='text-red-500 text-x w-5/6 absolute left-2 -bottom-5 '>{errors?.email_field?.message}</span>
+                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute  -bottom-5   '>{errors?.email_field?.message}</span>
                                     }
                                 </div>
 
-                                <div className='flex flex-col p-1 relative mt-5  '>
+                                <div className='flex flex-col p-1 relative mt-9  '>
                                     <Label title="Password" />
                                     <InputField
                                         type="password"
@@ -143,24 +143,24 @@ function Signin() {
                                         icon={<LockKeyhole />}
                                     />
                                     {
-                                        errors?.pass_field && <span className='text-red-500 text-x w-5/6 absolute left-2 -bottom-10 '>{errors?.pass_field?.message}</span>
+                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-16  '>{errors?.pass_field?.message}</span>
                                     }
                                 </div>
 
-                                <div className='flex justify-center items-center p-1 mt-10 '>
+                                <div className='flex justify-center items-center p-1 mt-16 '>
                                     <Button name="Signin"
                                         onClick={isuserisValid}
                                         className="!px-6 !py-2 !rounded-lg !w-full"
                                     />
                                 </div>
 
-                                <div className='p-1 mt-6'>
+                                <div className='p-1 mt-2'>
                                     <div className='mb-2'>
-                                        <LinkTo url={"#"} className="capitalize font-normal !text-blue-800  w-full   " >Forgot Password </LinkTo>
+                                        <LinkTo url={"#"} className="capitalize !text-base !text-blue-800  w-full   " >Forgot Password </LinkTo>
                                     </div>
 
                                     <div>
-                                        <LinkTo url={"/signup"} className="capitalize font-normal !text-black w-full" >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
+                                        <LinkTo url={"/signup"} className="capitalize !text-base !text-black w-full" >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
                                     </div>
 
                                 </div>
@@ -171,8 +171,8 @@ function Signin() {
 
                         {/* second div */}
 
-                        <div className=''>
-                            <Image img_url={img} className="w-auto " />
+                        <div className=' border-4 flex justify-center items-center'>
+                            <Image img_url={img} className="object-scale-down h-80 border-4" />
                         </div>
                     </div>
                 </div>
