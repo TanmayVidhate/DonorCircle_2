@@ -17,7 +17,7 @@ function Landingpage() {
 
     return (
         <>
-            <div className='flex flex-col w-screen max-h-max border-4 bg-[#ffd6a5]  xl:h-screen  '>
+            <div className='flex flex-col w-screen h-screen bg-[#ffd6a5]  xl:h-screen  '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center '>
                     <div className='flex justify-center items-center rounded m-5 bg-[#FFFFFF] w-5/6 max-h-max sm:w-3/4 sm:px-5 lg:mt-10 lg:w-4/5 2xl:w-3/5  '>
@@ -40,7 +40,7 @@ function Landingpage() {
 
                             {/* second div */}
                             <div className='p-3 my-5 w-full  grid place-items-center    '>
-                                <Image img_url={img} className="w-auto h-3/4 border-4 -mt-7 object-scale-down sm:object-scale-down md:object-scale-down lg:object-cover   " />
+                                <Image img_url={img} className="w-auto h-3/4  -mt-7 object-scale-down sm:object-scale-down md:object-scale-down lg:object-cover   " />
                             </div>
                         </div>
                     </div>
