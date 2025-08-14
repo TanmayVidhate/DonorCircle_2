@@ -78,16 +78,16 @@ function SingupForm() {
         <>
             <div className='flex flex-col justify-center items-center w-screen h-screen bg-[#ffd6a5]  '>
                 {/* <Navbar /> */}
-                <div className='flex flex-col border rounded-md w-5/6 p-5 bg-white lg:flex-row lg:justify-center lg:items-center lg:w-3/5 '>
+                <div className='flex flex-col border rounded-md w-5/6 p-5 bg-white lg:flex-row lg:justify-center lg:items-center lg:w-3/5 lg:relative'>
 
                     {/* First Div */}
-                    <div className='order-2  lg:order-1 lg:w-2/5 '>
-                        <p className='invisible  text-2xl font-semibold ml-2 tracking-wider lg:visible '>Sign Up</p>
+                    <div className='order-2  lg:order-1 lg:w-2/5 border-4 '>
+                        <p className='invisible  text-2xl font-semibold ml-2 tracking-wider lg:visible lg:absolute lg:top-3 lg:left-16   '>Sign Up</p>
                         <Image img_url={imgurl} className="!w-5/6 !object-scale-down sm:!object-scale-down md:!object-scale-down lg:!object-contain h-80  " />
                     </div>
 
                     {/* Second Div */}
-                    <div className='order-1  overflow-y-auto overflow-x-hidden scrollbar-hide lg:order-2 lg:h-full lg:w-96  '>
+                    <div className='order-1  overflow-y-auto overflow-x-hidden scrollbar-hide lg:order-2 lg:h-full lg:w-96 '>
                         <p className='visible text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:invisible  '>Sign Up</p>
                         <form className=' flex flex-col items-center w-full h-[450px] '
                             onSubmit={handleSubmit(onSubmit)}
