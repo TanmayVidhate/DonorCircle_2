@@ -103,7 +103,7 @@ function Signin() {
                         {/* first div    */}
                         <div className='border-4'>
                             <form className='w-auto ' onSubmit={handleSubmit(onSubmit)} >
-                                <p className='text-2xl font-semibold ml-2 tracking-wider'>Sign In</p>
+                                <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl '>Sign In</p>
 
                                 <div className='flex flex-col p-1 relative '>
                                     <Label title="Email" />
@@ -122,7 +122,7 @@ function Signin() {
                                         icon={<Mail />}
                                     />
                                     {
-                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute -bottom-5 sm:text-base '>{errors?.email_field?.message}</span>
+                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute -bottom-5 sm:text-base md:text-lg '>{errors?.email_field?.message}</span>
                                     }
                                 </div>
 
@@ -143,7 +143,7 @@ function Signin() {
                                         icon={<LockKeyhole />}
                                     />
                                     {
-                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-16 sm:text-base sm:-bottom-11  '>{errors?.pass_field?.message}</span>
+                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-16 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 '>{errors?.pass_field?.message}</span>
                                     }
                                 </div>
 
@@ -156,11 +156,11 @@ function Signin() {
 
                                 <div className='p-1 mt-2'>
                                     <div className='mb-2'>
-                                        <LinkTo url={"#"} className="capitalize !text-base !text-blue-800  w-full   " >Forgot Password </LinkTo>
+                                        <LinkTo url={"#"} className="capitalize !text-base !text-blue-800  w-full md:!text-lg  " >Forgot Password </LinkTo>
                                     </div>
 
                                     <div>
-                                        <LinkTo url={"/signup"} className="capitalize !text-base !text-black w-full" >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
+                                        <LinkTo url={"/signup"} className="capitalize font-normal !text-black w-full sm:text-lg md:text-xl lg:text-base " >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
                                     </div>
 
                                 </div>
