@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router'
 
 //Components Import
 import Image from '../Components/Image'
-import Navbar from '../Components/navbar'
+import Navbar from '../Components/Navbar'
 import Button from '../Components/Button'
 
 
