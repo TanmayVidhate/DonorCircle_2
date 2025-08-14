@@ -81,15 +81,15 @@ function SingupForm() {
                 <div className='flex flex-col rounded w-5/6 p-5  bg-white'>
 
                     {/* second Div */}
-                    <div className='order-2 border-4 '>
+                    <div className='order-2 border-4  '>
                         <p className='hidden text-2xl font-semibold ml-2 tracking-wider '>Sign Up</p>
-                        <Image img_url={imgurl} className="!w-5/6 !object-scale-down " />
+                        <Image img_url={imgurl} className="!w-5/6 !object-scale-down sm:!object-scale-down md:!object-scale-down " />
                     </div>
 
                     {/* First Div */}
                     <div className=' overflow-y-auto overflow-x-hidden scrollbar-hide '>
-                        <p className=' text-2xl font-semibold ml-2 tracking-wider sm:text-3xl '>Sign Up</p>
-                        <form className=' flex flex-col items-center w-full  min-h-max  border-4 '
+                        <p className=' text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl '>Sign Up</p>
+                        <form className=' flex flex-col items-center w-full  min-h-max  border-4  '
                             onSubmit={handleSubmit(onSubmit)}
                         >
 
@@ -114,7 +114,7 @@ function SingupForm() {
 
                                     icon={<User />} />
                                 {
-                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base '>{errors?.fullname?.message}</span>
+                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base md:text-lg '>{errors?.fullname?.message}</span>
                                 }
                             </div>
 
@@ -136,7 +136,7 @@ function SingupForm() {
                                     icon={<BadgeCheck />} />
 
                                 {
-                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base  '>{errors?.username_field?.message}</span>
+                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base md:text-lg '>{errors?.username_field?.message}</span>
                                 }
                             </div>
 
@@ -156,7 +156,7 @@ function SingupForm() {
 
                                     icon={<Mail />} />
                                 {
-                                    errors?.email_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-5  sm:text-base'>{errors?.email_field?.message}</span>
+                                    errors?.email_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-5  sm:text-base md:text-lg '>{errors?.email_field?.message}</span>
                                 }
                             </div>
 
@@ -183,7 +183,7 @@ function SingupForm() {
                                     icon={<LockKeyhole />}
                                 />
                                 {
-                                    errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 sm:text-base'>{errors?.pass_field?.message}</span>
+                                    errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 sm:text-base md:text-lg md:-bottom-12'>{errors?.pass_field?.message}</span>
                                 }
                             </div>
 
@@ -223,7 +223,7 @@ function SingupForm() {
                             </div>
 
                             <div className='p-2 flex justify-center items-center sm:-mt-4 '>
-                                <LinkTo url={"/signin"} className="capitalize font-normal !text-black text-center w-full sm:text-lg " >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600  '>Sign in</span></LinkTo>
+                                <LinkTo url={"/signin"} className="capitalize font-normal !text-black text-center w-full sm:text-lg md:text-xl" >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600  '>Sign in</span></LinkTo>
                             </div>
                         </form>
                         <DevTool control={control} />
