@@ -83,7 +83,7 @@ function SingupForm() {
                     {/* First Div */}
                     <div className='order-2  lg:order-1 lg:w-2/5 '>
                         <p className='invisible  text-2xl font-semibold ml-2 tracking-wider lg:visible '>Sign Up</p>
-                        <Image img_url={imgurl} className="!w-5/6 !object-scale-down sm:!object-scale-down md:!object-scale-down lg:!object-contain  " />
+                        <Image img_url={imgurl} className="!w-5/6 !object-scale-down sm:!object-scale-down md:!object-scale-down lg:!object-contain h-80  " />
                     </div>
 
                     {/* Second Div */}
