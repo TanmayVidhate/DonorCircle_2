@@ -98,12 +98,12 @@ function Signin() {
             <div className='flex flex-col w-screen h-screen bg-[#ffd6a5] '>
 
                 <div className='flex-1 grid place-items-center'>
-                    <div className='border rounded-md bg-white w-5/6  p-4 '>
+                    <div className='border rounded-md bg-white w-5/6  p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5'>
 
                         {/* first div    */}
-                        <div className='border-4'>
+                        <div className=' lg:w-96  '>
                             <form className='w-auto ' onSubmit={handleSubmit(onSubmit)} >
-                                <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl '>Sign In</p>
+                                <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl '>Sign In</p>
 
                                 <div className='flex flex-col p-1 relative '>
                                     <Label title="Email" />
@@ -122,7 +122,7 @@ function Signin() {
                                         icon={<Mail />}
                                     />
                                     {
-                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute -bottom-5 sm:text-base md:text-lg '>{errors?.email_field?.message}</span>
+                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute -bottom-5 sm:text-base md:text-lg lg:text-sm'>{errors?.email_field?.message}</span>
                                     }
                                 </div>
 
@@ -143,7 +143,7 @@ function Signin() {
                                         icon={<LockKeyhole />}
                                     />
                                     {
-                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-16 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 '>{errors?.pass_field?.message}</span>
+                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-16 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 lg:-bottom-14 lg:text-sm '>{errors?.pass_field?.message}</span>
                                     }
                                 </div>
 
@@ -171,8 +171,8 @@ function Signin() {
 
                         {/* second div */}
 
-                        <div className=' border-4 flex justify-center items-center'>
-                            <Image img_url={img} className="object-scale-down h-80 border-4" />
+                        <div className='  flex justify-center items-center'>
+                            <Image img_url={img} className="object-scale-down h-80  lg:!object-contain lg:!h-1/3 " />
                         </div>
                     </div>
                 </div>
