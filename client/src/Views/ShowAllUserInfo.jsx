@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 //Components Import
-import Navbar from '../Components/navbar'
+import Navbar from '../Components/Navbar'
 import { useParams } from 'react-router'
 import axios from 'axios';
 import toast, { Toaster } from "react-hot-toast";
