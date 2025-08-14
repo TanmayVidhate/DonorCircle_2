@@ -122,11 +122,11 @@ function Signin() {
                                         icon={<Mail />}
                                     />
                                     {
-                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute  -bottom-5   '>{errors?.email_field?.message}</span>
+                                        errors?.email_field && <span className='text-red-500 text-sm w-full absolute -bottom-5 sm:text-base '>{errors?.email_field?.message}</span>
                                     }
                                 </div>
 
-                                <div className='flex flex-col p-1 relative mt-9  '>
+                                <div className='flex flex-col p-1 relative mt-9 sm:mt-4 '>
                                     <Label title="Password" />
                                     <InputField
                                         type="password"
@@ -143,7 +143,7 @@ function Signin() {
                                         icon={<LockKeyhole />}
                                     />
                                     {
-                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-16  '>{errors?.pass_field?.message}</span>
+                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-16 sm:text-base sm:-bottom-11  '>{errors?.pass_field?.message}</span>
                                     }
                                 </div>
 
