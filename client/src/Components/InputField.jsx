@@ -11,7 +11,7 @@ function InputField({ type, name, className, placeholder, value, onChange, icon,
                         {icon}
                     </span>
                 )}
-                <input className=' m-1 p-2 rounded w-4/5 focus:outline-none' {...register} name={name} type={type}  placeholder={placeholder} value={value} onChange={onChange} />
+                <input className=' m-1 p-2 rounded w-4/5 focus:outline-none sm:text-lg' {...register} name={name} type={type}  placeholder={placeholder} value={value} onChange={onChange} />
             </div>
         </>
     )

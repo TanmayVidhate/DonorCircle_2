@@ -88,11 +88,10 @@ function SingupForm() {
 
                     {/* First Div */}
                     <div className=' overflow-y-auto overflow-x-hidden scrollbar-hide '>
-                        <p className=' text-2xl font-semibold ml-2 tracking-wider '>Sign Up</p>
-                        <form className=' flex flex-col items-center w-full  min-h-max border-4 '
+                        <p className=' text-2xl font-semibold ml-2 tracking-wider sm:text-3xl '>Sign Up</p>
+                        <form className=' flex flex-col items-center w-full  min-h-max  border-4 '
                             onSubmit={handleSubmit(onSubmit)}
                         >
-                            
 
                             <div className='p-1 relative w-full '>
                                 <Label title="Name"  />
@@ -115,11 +114,11 @@ function SingupForm() {
 
                                     icon={<User />} />
                                 {
-                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 '>{errors?.fullname?.message}</span>
+                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base '>{errors?.fullname?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1 relative mt-8 w-full'>
+                            <div className=' p-1 relative mt-5 w-full'>
                                 <Label title="Username" />
                                 <InputField
                                     type="text"
@@ -137,11 +136,11 @@ function SingupForm() {
                                     icon={<BadgeCheck />} />
 
                                 {
-                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-10  '>{errors?.username_field?.message}</span>
+                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base  '>{errors?.username_field?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1 relative mt-8 w-full'>
+                            <div className=' p-1 relative mt-5 w-full'>
                                 <Label title="Email" />
                                 <InputField
                                     type="email"
@@ -157,11 +156,11 @@ function SingupForm() {
 
                                     icon={<Mail />} />
                                 {
-                                    errors?.email_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-5 '>{errors?.email_field?.message}</span>
+                                    errors?.email_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-5  sm:text-base'>{errors?.email_field?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1  relative mt-8 w-full'>
+                            <div className=' p-1  relative mt-5 w-full'>
                                 <Label title="Password" />
                                 <InputField
                                     type="password"
@@ -184,7 +183,7 @@ function SingupForm() {
                                     icon={<LockKeyhole />}
                                 />
                                 {
-                                    errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 '>{errors?.pass_field?.message}</span>
+                                    errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 sm:text-base'>{errors?.pass_field?.message}</span>
                                 }
                             </div>
 
@@ -215,7 +214,7 @@ function SingupForm() {
                                 }
                             </div> */}
 
-                            <div className='w-full p-1 border-4  mt-10 mb-5 '>
+                            <div className='w-full p-1 border-4  mt-10 mb-5 sm:mt-11  '>
                                 <Button name="Create Account"
                                     onClick={AddFormData}
                                     // onClick={handleSubmit(onSubmit)}
@@ -223,8 +222,8 @@ function SingupForm() {
                                 />
                             </div>
 
-                            <div className='p-2 flex justify-center items-center  mt-1 '>
-                                <LinkTo url={"/signin"} className="capitalize font-normal !text-black text-center w-full " >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign in</span></LinkTo>
+                            <div className='p-2 flex justify-center items-center sm:-mt-4 '>
+                                <LinkTo url={"/signin"} className="capitalize font-normal !text-black text-center w-full sm:text-lg " >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600  '>Sign in</span></LinkTo>
                             </div>
                         </form>
                         <DevTool control={control} />
