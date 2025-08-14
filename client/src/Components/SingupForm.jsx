@@ -78,7 +78,7 @@ function SingupForm() {
         <>
             <div className='flex flex-col justify-center items-center w-screen h-screen bg-[#ffd6a5]  '>
                 {/* <Navbar /> */}
-                <div className='flex flex-col rounded w-5/6 p-5 bg-white lg:flex-row lg:justify-center lg:items-center lg:w-3/5 '>
+                <div className='flex flex-col border rounded-md w-5/6 p-5 bg-white lg:flex-row lg:justify-center lg:items-center lg:w-3/5 '>
 
                     {/* First Div */}
                     <div className='order-2  lg:order-1 lg:w-2/5 '>
