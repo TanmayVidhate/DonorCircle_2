@@ -17,6 +17,7 @@ import InputField from './InputField.jsx'
 import Image from './Image.jsx'
 import Button from './Button.jsx'
 import LinkTo from './LinkTo.jsx'
+// import Navbar from './Navbar.jsx';
 
 
 
@@ -75,24 +76,25 @@ function SingupForm() {
 
     return (
         <>
-            <div className='flex flex-col justify-center items-center w-screen h-screen bg-[#ffd6a5] '>
+            <div className='flex flex-col justify-center items-center w-screen h-screen bg-[#ffd6a5]  '>
                 {/* <Navbar /> */}
-                <div className='flex justify-center items-center rounded bg-white w-3/5 h-4/5 p-4 '>
+                <div className='flex flex-col rounded w-5/6 p-5  bg-white'>
 
                     {/* second Div */}
-                    <div className=''>
-                        <p className='text-2xl font-semibold ml-2 tracking-wider '>Sign Up</p>
-                        <Image img_url={imgurl} className="w-auto " />
+                    <div className='order-2 border-4 '>
+                        <p className='hidden text-2xl font-semibold ml-2 tracking-wider '>Sign Up</p>
+                        <Image img_url={imgurl} className="!w-5/6 !object-scale-down " />
                     </div>
 
                     {/* First Div */}
-                    <div className=' overflow-y-auto overflow-x-hidden scrollbar-hide  h-fit'>
-                        <form className=' flex flex-col w-auto  h-[450px] '
+                    <div className=' overflow-y-auto overflow-x-hidden scrollbar-hide '>
+                        <p className=' text-2xl font-semibold ml-2 tracking-wider '>Sign Up</p>
+                        <form className=' flex flex-col items-center w-full  min-h-max border-4 '
                             onSubmit={handleSubmit(onSubmit)}
                         >
                             
 
-                            <div className='p-1 relative  '>
+                            <div className='p-1 relative w-full '>
                                 <Label title="Name"  />
                                 <InputField
                                     type="text"
@@ -113,11 +115,11 @@ function SingupForm() {
 
                                     icon={<User />} />
                                 {
-                                    errors?.fullname && <span className='text-red-500 text-x w-full  absolute left-2  -bottom-5 '>{errors?.fullname?.message}</span>
+                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 '>{errors?.fullname?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1  mt-5 relative'>
+                            <div className=' p-1 relative mt-8 w-full'>
                                 <Label title="Username" />
                                 <InputField
                                     type="text"
@@ -135,11 +137,11 @@ function SingupForm() {
                                     icon={<BadgeCheck />} />
 
                                 {
-                                    errors?.username_field && <span className='text-red-500 text-x w-full  absolute left-2  -bottom-10 '>{errors?.username_field?.message}</span>
+                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-10  '>{errors?.username_field?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1  mt-5 relative'>
+                            <div className=' p-1 relative mt-8 w-full'>
                                 <Label title="Email" />
                                 <InputField
                                     type="email"
@@ -155,11 +157,11 @@ function SingupForm() {
 
                                     icon={<Mail />} />
                                 {
-                                    errors?.email_field && <span className='text-red-500 text-x w-full  absolute left-2 -bottom-5 '>{errors?.email_field?.message}</span>
+                                    errors?.email_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-5 '>{errors?.email_field?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1  mt-5 relative'>
+                            <div className=' p-1  relative mt-8 w-full'>
                                 <Label title="Password" />
                                 <InputField
                                     type="password"
@@ -182,11 +184,11 @@ function SingupForm() {
                                     icon={<LockKeyhole />}
                                 />
                                 {
-                                    errors?.pass_field && <span className='text-red-500 text-x w-full  absolute left-2 -bottom-10 '>{errors?.pass_field?.message}</span>
+                                    errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 '>{errors?.pass_field?.message}</span>
                                 }
                             </div>
 
-                            {/* <div className=' p-1  mt-5 relative'>
+                            {/* <div className=' p-1  mt-5 relative w-full'>
                                 <Label title="Confirm Password" />
                                 <InputField
                                     type="password"
@@ -213,11 +215,11 @@ function SingupForm() {
                                 }
                             </div> */}
 
-                            <div className=' p-1  mt-10 mb-5'>
+                            <div className='w-full p-1 border-4  mt-10 mb-5 '>
                                 <Button name="Create Account"
                                     onClick={AddFormData}
                                     // onClick={handleSubmit(onSubmit)}
-                                    className="!px-6 !py-2 !rounded-lg !w-full"
+                                    className="!px-5 !py-2 !rounded-lg !w-full"
                                 />
                             </div>
 
