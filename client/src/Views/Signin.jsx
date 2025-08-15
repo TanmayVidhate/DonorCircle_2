@@ -101,7 +101,7 @@ function Signin() {
                     <div className='border rounded-lg bg-white w-5/6  p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 '>
 
                         {/* first div    */}
-                        <div className='border-4  '>
+                        <div className=' '>
                             <form className='lg:w-96 h-[500px] ' onSubmit={handleSubmit(onSubmit)} >
                                 <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl '>Sign In</p>
 
@@ -171,7 +171,7 @@ function Signin() {
 
                         {/* second div */}
 
-                        <div className=' border-4  flex justify-center items-center '>
+                        <div className='   flex justify-center items-center '>
                             <Image img_url={img} className="object-scale-down h-4/6 lg:!object-contain lg:!h-1/3 " />
                         </div>
                     </div>
