@@ -97,8 +97,8 @@ function Signin() {
         <>
             <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5] '>
 
-                <div className='flex-1 grid place-items-center mt-5'>
-                    <div className='border rounded-lg bg-white w-5/6  p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 '>
+                <div className='flex-1 grid place-items-center '>
+                    <div className='border rounded-lg bg-white w-5/6 my-4 p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 '>
 
                         {/* first div    */}
                         <div className=' '>
