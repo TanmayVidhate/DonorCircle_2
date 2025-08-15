@@ -47,7 +47,7 @@ function SingupForm() {
        
         e.preventDefault();
         try {
-            const response = await axios.post(`${import.meta.env.Express_APP_API_URL}/Users/signup`, {
+            const response = await axios.post(`${import.meta.env.VITE_EXPRESS_APP_URL}/Users/signup`, {
                 name: fullname,
                 username: username,
                 email: email,
