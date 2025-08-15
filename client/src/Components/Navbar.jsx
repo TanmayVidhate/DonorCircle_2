@@ -21,13 +21,13 @@ function Navbar() {
 
     return (
         <>
-            <div className='flex justify-between  w-full p-1 pb-0 bg-[#f7c789]  relative'>
+            <div className='flex justify-between fixed top-0 left-0 w-full z-50  p-1 pb-0 bg-[#f7c789]  '>
                 <div className=''>
-                    <img src={img} alt='logo' className='w-2/5 sm:w-2/6 md:w-2/6 lg:w-3/12 ' />
+                    <img src={img} alt='logo' className='w-2/6 sm:w-2/6 md:w-2/6 lg:w-3/12 ' />
                 </div>
                 <div className='lg:hidden'>
 
-                    <AlignJustify size={40}
+                    <AlignJustify size={30}
                         className='mt-5'
                         onClick={() => {
                             setIsopen(!isOpen)
@@ -39,7 +39,7 @@ function Navbar() {
 
                                 <div className='rounded-2xl w-full '>
                                     <div className=''>
-                                        <X size={50} className='absolute right-0 top-0    '
+                                        <X size={30} className='absolute right-1 top-4    '
                                             onClick={(e) => {
                                                 setIsopen(!isOpen)
                                             }}
@@ -49,7 +49,7 @@ function Navbar() {
                                     {
                                         Pages.map((page, i) => {
                                             const { label, href } = page;
-                                            return <LinkTo className=" w-full hover:text-amber-600 my-10 text-black text-xl " PageName={label} url={href} key={i} />
+                                            return <LinkTo className=" w-full hover:text-amber-600 my-10 !text-black text-xl " PageName={label} url={href} key={i} />
                                         })
                                     }
                                 </div>
