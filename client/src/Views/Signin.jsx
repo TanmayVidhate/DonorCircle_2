@@ -95,13 +95,13 @@ function Signin() {
 
     return (
         <>
-            <div className='flex flex-col w-screen h-screen bg-[#ffd6a5] '>
+            <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5] '>
 
-                <div className='flex-1 grid place-items-center'>
-                    <div className='border rounded-md bg-white w-5/6  p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 '>
+                <div className='flex-1 grid place-items-center mt-5'>
+                    <div className='border rounded-lg bg-white w-5/6  p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 '>
 
                         {/* first div    */}
-                        <div className='  '>
+                        <div className='border-4  '>
                             <form className='lg:w-96 h-[500px] ' onSubmit={handleSubmit(onSubmit)} >
                                 <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl '>Sign In</p>
 
@@ -171,8 +171,8 @@ function Signin() {
 
                         {/* second div */}
 
-                        <div className='  flex justify-center items-center '>
-                            <Image img_url={img} className="object-scale-down h-80  lg:!object-contain lg:!h-1/3 " />
+                        <div className=' border-4  flex justify-center items-center '>
+                            <Image img_url={img} className="object-scale-down h-4/6 lg:!object-contain lg:!h-1/3 " />
                         </div>
                     </div>
                 </div>
