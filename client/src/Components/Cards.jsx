@@ -16,7 +16,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
 
     return (
         <>
-            <div className='border-2 rounded-md w-2/5 bg-[#FFFFFF] max-h-min p-3 m-2 shadow-md relative flex-wrap '>
+            <div className=' w-5/6 m-auto border-2 rounded-md  bg-[#FFFFFF] max-h-min p-3 my-5 shadow-md relative  '>
 
                 <div className='flex justify-end  '>
                     {/* First div */}
@@ -46,7 +46,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                     }
                 </div>
 
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between  items-center'>
                     {/* first div */}
                     <div className='rounded-full border-2  w-20 h-20'  >
                         {/* <UploadFile
@@ -73,7 +73,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                     <p className=''>{name}</p>
                 </div>
 
-                <div className='flex justify-between items-center mt-5'>
+                <div className='text-center leading-6  mt-5'>
                     {/* first div */}
                     <p className=''>{address}</p>
 
