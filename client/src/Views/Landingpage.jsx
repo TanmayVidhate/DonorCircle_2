@@ -40,7 +40,7 @@ function Landingpage() {
 
                             {/* second div */}
                             <div className=' w-full my-5 border-4   grid place-items-center   '>
-                                <Image img_url={img} className="w-auto h-3/5  object-scale-down sm:object-scale-down md:object-scale-down lg:object-cover   " />
+                                <Image img_url={img} className="w-auto h-1/3  object-scale-down sm:object-scale-down md:object-scale-down lg:object-cover   " />
                             </div>
                         </div>
                     </div>
