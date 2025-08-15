@@ -24,7 +24,7 @@ function Landingpage() {
                         <div className='px-2  lg:flex lg:h-4/5 lg:my-7 '>
 
                             {/* First div */}
-                            <div className='p-1  border-4 mt-5 w-full sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6 '>
+                            <div className='p-1   mt-5 w-full sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6 '>
                                 <div className='text-[#FBA943] text-4xl font-bold uppercase mx-5 tracking-wide sm:w-full sm:mx-1 md:mx-1 md:text-4xl lg:mt-10 '>Donor<br />Circle</div>
                                 <div className='mx-5 my-4 tracking-wide sm:w-full sm:mx-1  lg:text-base 2xl:w-3/4  '>
                                     Accidents, Surgeries, Cancer treatments,
@@ -39,7 +39,7 @@ function Landingpage() {
                             </div>
 
                             {/* second div */}
-                            <div className=' w-full my-5 border-4   grid place-items-center   '>
+                            <div className=' w-full my-5  grid place-items-center   '>
                                 <Image img_url={img} className="w-auto h-1/3  object-scale-down sm:object-scale-down md:object-scale-down lg:object-cover   " />
                             </div>
                         </div>
