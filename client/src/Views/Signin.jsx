@@ -26,6 +26,8 @@ function Signin() {
 
     const navigate = useNavigate();
 
+
+
     //react-hook-form
     // const form = useForm()
     const { register, handleSubmit, formState: { errors }, watch, control } = useForm({
@@ -59,29 +61,32 @@ function Signin() {
 
         // alert("bnt clciked...")
 
-        try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signin`, {
-                email: input_email,
-                password: input_password
-            })
+        const API = import.meta.env.VITE_API_URL
+        console.log("API=", API)
 
-            // console.log(response?.data);
+        // try {
+        //     const response = await axios.post(`${}/Users/signin`, {
+        //         email: input_email,
+        //         password: input_password
+        //     })
 
-            console.log("url==",`${import.meta.env.VITE_API_URL}`)
+        //     // console.log(response?.data);
 
-            setIsSignIn(response?.data?.success);
 
-            // console.log("isSignIn==:::::", isSignIn)
 
-            toast.success(response?.data?.message);
+        //     setIsSignIn(response?.data?.success);
 
-            reset();
-        }
+        //     // console.log("isSignIn==:::::", isSignIn)
 
-        catch (error) {
-            toast.dismiss();
-            toast.error(error?.response?.data?.message)
-        }
+        //     toast.success(response?.data?.message);
+
+        //     reset();
+        // }
+
+        // catch (error) {
+        //     toast.dismiss();
+        //     toast.error(error?.response?.data?.message)
+        // }
     }
 
     const onSubmit = (data) => {
