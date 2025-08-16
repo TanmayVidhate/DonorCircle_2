@@ -16,7 +16,7 @@ function ShowAllUser() {
 
   const loadUserData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URLL}/Users/`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/Users/`);
       toast.dismiss();
       toast.success("Data fetch 👍");
       console.log(response?.data)
