@@ -16,7 +16,7 @@ function ShowAllUser() {
 
   const loadUserData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/Users/");
+      const response = await axios.get(`${import.meta.env.VITE_API_URLL}/Users/`);
       toast.dismiss();
       toast.success("Data fetch 👍");
       console.log(response?.data)
@@ -40,11 +40,11 @@ function ShowAllUser() {
         <Navbar />
         <div className='flex-1 grid place-items-center '>
 
-          <div className='border rounded-lg bg-white w-4/5 my-20 p-3 sm:my-28 '>
+          <div className='border rounded-lg bg-white w-4/5 my-20 p-3 sm:my-28  '>
 
             <div className='w-full  h-[550px]  overflow-y-auto scrollbar-hide py-2 '>
 
-              <div className='w-full sm:flex sm:justify-center sm:items-center sm:flex-wrap  '>
+              <div className='w-full sm:flex sm:justify-center sm:items-center sm:flex-wrap md:w-4/5 '>
               {
                 users.map((user, i) => {
                   const { name, email, other_info } = user;
