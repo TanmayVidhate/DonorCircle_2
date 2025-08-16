@@ -61,32 +61,29 @@ function Signin() {
 
         // alert("bnt clciked...")
 
-        const API = import.meta.env.VITE_API_URL
-        console.log("API=", API)
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signin`, {
+                email: input_email,
+                password: input_password
+            })
 
-        // try {
-        //     const response = await axios.post(`${}/Users/signin`, {
-        //         email: input_email,
-        //         password: input_password
-        //     })
-
-        //     // console.log(response?.data);
+            // console.log(response?.data);
 
 
 
-        //     setIsSignIn(response?.data?.success);
+            setIsSignIn(response?.data?.success);
 
-        //     // console.log("isSignIn==:::::", isSignIn)
+            // console.log("isSignIn==:::::", isSignIn)
 
-        //     toast.success(response?.data?.message);
+            toast.success(response?.data?.message);
 
-        //     reset();
-        // }
+            reset();
+        }
 
-        // catch (error) {
-        //     toast.dismiss();
-        //     toast.error(error?.response?.data?.message)
-        // }
+        catch (error) {
+            toast.dismiss();
+            toast.error(error?.response?.data?.message)
+        }
     }
 
     const onSubmit = (data) => {
