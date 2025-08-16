@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin:  "https://donorcircle-2.onrender.com",
+    origin:  ["http://localhost:5173","https://donorcircle-2.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
