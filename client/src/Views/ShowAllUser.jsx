@@ -36,15 +36,15 @@ function ShowAllUser() {
 
   return (
     <>
-      <div className='flex flex-col  bg-[#ffd6a5]  w-screen min-h-screen '>
+      <div className='flex flex-col  bg-[#ffd6a5]  w-screen  min-h-screen '>
         <Navbar />
-        <div className='flex-1 grid place-items-center '>
+        <div className='flex-1 grid place-items-center'>
 
-          <div className='border rounded-lg bg-white w-4/5 my-20 p-3 sm:my-28  '>
+          <div className='border rounded-lg bg-white w-4/6 p-3 mt-24 m-5   lg:w-3/5 '>
 
-            <div className='w-full  h-[550px]  overflow-y-auto scrollbar-hide py-2 '>
+            <div className='w-full h-[550px] overflow-y-auto scrollbar-hide py-2 '>
 
-              <div className='w-full sm:flex sm:justify-center sm:items-center border-4 sm:flex-wrap  '>
+              <div className='w-full sm:flex sm:justify-center sm:items-center  sm:flex-wrap'> 
               {
                 users.map((user, i) => {
                   const { name, email, other_info } = user;
