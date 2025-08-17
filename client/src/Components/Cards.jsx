@@ -16,7 +16,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
 
     return (
         <>
-            <div className=' w-5/6 m-auto border-2 rounded-md  bg-[#FFFFFF] max-h-min p-3 my-5 shadow-md relative sm:w-4/6  sm:my-2'>
+            <div className=' w-5/6 m-auto border-2 rounded-md  bg-[#FFFFFF] max-h-min p-3 my-5 shadow-md relative sm:w-4/6 sm:my-2 '>
 
                 <div className='flex justify-end  '>
                     {/* First div */}
