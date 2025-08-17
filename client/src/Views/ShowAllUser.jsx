@@ -44,7 +44,7 @@ function ShowAllUser() {
 
             <div className='w-full  h-[550px]  overflow-y-auto scrollbar-hide py-2 '>
 
-              <div className='w-full sm:flex sm:justify-center sm:items-center sm:flex-wrap md:w-4/5 '>
+              <div className='w-full sm:flex sm:justify-center sm:items-center border-4 sm:flex-wrap  '>
               {
                 users.map((user, i) => {
                   const { name, email, other_info } = user;
