@@ -58,7 +58,7 @@ function ShowAllUserInfo() {
             <div className='flex flex-col w-screen min-h-screen  bg-[#ffd6a5] '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center '>
-                    <div className='flex justify-center items-center h-4/6   rounded-lg bg-[#FFFFFF]'>
+                    <div className='flex justify-center items-center w-4/5 h-4/6 border rounded-lg bg-[#FFFFFF]'>
                         {/* content */}
                         <div className='border-2  rounded-lg p-2 '>
                             <div className='flex w-full justify-around items-center m-2'>
