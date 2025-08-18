@@ -19,7 +19,7 @@ function ShowAllUserInfo() {
         toast.loading("Data is Loading ⌛...");
         try {
             toast.dismiss();
-            const records = await axios.get(`http://localhost:5001/Users/user/${email}`)
+            const records = await axios.get(`${import.meta.env.VITE_API_URL}/Users/user/${email}`)
             toast.dismiss();
             toast.success("Data is Fetch 👍");
             // console.log("r==", records.data.data)
