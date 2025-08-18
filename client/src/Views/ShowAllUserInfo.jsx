@@ -55,13 +55,13 @@ function ShowAllUserInfo() {
 
     return (
         <>
-            <div className='flex flex-col w-screen min-h-screen  bg-[#ffd6a5] '>
+            <div className='flex flex-col w-screen min-h-screen  bg-[#ffd6a5]  '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center '>
-                    <div className='flex justify-center items-center w-4/5 h-4/6 border rounded-lg bg-[#FFFFFF]'>
+                    <div className='flex justify-center items-center w-4/6 h-4/6 border rounded-lg bg-[#FFFFFF] p-1'>
                         {/* content */}
-                        <div className='text-center border-2  rounded-lg p-2 '>
-                            <div className=' w-full  m-2'>
+                        <div className='text-center border-2 rounded-lg p-2 '>
+                            <div className='w-full m-2'>
                                 {/* first div */}
                                 <div className="text-xl font-bold text-gray-900">{name}</div>
 
