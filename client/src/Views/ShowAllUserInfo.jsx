@@ -60,9 +60,9 @@ function ShowAllUserInfo() {
                 <div className='flex-1 grid place-items-center '>
                     <div className='flex justify-center items-center w-4/6 h-4/6 border rounded-lg bg-[#FFFFFF] '>
                         {/* card */}
-                        <div className='bg-white rounded-xl shadow-md p-5 text-center 
+                        <div className='bg-white  rounded-xl shadow-md p-5 text-center 
      hover:shadow-2xl hover:scale-105 hover:border 
-     transition-all duration-300 cursor-pointer leading-9 '>
+     transition-all duration-300 cursor-pointer leading-9 hover:bg-orange-50 '>
                             <div className='w-full m-auto'>
                                 {/* first div */}
                                 <div className="text-xl font-bold text-gray-900  ">{name}</div>
@@ -89,7 +89,7 @@ function ShowAllUserInfo() {
                                 {/* first div */}
                                 <div>{gender}</div>
                                 {/* second div */}
-                                <div className="bg-yellow-100 text-yellow-900 font-semibold  py-1 rounded-full shadow-md">📞{mobile_no}</div>
+                                <div className=" text-yellow-900 font-semibold  py-1  ">📞{mobile_no}</div>
                             </div>
 
                         </div>
