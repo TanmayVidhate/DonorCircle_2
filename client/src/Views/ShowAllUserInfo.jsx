@@ -58,32 +58,34 @@ function ShowAllUserInfo() {
             <div className='flex flex-col w-screen min-h-screen  bg-[#ffd6a5]  '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center '>
-                    <div className='flex justify-center items-center w-4/6 h-4/6 border rounded-lg bg-[#FFFFFF] p-1'>
-                        {/* content */}
-                        <div className='text-center border-2 rounded-lg p-2 '>
-                            <div className='w-full m-2'>
+                    <div className='flex justify-center items-center w-4/6 h-4/6 border rounded-lg bg-[#FFFFFF] '>
+                        {/* card */}
+                        <div className='bg-white rounded-xl shadow-md p-5 text-center 
+     hover:shadow-2xl hover:scale-105 hover:border 
+     transition-all duration-300 cursor-pointer leading-9 '>
+                            <div className='w-full m-auto'>
                                 {/* first div */}
-                                <div className="text-xl font-bold text-gray-900">{name}</div>
+                                <div className="text-xl font-bold text-gray-900  ">{name}</div>
 
                                 {/* second div */}
                                 <div>{username}</div>
                             </div>
 
-                            <div className=' w-full  m-2'>
+                            <div className=' w-full m-auto'>
                                 {/* first div */}
                                 <div className="text-sm text-gray-600">{userEmail}</div>
                                 {/* second div */}
                                 <div>📍{address}</div>
                             </div>
 
-                            <div className=' w-full  m-2'>
+                            <div className=' w-full m-auto'>
                                 {/* first div */}
                                 <div>{age} years</div>
                                 {/* second div */}
                                 <div className='inline-block px-3 py-1 bg-green-100 text-green-700 font-bold rounded-full'>🩸{blood_group}</div>
                             </div>
 
-                            <div className=' w-full  m-2'>
+                            <div className=' w-full  m-auto'>
                                 {/* first div */}
                                 <div>{gender}</div>
                                 {/* second div */}
