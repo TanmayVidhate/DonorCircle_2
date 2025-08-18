@@ -60,34 +60,34 @@ function ShowAllUserInfo() {
                 <div className='flex-1 grid place-items-center '>
                     <div className='flex justify-center items-center w-4/5 h-4/6 border rounded-lg bg-[#FFFFFF]'>
                         {/* content */}
-                        <div className='border-2  rounded-lg p-2 '>
-                            <div className='flex w-full justify-around items-center m-2'>
+                        <div className='text-center border-2  rounded-lg p-2 '>
+                            <div className=' w-full  m-2'>
                                 {/* first div */}
-                                <div>{name}</div>
+                                <div className="text-xl font-bold text-gray-900">{name}</div>
 
                                 {/* second div */}
                                 <div>{username}</div>
                             </div>
 
-                            <div className='flex w-full justify-around items-center m-2'>
+                            <div className=' w-full  m-2'>
                                 {/* first div */}
-                                <div>{userEmail}</div>
+                                <div className="text-sm text-gray-600">{userEmail}</div>
                                 {/* second div */}
-                                <div>{address}</div>
+                                <div>📍{address}</div>
                             </div>
 
-                            <div className='flex w-full justify-around items-center m-2'>
+                            <div className=' w-full  m-2'>
                                 {/* first div */}
-                                <div>{age}</div>
+                                <div>{age} years</div>
                                 {/* second div */}
-                                <div>{blood_group}</div>
+                                <div className='inline-block px-3 py-1 bg-green-100 text-green-700 font-bold rounded-full'>🩸{blood_group}</div>
                             </div>
 
-                            <div className='flex w-full justify-around items-center m-2'>
+                            <div className=' w-full  m-2'>
                                 {/* first div */}
                                 <div>{gender}</div>
                                 {/* second div */}
-                                <div>{mobile_no}</div>
+                                <div className="bg-yellow-100 text-yellow-900 font-semibold  py-1 rounded-full shadow-md">📞{mobile_no}</div>
                             </div>
 
                         </div>
