@@ -40,11 +40,11 @@ function ShowAllUser() {
         <Navbar />
         <div className='flex-1 grid place-items-center'>
 
-          <div className='border rounded-lg bg-white w-4/6 p-3 mt-24 m-5 md:w-4/5  lg:w-3/5 '>
+          <div className=' rounded-lg bg-white  w-5/6 p-3 mt-24 m-5 md:w-4/5  lg:w-3/5 '>
 
-            <div className='w-full h-[550px] overflow-y-auto scrollbar-hide py-2 '>
+            <div className='w-full h-[550px] overflow-y-auto scrollbar-hide '>
 
-              <div className='w-full sm:flex sm:justify-center sm:items-center  sm:flex-wrap'> 
+              <div className='w-full flex flex-col justify-center items-center sm:flex sm:justify-center sm:items-center  sm:flex-wrap lg:flex lg:flex-row'> 
               {
                 users.map((user, i) => {
                   const { name, email, other_info } = user;

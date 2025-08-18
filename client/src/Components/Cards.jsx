@@ -15,11 +15,13 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
     const [open, setOpen] = useState(false);
 
     const secondWord = name?.split(" ")[1]
-//    console.log("sss=",secondWord[0])
+    //    console.log("sss=",secondWord[0])
 
     return (
         <>
-            <div className=' w-5/6 border-2 rounded-xl hover:shadow-xl hover:scale-105 transition-transform duration-300  bg-[#FFFFFF] max-h-min p-3 my-5 shadow-md relative sm:w-4/6 sm:my-2 md:w-2/5 md:justify-evenly md:m-5  '>
+            <div className='text-center w-5/6  rounded-xl 
+     hover:shadow-2xl hover:scale-105 hover:bg-orange-50 
+     transition-all duration-300 cursor-pointer  bg-[#FFFFFF] max-h-min p-3 my-5 shadow-md relative sm:w-4/6 sm:my-2 md:w-2/5 md:justify-evenly md:m-5  '>
 
                 <div className='flex justify-end  '>
                     {/* First div */}
@@ -69,7 +71,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                             }}
 
                         /> */}
-                        {`${name[0]?.toUpperCase()} ${secondWord?.[0]? secondWord?.[0].toUpperCase() : " "}`}
+                        {`${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`}
                         {/* <img src='' alt="profile_image"/> */}
                     </div>
 
@@ -93,7 +95,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                     {
                         blood_group ? <p className='inline-block px-3 py-1 bg-red-100 text-red-600 font-bold rounded-full shadow'>{blood_group}</p> : " "
                     }
-                    
+
                 </div>
 
                 <div className='flex justify-around'>
