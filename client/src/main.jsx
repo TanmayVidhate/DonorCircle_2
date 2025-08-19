@@ -14,7 +14,7 @@ import ShowAllUser from "./Views/ShowAllUser.jsx"
 import AddUserProfile from "./Views/AddUserProfile.jsx"
 import ShowAllUserinfo from "./Views/ShowAllUserInfo.jsx"
 import AboutUs from './Views/AboutUs.jsx';
-import Contact from './Views/ContactUS.jsx';
+import Contact from './Views/ContactUs.jsx';
 import FAQ from './Views/FAQ.jsx';
 
 //Components Import
