@@ -13,10 +13,10 @@ function Navbar() {
     const [isOpen, setIsopen] = useState(false);
 
     const Pages = [
-        { label: "Home", href: "www.fackbook.com" },
-        { label: "About US", href: "www.google.com" },
-        { label: "Contact US", href: "#" },
-        { label: "FAQ", href: "#" },
+        { label: "Home", href: "/" },
+        { label: "About US", href: "/aboutus" },
+        { label: "Contact US", href: "/contactus" },
+        { label: "FAQ", href: "/faq" },
     ];
 
     return (
