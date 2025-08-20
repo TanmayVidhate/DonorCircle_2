@@ -71,7 +71,7 @@ function ShowAllUserInfo() {
 
                             <div className=' w-full m-auto'>
                                 {/* first div */}
-                                <div className="text-sm text-gray-600">{userEmail}</div>
+                                <div className="text-sm text-gray-700">{userEmail}</div>
                                 {/* second div */}
                                 <div>📍{address}</div>
                             </div>
@@ -85,7 +85,7 @@ function ShowAllUserInfo() {
 
                             <div className=' w-full  m-auto'>
                                 {/* first div */}
-                                <div>{gender}</div>
+                                <div className='text-gray-700'>{gender}</div>
                                 {/* second div */}
                                 <div className=" text-yellow-900 font-semibold  py-1  ">📞{mobile_no}</div>
                             </div>

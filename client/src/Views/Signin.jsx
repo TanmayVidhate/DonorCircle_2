@@ -164,7 +164,7 @@ function Signin() {
                                     </div>
 
                                     <div>
-                                        <LinkTo url={"/signup"} className="capitalize font-normal !text-black w-full sm:text-lg md:text-xl lg:text-base " >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
+                                        <LinkTo url={"/signup"} className="capitalize font-normal !text-gray-700 w-full sm:text-lg md:text-xl lg:text-base " >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
                                     </div>
 
                                 </div>

@@ -26,7 +26,7 @@ function Landingpage() {
                             {/* First div */}
                             <div className='p-1   mt-5 w-full sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6 '>
                                 <div className='text-[#FBA943] text-4xl font-bold uppercase mx-5 tracking-wide sm:w-full sm:mx-1 md:mx-1 md:text-4xl lg:mt-10 '>Donor<br />Circle</div>
-                                <div className='mx-5 my-4 tracking-wide sm:w-full sm:mx-1  lg:text-base 2xl:w-3/4  '>
+                                <div className='mx-5 my-4 text-gray-700 tracking-wide sm:w-full sm:mx-1  lg:text-base 2xl:w-3/4  '>
                                     Accidents, Surgeries, Cancer treatments,
                                     All need blood. Every single day.
                                     Be someone’s miracle.<br/> <span className='text-[#FBA943] text-2xl font-bold opacity-0 animate-fadeIn mt-5 '  >Join DonorCircle.</span>

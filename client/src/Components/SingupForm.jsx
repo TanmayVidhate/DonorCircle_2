@@ -219,7 +219,7 @@ function SingupForm() {
                             </div>
 
                             <div className='p-2 flex justify-center items-center sm:-mt-4 '>
-                                <LinkTo url={"/signin"} className="capitalize font-normal !text-black text-center w-full sm:text-lg md:text-xl lg:text-base" >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600  '>Sign in</span></LinkTo>
+                                <LinkTo url={"/signin"} className="capitalize font-normal !text-gray-700 text-center w-full sm:text-lg md:text-xl lg:text-base" >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600  '>Sign in</span></LinkTo>
                             </div>
                         </form>
                         <DevTool control={control} />
