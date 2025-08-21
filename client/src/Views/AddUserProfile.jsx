@@ -109,13 +109,13 @@ function AddUserProfile() {
 
                         {/* second div */}
                         <div className='order-2'>
-                            <p className='invisible text-2xl font-semibold ml-2 tracking-wider '>Update profile</p>
-                            <Image img_url={imgurl} className="w-full !object-scale-down border-4 " />
+                            <p className='invisible text-2xl font-semibold ml-2 tracking-wider lg:visible lg:absolute lg:top-3 lg:left-16'>Update profile</p>
+                            <Image img_url={imgurl} className="w-full h-2/5 !object-scale-down border-4 " />
                         </div>
 
                         {/* first div */}
                         <div className='order-1 w-full overflow-y-auto overflow-x-hidden scrollbar-hide  '>
-                            <p className='text-2xl font-semibold ml-2 tracking-wider '>Update profile</p>
+                            <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:invisible'>Update profile</p>
                             <form className='w-full  h-[450px] ' action="/profile" method="post" encType='multipart/form-data'  >
                                 
 
