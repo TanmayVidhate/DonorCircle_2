@@ -102,21 +102,21 @@ function AddUserProfile() {
 
     return (
         <>
-            <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5] '>
+            <div className='flex flex-col justify-center items-center w-screen min-h-screen bg-[#ffd6a5] '>
                 <Navbar />
-                <div className='flex flex-col my-20 items-center'>
-                    <div className='flex flex-col items-center border rounded-lg my-5 bg-white w-5/6  p-4 '>
+                {/* <div className='flex flex-col mt-20 border-4  items-center justify-end '> */}
+                    <div className='flex flex-col items-center  border rounded-lg mt-20 m-5 bg-white w-5/6  p-5 lg:flex-row lg:justify-center lg:items-center lg:w-3/5'>
 
                         {/* second div */}
-                        <div className='order-2'>
-                            <p className='invisible text-2xl font-semibold ml-2 tracking-wider lg:visible lg:absolute lg:top-3 lg:left-16'>Update profile</p>
-                            <Image img_url={imgurl} className="w-full h-2/5 !object-scale-down border-4 " />
+                        <div className='order-2 w-full  lg:w-2/5 lg:relative '>
+                            <p className='invisible text-2xl font-semibold ml-2 tracking-wider lg:order-1 lg:visible lg:absolute lg:-top-14 lg:-left-4 '>Update profile</p>
+                            <Image img_url={imgurl} className="w-full  !object-scale-down  " />
                         </div>
 
                         {/* first div */}
-                        <div className='order-1 w-full overflow-y-auto overflow-x-hidden scrollbar-hide  '>
-                            <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:invisible'>Update profile</p>
-                            <form className='w-full  h-[450px] ' action="/profile" method="post" encType='multipart/form-data'  >
+                        <div className='order-1 w-full overflow-y-auto overflow-x-hidden scrollbar-hide  lg:w-96 lg:order-2'>
+                            <p className=' text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-3xl lg:invisible lg:text-2xl  '>Update profile</p>
+                            <form className='flex flex-col w-full h-[450px] ' action="/profile" method="post" encType='multipart/form-data'  >
                                 
 
                                 {/* <div className='flex flex-col p-1 '>
@@ -300,7 +300,7 @@ function AddUserProfile() {
                             <DevTool control={control} />
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
                 <Toaster />
             </div>
         </>
