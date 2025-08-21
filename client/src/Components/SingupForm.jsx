@@ -124,7 +124,7 @@ function SingupForm() {
                                     {...register("username_field", {
                                         required: "Username required",
                                         pattern: {
-                                            value: /^[a-z0-9_]{3,16}$/,
+                                            value: /^[a-zA-Z0-9_-]{3,16}$/,
                                             message: "3–15 chars, start with letter, letters/numbers/_ only",
                                         },
                                     })}
@@ -166,8 +166,8 @@ function SingupForm() {
                                         required: "Password is required",
 
                                         pattern: {
-                                            value: /^(?=.*[!@#$%^&*(),.?":{}|<>])[0-9!@#$%^&*(),.?":{}|<>]{4,6}$/,
-                                            message: "Password must be 4–6 characters, digits and at least one special character",
+                                            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                            message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
                                         },
                                     })}
                                     // onChange={(e) => {
