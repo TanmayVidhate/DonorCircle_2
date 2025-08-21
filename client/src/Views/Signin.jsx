@@ -69,7 +69,7 @@ function Signin() {
 
             // console.log(response?.data);
 
-            console.log("urel==",import.meta.env.VITE_API_URL)
+            console.log("urel==", import.meta.env.VITE_API_URL)
 
             setIsSignIn(response?.data?.success);
 
@@ -118,7 +118,7 @@ function Signin() {
                                         {...register("email_field", {
                                             required: "Email is required",
                                             pattern: {
-                                                value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                                                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                                 message: "Enter a valid email address",
                                             },
                                         })}
@@ -140,8 +140,8 @@ function Signin() {
                                             required: "Password is required",
 
                                             pattern: {
-                                                value: /^(?=.*[!@#$%^&*(),.?":{}|<>])[0-9!@#$%^&*(),.?":{}|<>]{4,6}$/,
-                                                message: "Password must be 4–6 characters, digits and at least one special character",
+                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                                message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
                                             },
                                         })}
                                         icon={<LockKeyhole />}
