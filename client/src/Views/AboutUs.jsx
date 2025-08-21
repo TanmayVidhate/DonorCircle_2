@@ -1,5 +1,6 @@
 import React from 'react'
 
+//import image
 import img from "../assets/User_profile_update_img/about.png"
 
 
