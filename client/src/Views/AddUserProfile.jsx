@@ -102,20 +102,21 @@ function AddUserProfile() {
 
     return (
         <>
-            <div className='flex flex-col w-screen h-screen bg-[#ffd6a5] '>
+            <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5] '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center'>
-                    <div className='flex justify-center items-center rounded bg-white w-3/5 h-4/5 p-4 '>
+                    <div className='flex flex-col items-center border rounded-lg bg-white w-5/6  p-4 '>
 
                         {/* second div */}
-                        <div className=''>
-                            <p className='text-2xl font-semibold ml-2 tracking-wider '>Update profile</p>
-                            <Image img_url={imgurl} className="w-auto " />
+                        <div className='order-2'>
+                            <p className='invisible text-2xl font-semibold ml-2 tracking-wider '>Update profile</p>
+                            <Image img_url={imgurl} className="w-full !object-scale-down border-4 " />
                         </div>
 
                         {/* first div */}
-                        <div className=' overflow-y-auto overflow-x-hidden scrollbar-hide  h-fit'>
-                            <form className='w-auto  h-[450px]' action="/profile" method="post" encType='multipart/form-data'  >
+                        <div className='order-1 w-full overflow-y-auto overflow-x-hidden scrollbar-hide  '>
+                            <p className='text-2xl font-semibold ml-2 tracking-wider '>Update profile</p>
+                            <form className='w-full  h-[450px] ' action="/profile" method="post" encType='multipart/form-data'  >
                                 
 
                                 {/* <div className='flex flex-col p-1 '>
