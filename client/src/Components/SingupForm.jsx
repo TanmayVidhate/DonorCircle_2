@@ -145,7 +145,7 @@ function SingupForm() {
                                     {...register("email_field", {
                                         required: "Email is required",
                                         pattern: {
-                                            value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                                            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                             message: "Enter a valid email address",
                                         },
                                     })}
