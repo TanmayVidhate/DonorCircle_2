@@ -104,8 +104,8 @@ function AddUserProfile() {
         <>
             <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5] '>
                 <Navbar />
-                <div className='flex-1 grid place-items-center'>
-                    <div className='flex flex-col items-center border rounded-lg my-20 bg-white w-5/6  p-4 '>
+                <div className='flex flex-col my-20 items-center'>
+                    <div className='flex flex-col items-center border rounded-lg my-5 bg-white w-5/6  p-4 '>
 
                         {/* second div */}
                         <div className='order-2'>
