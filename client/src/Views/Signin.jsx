@@ -147,7 +147,7 @@ function Signin() {
                                         icon={<LockKeyhole />}
                                     />
                                     {
-                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-16 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 lg:-bottom-14 lg:text-sm '>{errors?.pass_field?.message}</span>
+                                        errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-10 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 lg:-bottom-14 lg:text-sm '>{errors?.pass_field?.message}</span>
                                     }
                                 </div>
 
