@@ -160,7 +160,6 @@ function SingupForm() {
                                 <Label title="Password" />
                                 <InputField
                                     type="password"
-                                    // value={formdata?.password}
                                     name="pass_field"
                                     {...register("pass_field", {
                                         required: "Password is required",
@@ -170,12 +169,6 @@ function SingupForm() {
                                             message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
                                         },
                                     })}
-                                    // onChange={(e) => {
-                                    //     setFormdata({
-                                    //         ...formdata,
-                                    //         password: e.target.value
-                                    //     })
-                                    // }}
                                     icon={<LockKeyhole />}
                                 />
                                 {
