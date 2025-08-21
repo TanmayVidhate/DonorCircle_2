@@ -110,11 +110,11 @@ function SingupForm() {
 
                                     icon={<User />} />
                                 {
-                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-5 sm:-bottom-5 sm:text-base md:text-lg lg:text-sm '>{errors?.fullname?.message}</span>
+                                    errors?.fullname && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base md:text-lg lg:text-sm '>{errors?.fullname?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1 relative mt-5 w-full '>
+                            <div className=' p-1 relative mt-8 w-full '>
                                 <Label title="Username" />
                                 <InputField
                                     type="text"
@@ -132,11 +132,11 @@ function SingupForm() {
                                     icon={<BadgeCheck />} />
 
                                 {
-                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-5 sm:-bottom-5 sm:text-base md:text-lg lg:text-sm '>{errors?.username_field?.message}</span>
+                                    errors?.username_field && <span className='text-red-500 text-sm w-full  absolute  -bottom-10 sm:-bottom-5 sm:text-base md:text-lg lg:text-sm '>{errors?.username_field?.message}</span>
                                 }
                             </div>
 
-                            <div className=' p-1 relative mt-5 w-full '>
+                            <div className=' p-1 relative mt-8 w-full '>
                                 <Label title="Email" />
                                 <InputField
                                     type="email"
