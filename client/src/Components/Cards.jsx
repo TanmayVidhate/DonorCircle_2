@@ -34,7 +34,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                     </div>
                     {
                         open && (
-                            <div className='bg-white w-50 shadow-xl h-auto p-3 absolute top-8 -right-3 z-10'>
+                            <div className='bg-white w-50 shadow-xl rounded-xl h-auto p-3 absolute top-8 -right-3 z-10'>
                                 <ul className="" onClick={() => { setOpen(() => { false }) }}>
                                     <div className='flex justify-between items-center rounded-sm hover:bg-blue-100 p-1'>
                                         <UserPlus />
