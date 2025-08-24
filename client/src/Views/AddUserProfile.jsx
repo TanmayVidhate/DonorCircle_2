@@ -24,13 +24,13 @@ function AddUserProfile() {
     const { register, handleSubmit, formState: { errors }, control, watch, reset } = useForm({
         mode: "onChange",
         defaultValues: {
-            email: "",
-            age: "",
-            mobile_no_field: "",
-            gender_field: "",
-            blood_group: "",
-            address: "",
-            user_profile: ""
+            email_field: "",
+            mobile_no_field:"",
+            gender_field:"",
+            blood_gup_field:"",
+            address_field:"",
+            user_profile: "",
+
         }
     });
 
@@ -49,29 +49,29 @@ function AddUserProfile() {
     // console.log("gender==", gender)
     // console.log("blood_gup==", blood_gup)
     // console.log("address==", address)
-    console.log("userpro==", userpro)
+    // console.log("userpro==", userpro)
 
-    const upload = async (e) => {
+    const upload = async (formData) => {
         try {
-            e.preventDefault();
-
             const data = new FormData();
-            data.append("user_profile", userpro);
-            data.append("email_field", email);
+            if (formData.user_profile && formData.user_profile.length > 0) {
+                data.append("avatar", formData.user_profile[0]); // 'avatar' must match multer field name
+            }
+            data.append("email", formData.email_field);
 
             const res = await axios.post("http://localhost:5001/Users/uploadimage", data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            },);
+            });
 
-            console.log("res=", res)
-
+            console.log("res=", res);
+            toast.success("Profile image uploaded successfully!");
+            reset();
+        } catch (error) {
+            console.log(error);
+            toast.error("Image upload failed");
         }
-        catch (error) {
-            console.log(error)
-        }
-
     }
 
 
@@ -105,21 +105,16 @@ function AddUserProfile() {
         <>
             <div className='flex flex-col justify-center items-center w-screen min-h-screen bg-[#ffd6a5] '>
                 <Navbar />
-                {/* <div className='flex flex-col mt-20 border-4  items-center justify-end '> */}
                 <div className='flex flex-col items-center  border rounded-lg mt-20 m-5 bg-white w-5/6  p-5 lg:flex-row lg:justify-center lg:items-center lg:w-3/5'>
-
                     {/* second div */}
                     <div className='order-2 w-full  lg:w-2/5 lg:relative '>
                         <p className='invisible text-2xl font-semibold ml-2 tracking-wider lg:order-1 lg:visible lg:absolute lg:-top-14 lg:-left-4 '>Update profile</p>
                         <Image img_url={imgurl} className="w-full  !object-scale-down  " />
                     </div>
-
                     {/* first div */}
                     <div className='order-1 w-full overflow-y-auto overflow-x-hidden scrollbar-hide  lg:w-96 lg:order-2'>
                         <p className=' text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-3xl lg:invisible lg:text-2xl  '>Update profile</p>
-                        <form className='flex flex-col w-full h-[450px] ' action="/profile" method="post" encType='multipart/form-data' onSubmit={upload} >
-
-
+                        <form className='flex flex-col w-full h-[450px] ' encType='multipart/form-data' onSubmit={handleSubmit(upload)} >
                             <div className='flex flex-col p-1 relative '>
                                 <Label title="Upload Image" />
                                 <UploadFile
@@ -135,7 +130,6 @@ function AddUserProfile() {
                                     errors?.user_profile && <span className='text-red-500 text-x w-5/6 absolute left-2 -bottom-5 '>{errors?.user_profile?.message}</span>
                                 }
                             </div>
-
                             <div className='p-1 mt-3 relative '>
                                 <Label title="Email" />
                                 <InputField
@@ -207,31 +201,13 @@ function AddUserProfile() {
                                                 required: "Gender is Required"
                                             })}
                                         />Male
-                                        {/* <InputField
-                                                
-                                                className="!w-1/4"
-                                                type="radio"
-                                                value="Male"
-                                                {...register("gender_field", {
-                                                })}
-
-                                            />Male */}
                                         <input type='radio'
                                             value="Female"
                                             {...register("gender_field", {
                                                 required: "Gender is Required"
                                             })}
 
-                                        />Female
-                                        {/* <InputField
-
-                                                type="radio"
-                                                className="!w-1/4"
-                                                value="Female"
-                                                {...register("gender_field", {
-                                                })}
-
-                                            /> Female */}
+                                        />Female 
                                         {
                                             errors?.gender_field && <span className='text-red-500 text-x w-5/6 absolute left-2 -bottom-5 '>{errors?.gender_field?.message}</span>
                                         }
@@ -287,17 +263,15 @@ function AddUserProfile() {
 
                             <div className='p-1 mt-8'>
                                 <Button name="Update Profile"
+                                    type="submit"
                                     onClick={editprofile}
-                                    // onClick={upload}
                                     className="!px-1 !py-2 !rounded-lg !w-full"
                                 />
                             </div>
-
                         </form>
                         <DevTool control={control} />
                     </div>
                 </div>
-                {/* </div> */}
                 <Toaster />
             </div>
         </>
