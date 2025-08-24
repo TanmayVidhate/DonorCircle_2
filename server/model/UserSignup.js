@@ -34,7 +34,7 @@ const UserSignUp = new Schema({
 
     other_info: [
         {
-            profileimg: {
+            userpro: {
                 type: String,
                 required: true, 
                 trim: true,
