@@ -144,16 +144,16 @@ const adduserallinfo = async (req, res) => {
         // const { email } = req.params;
         // console.log("e=",email)
 
-        const { email, age, mobile_no, blood_group, address, gender } = req.body;
+        const { email, age, mobile_no, blood_group, address, gender,userpro } = req.body;
 
         // console.log("age=", age)
         // console.log("mobile_no=", mobile_no)
-        // console.log("gender==", gender);
+        console.log("gender==", gender);
         // console.log("blood_gup==", blood_group);
-        // console.log("address==", address);
+        console.log("address==", address);
+        console.log("userpro=",userpro);
 
-
-        if (!email || !age || !mobile_no || !blood_group || !address || !gender) {
+        if (!email || !age || !mobile_no || !blood_group || !address || !gender || !userpro) {
             return res.status(400).json({
                 success: false,
                 data: null,
@@ -170,7 +170,8 @@ const adduserallinfo = async (req, res) => {
                             mobile_no,
                             gender,
                             blood_group,
-                            address
+                            address,
+                            userpro
                         }
                     }
                 },
