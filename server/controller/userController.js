@@ -144,16 +144,15 @@ const adduserallinfo = async (req, res) => {
         // const { email } = req.params;
         // console.log("e=",email)
 
-        const { email, age, mobile_no, blood_group, address, gender,userpro } = req.body;
+        const { email, age, mobile_no, blood_group, address, gender} = req.body;
 
         // console.log("age=", age)
         // console.log("mobile_no=", mobile_no)
         console.log("gender==", gender);
         // console.log("blood_gup==", blood_group);
         console.log("address==", address);
-        console.log("userpro=",userpro);
 
-        if (!email || !age || !mobile_no || !blood_group || !address || !gender || !userpro) {
+        if (!email || !age || !mobile_no || !blood_group || !address || !gender ) {
             return res.status(400).json({
                 success: false,
                 data: null,
@@ -171,7 +170,6 @@ const adduserallinfo = async (req, res) => {
                             gender,
                             blood_group,
                             address,
-                            userpro
                         }
                     }
                 },
@@ -231,7 +229,7 @@ const uploadimg = async (req, res) => {
             {
                 $push: {
                     // ...updatedUser.profile_updates,
-                    other_info: [{ profileimg: file }]
+                    other_info: [{ userpro: file }]
                 }
             },
             { new: true }
