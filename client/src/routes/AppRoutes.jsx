@@ -11,7 +11,7 @@ import Contact from '../Views/ContactUs.jsx';
 import FAQ from '../Views/FAQ.jsx';
 
 //Components Import
-import SingupForm from "../Components/SingupForm.jsx"
+import SingupForm from "../Components/SignupForm.jsx"
 // import Cards from "./Components/Cards.jsx"
 
 

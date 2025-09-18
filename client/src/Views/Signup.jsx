@@ -3,7 +3,7 @@ import React from 'react'
 //Components Import
 import SingupForm from '../Components/singupForm'
 
-function Adddetails() {
+function Signup() {
     return (
         <>
             <div className='w-screen h-screen bg-[#ffd6a5] '>
@@ -15,4 +15,4 @@ function Adddetails() {
     )
 }
 
-export default Adddetails
+export default Signup

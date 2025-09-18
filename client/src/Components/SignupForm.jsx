@@ -12,7 +12,7 @@ import axios from 'axios'
 // import dotenv from 'dotenv'
 
 //Components Import
-import Label from './Label'
+import Label from './Label.jsx'
 import InputField from './InputField.jsx'
 import Image from './Image.jsx'
 import Button from './Button.jsx'
@@ -20,7 +20,7 @@ import LinkTo from './LinkTo.jsx'
 // import Navbar from './Navbar.jsx';
 
 
-function SingupForm() {
+function SignupForm() {
 
     //react-hook-form
 
@@ -225,4 +225,4 @@ function SingupForm() {
     )
 }
 
-export default SingupForm
+export default SignupForm
