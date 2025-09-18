@@ -19,7 +19,7 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/signup" element={<SingupForm />} />
+            <Route path="/signup" element={<SignupForm />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/showalluers" element={<ShowAllUser />} />
             <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
