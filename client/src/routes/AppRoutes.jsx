@@ -1,7 +1,7 @@
 
 import {Route, Routes } from "react-router";
 //Views Import
-import LandingPage from "../Views/LandingPage.jsx"
+// import LandingPage from "../Views/LandingPage.jsx"
 import Signin from "../Views/Signin.jsx"
 import ShowAllUser from "../Views/ShowAllUser.jsx"
 import AddUserProfile from "../Views/AddUserProfile.jsx"
@@ -18,7 +18,7 @@ import SignupForm from "../Components/SignupForm.jsx"
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<LandingPage />} />
+            {/* <Route path="/" element={<LandingPage />} /> */}
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/showalluers" element={<ShowAllUser />} />
