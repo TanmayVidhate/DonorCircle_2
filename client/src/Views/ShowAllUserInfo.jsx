@@ -57,13 +57,13 @@ function ShowAllUserInfo() {
         <>
             <div className='flex flex-col w-screen min-h-screen  bg-[#ffd6a5]  '>
                 <Navbar />
-                <div className='flex-1 grid place-items-center '>
+                <div className='flex-1 grid place-items-center'>
                     <div className='flex justify-center items-center w-4/6 h-4/6 border rounded-lg bg-[#FFFFFF] '>
                         {/* card */}
-                        <div className='bg-white  rounded-xl shadow-md p-5 text-center hover:shadow-2xl hover:scale-105 hover:border transition-all duration-300 cursor-pointer leading-9 hover:bg-orange-50 '>
+                        <div className='bg-white w-2/6 rounded-xl shadow-md p-5 text-center hover:shadow-2xl hover:scale-105 hover:border transition-all duration-300 cursor-pointer leading-9 hover:bg-orange-50 '>
                             <div className='w-full m-auto'>
                                 {/* first div */}
-                                <div className="text-xl font-bold text-gray-900  ">{name}</div>
+                                <div className="text-xl font-bold text-gray-900">{name}</div>
 
                                 {/* second div */}
                                 <div>{username}</div>
