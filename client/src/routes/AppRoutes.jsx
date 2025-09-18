@@ -1,7 +1,7 @@
 
 import {  Route, Routes } from "react-router";
 //Views Import
-import Landingpage from "../Views/Landingpage.jsx"
+import LandingPage from "../Views/LandingPage.jsx"
 import Signin from "../Views/Signin.jsx"
 import ShowAllUser from "../Views/ShowAllUser.jsx"
 import AddUserProfile from "../Views/AddUserProfile.jsx"
@@ -11,14 +11,14 @@ import Contact from '../Views/ContactUs.jsx';
 import FAQ from '../Views/FAQ.jsx';
 
 //Components Import
-import SingupForm from "../Components/SignupForm.jsx"
+import SignupForm from "../Components/SignupForm.jsx"
 // import Cards from "./Components/Cards.jsx"
 
 
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<Landingpage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<SingupForm />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/showalluers" element={<ShowAllUser />} />

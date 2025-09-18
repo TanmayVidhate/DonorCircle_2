@@ -11,7 +11,7 @@ import Navbar from '../Components/Navbar'
 import Button from '../Components/Button'
 
 
-function Landingpage() {
+function LandingPage() {
 
     const navigate = useNavigate();
 
@@ -50,4 +50,4 @@ function Landingpage() {
     )
 }
 
-export default Landingpage
+export default LandingPage
