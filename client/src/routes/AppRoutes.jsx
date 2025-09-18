@@ -1,5 +1,5 @@
 
-import {  Route, Routes } from "react-router";
+import {Route, Routes } from "react-router";
 //Views Import
 import LandingPage from "../Views/LandingPage.jsx"
 import Signin from "../Views/Signin.jsx"
@@ -7,7 +7,7 @@ import ShowAllUser from "../Views/ShowAllUser.jsx"
 import AddUserProfile from "../Views/AddUserProfile.jsx"
 import ShowAllUserinfo from "../Views/ShowAllUserInfo.jsx"
 import AboutUs from '../Views/AboutUs.jsx';
-import Contact from '../Views/ContactUs.jsx';
+import ContactUs from '../Views/ContactUs.jsx';
 import FAQ from '../Views/FAQ.jsx';
 
 //Components Import
@@ -25,7 +25,7 @@ function AppRoutes() {
             <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
             <Route path="/adduserprofile" element={<AddUserProfile />} />
             <Route path='/aboutus' element={<AboutUs />} />
-            <Route path='/contactus' element={<Contact />} />
+            <Route path='/contactus' element={<ContactUs />} />
             <Route path='/faq' element={<FAQ />} />
         </Routes>
     )
