@@ -19,9 +19,10 @@ function ContactUs() {
                             <p className='font-light'>Need help? Have questions? We're here to support you 24/7. Reach out to us anytime - every inquiry matters.</p>
                         </div>
 
-                        <div className='flex'>
-                            <ContactUSCard title="Phone Support" info="Speak directly with our support team" mobile="+91 1234567890" action="24/7 Available"/>
-                            <ContactUSCard title="Email Support" info="Send us detailed queries" mobile="support@blooddonor.in" action="Response in 2 hours"/>
+                        <div className='flex '>
+                            <ContactUSCard title="Phone Support" info="Speak directly with our support team." mobile="+91 1234567890" action="24/7 Available" btntext="Call Now"/>
+                            <ContactUSCard title="Email Support" info="Send us detailed queries." mobile="support@blooddonor.in" action="Response in 2 hours" btntext="Send Email"/>
+                            <ContactUSCard title="WhatsApp" info="Quick support via WhatsApp." mobile="+91 9970714597" action="Business hours" btntext="Message"/>
                         </div>
                     </div>
                 </div>
