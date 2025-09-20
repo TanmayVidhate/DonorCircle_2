@@ -24,9 +24,9 @@ function ContactUs() {
                         </div>
 
                         <div className='flex  my-2  h-max'>
-                            <ContactUSCard className="bg-slate-500" Icon={Phone} title="Phone Support" info="Speak directly with our support team." mobile="+91 1234567890" action="24/7 Available" btntext="Call Now" />
-                            <ContactUSCard className="bg-slate-500" Icon={Mail} title="Email Support" info="Send us detailed queries." mobile="support@blooddonor.in" action="Response in 2 hours" btntext="Send Email" />
-                            <ContactUSCard className="bg-slate-500" Icon={MessageSquare} title="WhatsApp" info="Quick support via WhatsApp." mobile="+91 9970714597" action="Business hours" btntext="Message" />
+                            <ContactUSCard className="bg-cyan-300" Icon={Phone} title="Phone Support" info="Speak directly with our support team." mobile="+91 1234567890" action="24/7 Available" btntext="Call Now" />
+                            <ContactUSCard className="bg-red-300" Icon={Mail} title="Email Support" info="Send us detailed queries." mobile="support@blooddonor.in" action="Response in 2 hours" btntext="Send Email" />
+                            <ContactUSCard className="bg-green-300" Icon={MessageSquare} title="WhatsApp" info="Quick support via WhatsApp." mobile="+91 9970714597" action="Business hours" btntext="Message" />
                         </div>
                     </div>
                 </div>
