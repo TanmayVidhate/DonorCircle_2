@@ -5,9 +5,10 @@ function ContactUSCard({className,Icon,title,info,mobile,action,btntext,btnbgcol
 
     return (
         <>
-            <div className='border rounded-md text-center w-2/6 h-[300px] m-2 p-2 hover:mt-0 cursor-pointer transition-all duration-500 ease-in-out'>
-                <div className={`m-auto  rounded-full w-[30%] h-[25%] mt-3 relative ${className}`}>
-                    <p className='absolute right-6 top-6 text-white '><Icon/></p>
+            
+            <div className='border border-red-700 rounded-md text-center w-5/6 h-[950px] m-5 p-2 '>
+                <div className={`m-auto  rounded-full w-[25%] h-[25%] mt-3 relative ${className}`}>
+                    <p className='absolute left-7 top-6 text-white '><Icon/></p>
                 </div>
                 <div className='mt-3'>
                     <p>{title}</p>
