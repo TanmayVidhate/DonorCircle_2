@@ -6,7 +6,7 @@ function ContactUSCard({className,Icon,title,info,mobile,action,btntext,btnbgcol
     return (
         <>
             
-            <div className='border border-red-700 rounded-md text-center w-5/6 h-[950px] m-5 p-2 '>
+            <div className='border border-red-700 rounded-md text-center w-5/6 h-[750px] m-5 p-2 '>
                 <div className={`m-auto  rounded-full w-[25%] h-[25%] mt-3 relative ${className}`}>
                     <p className='absolute left-7 top-6 text-white '><Icon/></p>
                 </div>
