@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from './Button'
 
-function ContactUSCard({className,Icon,title,info,mobile,action,btntext}) {
-    console.log("mm=",Icon)
+function ContactUSCard({className,Icon,title,info,mobile,action,btntext,btnbgcolor}) {
+
     return (
         <>
             <div className='border rounded-md text-center w-2/6 h-[300px] m-2 p-2 hover:mt-0 cursor-pointer transition-all duration-500 ease-in-out'>
@@ -22,7 +22,7 @@ function ContactUSCard({className,Icon,title,info,mobile,action,btntext}) {
                     <p className='text-gray-400 '>{action}</p>
                 </div>
                 <div className='mt-2' >
-                    <Button name={btntext} className='w-1/2 text-sm rounded-md'/>
+                    <Button name={btntext} className={`w-1/2 text-sm rounded-md ${btnbgcolor} hover:bg-none`} hover={false}/>
                 </div>
             </div>
         </>
