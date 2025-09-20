@@ -205,6 +205,7 @@ function SignupForm() {
 
                             <div className='w-full p-1   mt-10 mb-5 sm:mt-11 '>
                                 <Button name="Create Account"
+                                    hover={true}
                                     onClick={AddFormData}
                                     // onClick={handleSubmit(onSubmit)}
                                     className="!px-5 !py-2 !rounded-lg !w-full"

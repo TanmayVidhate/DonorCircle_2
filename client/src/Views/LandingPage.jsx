@@ -31,7 +31,8 @@ function LandingPage() {
                                     All need blood. Every single day.
                                     Be someone’s miracle.<br/> <span className='text-[#FBA943] text-2xl font-bold opacity-0 animate-fadeIn mt-5 '  >Join DonorCircle.</span>
                                 </div>
-                                <Button name={"SignUp"} className={"ml-5 bg-[#FBA943] text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-400/50 sm:py-2 sm:mx-1 sm:w-full lg:w-1/2 "}
+                                <Button name={"SignUp"} className={"ml-5 bg-[#FBA943] text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-400/50 sm:py-2 sm:mx-1 sm:w-full lg:w-1/2 "} 
+                                    hover={true}
                                     onClick={() => {
                                         navigate("/signup")
                                     }}

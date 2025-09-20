@@ -153,6 +153,7 @@ function Signin() {
 
                                 <div className='flex justify-center items-center p-1 mt-16 '>
                                     <Button name="Signin"
+                                        hover={true}
                                         onClick={isuserisValid}
                                         className="!px-6 !py-2 !rounded-lg !w-full"
                                     />
