@@ -6,7 +6,7 @@ import Cards from '../Components/Cards'
 import ContactUSCard from '../Components/ContactUSCard'
 
 //Import lucid 
-import { Phone,Mail,MessageSquare } from 'lucide-react';
+import { Phone, Mail, MessageSquare } from 'lucide-react';
 
 
 function ContactUs() {
@@ -23,10 +23,10 @@ function ContactUs() {
                             <p className='font-light'>Need help? Have questions? We're here to support you 24/7. Reach out to us anytime - every inquiry matters.</p>
                         </div>
 
-                        <div className='flex items-center justify-center my-2  h-max'>
-                            <ContactUSCard Icon={Phone} title="Phone Support" info="Speak directly with our support team." mobile="+91 1234567890" action="24/7 Available" btntext="Call Now"/>
-                            <ContactUSCard Icon={Mail} title="Email Support" info="Send us detailed queries." mobile="support@blooddonor.in" action="Response in 2 hours" btntext="Send Email"/>
-                            <ContactUSCard Icon={MessageSquare} title="WhatsApp" info="Quick support via WhatsApp." mobile="+91 9970714597" action="Business hours" btntext="Message"/>
+                        <div className='flex  my-2  h-max'>
+                            <ContactUSCard className="bg-slate-500" Icon={Phone} title="Phone Support" info="Speak directly with our support team." mobile="+91 1234567890" action="24/7 Available" btntext="Call Now" />
+                            <ContactUSCard className="bg-slate-500" Icon={Mail} title="Email Support" info="Send us detailed queries." mobile="support@blooddonor.in" action="Response in 2 hours" btntext="Send Email" />
+                            <ContactUSCard className="bg-slate-500" Icon={MessageSquare} title="WhatsApp" info="Quick support via WhatsApp." mobile="+91 9970714597" action="Business hours" btntext="Message" />
                         </div>
                     </div>
                 </div>

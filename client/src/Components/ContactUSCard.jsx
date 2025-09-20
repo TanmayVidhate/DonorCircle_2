@@ -1,13 +1,13 @@
 import React from 'react'
 import Button from './Button'
 
-function ContactUSCard({Icon,title,info,mobile,action,btntext}) {
+function ContactUSCard({className,Icon,title,info,mobile,action,btntext}) {
     console.log("mm=",Icon)
     return (
         <>
-            <div className='border rounded-md text-center w-2/6 h-[300px] m-2 p-2 '>
-                <div className='border m-auto border-red-500  rounded-full w-[30%] h-[25%] mt-3 relative'>
-                    <p className='absolute right-6 top-5 text-white '><Icon/></p>
+            <div className='border rounded-md text-center w-2/6 h-[300px] m-2 p-2 hover:mt-0 '>
+                <div className={`m-auto  rounded-full w-[30%] h-[25%] mt-3 relative ${className}`}>
+                    <p className='absolute right-6 top-6 text-white '><Icon/></p>
                 </div>
                 <div className='mt-3'>
                     <p>{title}</p>
