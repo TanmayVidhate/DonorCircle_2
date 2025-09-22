@@ -17,7 +17,7 @@ function ContactUs() {
                 <div className='flex justify-center items-center rounded-lg  bg-[#FFFFFF]  mt-28  mx-10 my-10 sm:min-h-max sm:w-3/4 sm:px-5 lg:mt-36 lg:w-4/5 2xl:w-3/5 '>
                     <div className='w-full h-full p-4 '>
                         <div className=''>
-                            <p className='text-3xl font-bold '>Get in Touch</p>
+                            <p className='text-2xl font-semibold  tracking-wider  my-5'>Get in Touch</p>
                         </div>
                         <div className='sm:mt-2'>
                             <p className='font-light'>Need help? Have questions? We're here to support you 24/7. Reach out to us anytime - every inquiry matters.</p>
