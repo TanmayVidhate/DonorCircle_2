@@ -5,10 +5,10 @@ function ContactUSCard({ className, Icon, title, info, mobile, action, btntext, 
 
     return (
         <>
-            <div className='border border-red-700 rounded-md text-center w-5/6 h-[300px] m-5 p-2  md:w-[300px] lg:w-[350px]  shadow-md bg-white hover:shadow-xl hover:-translate-y-2
+            <div className='border border-red-700 rounded-md text-center w-5/6 h-[300px] m-5 p-2  md:w-[300px] lg:w-[220px]  shadow-md bg-white hover:shadow-xl hover:-translate-y-2
                 transition-all duration-300 ease-in-out'>
-                <div className={`m-auto  rounded-full w-[20%] h-[20%] mt-3 relative ${className} sm:w-[20%] sm:h-[20%] lg:w-[20%] lg:h-[20%] xl:w-[24%] xl:h-[20%]`}>
-                    <p className='absolute left-4 top-4 text-white sm:left-5 sm:top-4 md:left-4 xl:top-4 lg:left-4 lg:top-4 '><Icon /></p>
+                <div className={`m-auto  rounded-full w-[20%] h-[20%] mt-3 relative ${className} sm:w-[20%] sm:h-[20%] lg:w-[25%] lg:h-[18%] xl:w-[24%] xl:h-[20%]`}>
+                    <p className='absolute left-4 top-4 text-white sm:left-5 sm:top-4 md:left-4 xl:top-4 lg:left-3 lg:top-3 '><Icon /></p>
                 </div>
                 <div className='mt-3'>
                     <p>{title}</p>
