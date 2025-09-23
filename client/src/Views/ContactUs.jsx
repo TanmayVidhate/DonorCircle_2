@@ -20,7 +20,7 @@ function ContactUs() {
                             <p className='text-2xl font-semibold  tracking-wider  my-5'>Get in Touch</p>
                         </div>
                         <div className='sm:mt-2'>
-                            <p className='font-light'>Need help? Have questions? We're here to support you 24/7. Reach out to us anytime - every inquiry matters.</p>
+                            <p className='font-light'>We’re committed to assisting you anytime, day or night — every request counts. Whether you’re a donor or someone in need, your concerns are our top priority.</p>
                         </div>
 
                         <div className='flex my-2 flex-col w-full h-3/5 items-center lg:flex-row  lg:justify-center  '>
