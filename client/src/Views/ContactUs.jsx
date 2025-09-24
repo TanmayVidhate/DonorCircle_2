@@ -4,6 +4,7 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
 import Cards from '../Components/Cards'
 import ContactUSCard from '../Components/ContactUSCard'
+import Footer from '../Components/Footer';
 
 //Import lucid 
 import { Phone, Mail, MessageSquare } from 'lucide-react';
@@ -31,6 +32,7 @@ function ContactUs() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
