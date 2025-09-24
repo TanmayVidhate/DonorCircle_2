@@ -4,27 +4,38 @@ import LinkTo from './LinkTo'
 function Footer() {
     return (
         <>
-            <div className='flex justify-center w-full border border-red-500 '>
-                <div className='border border-red-500 w-full text-center'>
-                    <div>DonorCircle.in</div>
-                    <div className='text-left font-semibold'>Connecting blood donors with those in need. Together, we save lives.</div>
+            <div className='bg-[#17313E] p-2'>
+                <div className='flex justify-center w-full '>
+                    <div className=' w-full text-center'>
+                        <div className='font-bold text-white text-lg'>DonorCircle.in</div>
+                        <div className='text-left font-semibold text-white'>We bring donors and recipients together to ensure that no life is lost for want of blood. Every connection we enable is a step toward hope and healing.”</div>
+                    </div>
+
+                    <div className='w-full text-center'>
+                        <div className='text-center font-bold text-white text-lg'>Quick Links</div>
+                        <LinkTo PageName="About us" url="/aboutus" className="text-white capitalize" />
+                        <LinkTo PageName="Home" url="/" className="text-white capitalize" />
+                    </div>
+
+                    <div className='w-full  text-center'>
+                        <div className='font-bold text-white text-lg'>Blood Groups</div>
+                        <div className='text-white'>A+</div>
+                        <div className='text-white'>B+</div>
+                        <div className='text-white'>O+</div>
+                        <div className='text-white'>AB+</div>
+                    </div>
+
+                    <div className='w-full  text-center '>
+                        <div className='font-semibold text-white text-lg'>Support</div>
+                    </div>
+
+
                 </div>
-
-                <div className='w-full border border-red-500 text-center'> 
-                    <div className='text-center'>Quick Links</div>
-                    <LinkTo PageName="About us" url="/aboutus" className="text-black capitalize" />
-                    <LinkTo PageName="Home" url="/" className="text-black capitalize"/>
-                </div>
-
-                <div className='w-full border border-red-500 text-center'>
-                    <p>Blood Groups</p>
-                </div>
-
-                <div className='w-full border border-red-500 text-center'>
-                    <p>Support</p>
-
+                <div className='text-center mt-3 text-base text-white'>
+                    <p>© 2025 BloodDonor.in. All rights reserved.</p>
                 </div>
             </div>
+
         </>
     )
 }
