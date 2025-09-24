@@ -32,7 +32,7 @@ function Footer() {
 
                 </div>
                 <div className='text-center mt-3 text-base text-white'>
-                    <p>© 2025 BloodDonor.in. All rights reserved.</p>
+                    <p>© 2025 DonorCircle.in. All rights reserved.</p>
                 </div>
             </div>
 
