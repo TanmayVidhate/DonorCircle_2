@@ -17,8 +17,8 @@ function Footer() {
                         <LinkTo PageName="Home" url="/" className="!text-left text-white capitalize sm:text-left" />
                     </div>
 
-                    <div className=' w-1/4 mx-10 sm:mx-8  sm:text-left md:w-1/3'>
-                        <div className='font-bold text-red-500 text-lg'>Blood Groups</div>
+                    <div className=' w-2/4 mx-10 sm:mx-8  sm:text-left md:w-1/3'>
+                        <div className='font-bold text-red-500 text-lg border border-red-600'>Blood Groups</div>
                         <div className='text-white'>A+</div>
                         <div className='text-white'>B+</div>
                         <div className='text-white'>O+</div>
