@@ -5,19 +5,19 @@ function Footer() {
     return (
         <>
             <div className='bg-[#243447]  h-2/4 '>
-                <div className='flex justify-center mt-5'>
-                    <div className=' text-center w-1/4 p-2 '>
-                        <div className='font-bold text-red-500 text-lg '>DonorCircle.in</div>
+                <div className='flex justify-center mt-5 sm:flex-col'>
+                    <div className=' text-center w-1/4 p-2 sm:w-3/4 sm:mx-8 border border-yellow-500'>
+                        <div className='font-bold text-red-500 text-lg sm:text-left '>DonorCircle.in</div>
                         <div className='text-left font-semibold text-white  '>Connecting donors and recipients to save lives — every match brings hope and healing.</div>
                     </div>
 
-                    <div className='text-center w-1/4 p-2 '>
-                        <div className='text-center font-bold text-red-500 text-lg'>Quick Links</div>
-                        <LinkTo PageName="About us" url="/aboutus" className="text-white capitalize" />
-                        <LinkTo PageName="Home" url="/" className="text-white capitalize" />
+                    <div className='text-center w-1/4 p-2  sm:mx-8  border border-yellow-500'>
+                        <div className='text-center font-bold text-red-500 text-lg sm:text-left'>Quick Links</div>
+                        <LinkTo PageName="About us" url="/aboutus" className="text-white capitalize sm:text-left" />
+                        <LinkTo PageName="Home" url="/" className="text-white capitalize sm:text-left" />
                     </div>
 
-                    <div className='text-center w-1/4 p-2'>
+                    <div className='text-center w-1/4 p-2 sm:mx-8 border border-yellow-500 sm:text-left'>
                         <div className='font-bold text-red-500 text-lg'>Blood Groups</div>
                         <div className='text-white'>A+</div>
                         <div className='text-white'>B+</div>
@@ -25,13 +25,13 @@ function Footer() {
                         <div className='text-white'>AB+</div>
                     </div>
 
-                    <div className='text-center w-1/4 p-2'>
+                    <div className='text-center w-1/4 p-2 sm:mx-8 sm:text-left'>
                         <div className='font-semibold text-red-500 text-lg'>Support</div>
                     </div>
 
 
                 </div>
-                <div className='text-center mt-44 text-base text-white  h-min  '>
+                <div className='text-center mt-32 mb-10 text-base text-white  h-min  '>
                     <div className='h-full text-xl'>© 2025 DonorCircle.in. All rights reserved.</div>
                 </div>
             </div>
