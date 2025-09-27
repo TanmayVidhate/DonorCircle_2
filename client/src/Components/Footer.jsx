@@ -7,18 +7,18 @@ function Footer() {
             <div className='bg-[#243447]  h-2/4 '>
                 <div className='flex justify-center mt-5'>
                     <div className=' text-center w-1/4 p-2 '>
-                        <div className='font-bold text-white text-lg '>DonorCircle.in</div>
-                        <div className='text-left font-semibold text-white  '>We bring donors and recipients together to ensure that no life is lost for want of blood. Every connection we enable is a step toward hope and healing.</div>
+                        <div className='font-bold text-red-500 text-lg '>DonorCircle.in</div>
+                        <div className='text-left font-semibold text-white  '>Connecting donors and recipients to save lives — every match brings hope and healing.</div>
                     </div>
 
                     <div className='text-center w-1/4 p-2 '>
-                        <div className='text-center font-bold text-white text-lg'>Quick Links</div>
+                        <div className='text-center font-bold text-red-500 text-lg'>Quick Links</div>
                         <LinkTo PageName="About us" url="/aboutus" className="text-white capitalize" />
                         <LinkTo PageName="Home" url="/" className="text-white capitalize" />
                     </div>
 
                     <div className='text-center w-1/4 p-2'>
-                        <div className='font-bold text-white text-lg'>Blood Groups</div>
+                        <div className='font-bold text-red-500 text-lg'>Blood Groups</div>
                         <div className='text-white'>A+</div>
                         <div className='text-white'>B+</div>
                         <div className='text-white'>O+</div>
@@ -26,7 +26,7 @@ function Footer() {
                     </div>
 
                     <div className='text-center w-1/4 p-2'>
-                        <div className='font-semibold text-white text-lg'>Support</div>
+                        <div className='font-semibold text-red-500 text-lg'>Support</div>
                     </div>
 
 
