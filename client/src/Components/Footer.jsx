@@ -15,6 +15,7 @@ function Footer() {
                         <div className='  font-bold text-red-500 text-lg sm:text-left'>Quick Links</div>
                         <LinkTo PageName="About us" url="/aboutus" className="!text-left text-white capitalize sm:text-left " />
                         <LinkTo PageName="Home" url="/" className="!text-left text-white capitalize sm:text-left" />
+                        <LinkTo PageName="Login" url="/signin" className="!text-left text-white capitalize sm:text-left" />
                     </div>
 
                     <div className=' w-2/4 mx-7 sm:mx-8  sm:text-left md:w-1/3'>
