@@ -35,6 +35,7 @@ function Navbar() {
                     />
                     {
                         isOpen && (
+                            // mobile width
                             <div className='absolute w-screen h-screen text-xl left-0 top-2 backdrop-blur '>
 
                                 <div className='rounded-2xl w-full '>
@@ -49,7 +50,7 @@ function Navbar() {
                                     {
                                         Pages.map((page, i) => {
                                             const { label, href } = page;
-                                            return <LinkTo className=" w-full hover:text-amber-600 my-10 !text-black text-xl " PageName={label} url={href} key={i} />
+                                            return <LinkTo className=" w-full hover:text-amber-600 my-10 !text-black text-xl transition-transform duration-300 hover:scale-125" PageName={label} url={href} key={i} />
                                         })
                                     }
                                 </div>
@@ -57,12 +58,12 @@ function Navbar() {
                         )
                     }
                 </div>
-
+                    {/* full width */}
                 <div className=' hidden sm:hidden md:hidden lg:visible lg:flex lg:justify-center lg:items-center  '>
                     {
                         Pages.map((page, i) => {
                             const { label, href } = page;
-                            return <LinkTo className="hover:text-amber-600 lg:text-lg " PageName={label} url={href} key={i} />
+                            return <LinkTo className="hover:text-amber-600 lg:text-lg transition-transform duration-300 hover:scale-125 " PageName={label} url={href} key={i} />
                         })
                     }
 
