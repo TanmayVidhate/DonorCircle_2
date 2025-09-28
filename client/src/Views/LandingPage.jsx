@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router'
 import Image from '../Components/Image'
 import Navbar from '../Components/Navbar'
 import Button from '../Components/Button'
+import Footer from '../Components/Footer'
 
 
 function LandingPage() {
@@ -20,7 +21,7 @@ function LandingPage() {
             <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5]  xl:h-screen  '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center '>
-                    <div className='flex justify-center  items-center border rounded-lg m-5 mt-24 bg-[#FFFFFF] w-5/6   sm:w-3/4 sm:px-5 lg:mt-10 lg:w-4/5 2xl:w-3/5  '>
+                    <div className='flex justify-center  items-center border rounded-lg m-5 mt-24 bg-[#FFFFFF] w-5/6   sm:w-3/4 sm:px-5 lg:mt-32 lg:mb-20 lg:w-4/5 2xl:w-3/5  '>
                         <div className='px-2  lg:flex lg:h-4/5 lg:my-7 '>
 
                             {/* First div */}
@@ -46,6 +47,8 @@ function LandingPage() {
                         </div>
                     </div>
                 </div>
+                
+                <Footer/>
             </div>
         </>
     )
