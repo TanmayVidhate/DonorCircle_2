@@ -15,10 +15,10 @@ function ContactUs() {
         <div className='flex flex-col w-screen min-h-min bg-[#ffd6a5] xl:h-screen  '>
             <Navbar />
             <div className='flex justify-center items-center'>
-                <div className='flex justify-center items-center rounded-lg bg-[#FFFFFF] mt-28 mx-10  sm:min-h-max sm:w-3/4 sm:px-5 lg:mt-36 lg:mb-20 lg:w-4/5 lg:h-4/5  2xl:w-3/5 '>
-                    <div className='w-full h-full p-5 '>
+                <div className='flex justify-center items-center rounded-lg bg-[#FFFFFF] m-10 w-5/6 mt-24 sm:min-h-max sm:w-3/4 sm:px-5 lg:mt-36 lg:mb-20 lg:w-4/5 lg:h-4/5  2xl:w-3/5 '>
+                    <div className='w-full p-5'>
                         <div className=''>
-                            <p className='text-2xl font-semibold  tracking-wider  mt-5'>Get in Touch</p>
+                            <p className='text-2xl font-semibold  tracking-wider  '>Get in Touch</p>
                         </div>
                         <div className='sm:mt-2'>
                             <p className='font-light'>We’re committed to assisting you anytime, day or night — every request counts. Whether you’re a donor or someone in need, your concerns are our top priority.</p>
