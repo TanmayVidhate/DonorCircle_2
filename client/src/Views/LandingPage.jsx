@@ -21,9 +21,8 @@ function LandingPage() {
             <div className='flex flex-col w-screen min-h-screen bg-[#ffd6a5]  xl:h-screen  '>
                 <Navbar />
                 <div className='flex-1 grid place-items-center '>
-                    <div className='flex justify-center  items-center border rounded-lg m-5 mt-24 bg-[#FFFFFF] w-5/6   sm:w-3/4 sm:px-5 lg:mt-32 lg:mb-20 lg:w-4/5 2xl:w-3/5  '>
-                        <div className='px-2  lg:flex lg:h-4/5 lg:my-7 '>
-
+                    <div className='flex justify-center  items-center border rounded-lg m-5 mt-24 bg-[#FFFFFF] w-5/6   sm:w-3/4 sm:px-5 lg:mt-36 lg:mb-24 lg:w-4/5 lg:h-4/5 2xl:w-3/5  '>
+                        <div className='  lg:flex   '>
                             {/* First div */}
                             <div className='p-1   mt-5 w-full sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6 '>
                                 <div className='text-[#FBA943] text-4xl font-bold uppercase mx-5 tracking-wide sm:w-full sm:mx-1 md:mx-1 md:text-4xl lg:mt-10 '>Donor<br />Circle</div>
