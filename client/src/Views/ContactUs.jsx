@@ -21,7 +21,7 @@ function ContactUs() {
                     "
         >
           {/* Heading */}
-          <p className="text-2xl font-semibold tracking-wider">Get in Touch</p>
+          <p className="text-2xl font-semibold tracking-wider my-5">Get in Touch</p>
 
           {/* Sub Text */}
           <p className="font-light mt-2 text-gray-700">
