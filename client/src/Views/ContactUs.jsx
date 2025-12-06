@@ -17,7 +17,7 @@ function ContactUs() {
       {/* Outer Container */}
       <div className="flex justify-center items-center flex-1">
         <div
-          className="p-4 bg-white border rounded-lg mt-32 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/6 lg:py-5 lg:mt-32 lg:mb-24 2xl:w-3/5
+          className="p-4 bg-white border rounded-lg mt-32 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/5 lg:py-5 lg:mt-32 lg:mb-28 2xl:w-3/5
                     "
         >
           {/* Heading */}
@@ -34,7 +34,7 @@ function ContactUs() {
           <div
             className="
                             flex flex-col items-center gap-5 mt-6
-                            lg:flex-row lg:justify-center lg:gap-5
+                            lg:flex-row lg:justify-center lg:gap-2
                         "
           >
             <ContactUSCard

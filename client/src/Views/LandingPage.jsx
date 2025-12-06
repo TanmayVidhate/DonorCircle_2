@@ -20,7 +20,7 @@ function LandingPage() {
 
         <div className="grid flex-1 mt-6 place-items-center">
           <div
-            className="p-4 bg-white border rounded-lg mt-28 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/6 lg:py-5 lg:mt-24 lg:mb-24 2xl:w-3/5"
+            className="p-4 bg-white border rounded-lg mt-28 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/5 lg:py-5 lg:mt-24 lg:mb-36 2xl:w-3/5"
           >
             <div className="w-full sm:p-5 lg:flex ">
               
