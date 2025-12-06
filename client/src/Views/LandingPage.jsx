@@ -18,16 +18,9 @@ function LandingPage() {
       <div className="flex flex-col w-full min-h-screen bg-[#ffd6a5] xl:h-screen">
         <Navbar />
 
-        <div className="grid flex-1 mt-16 place-items-center">
+        <div className="grid flex-1 mt-6 place-items-center">
           <div
-            className="
-              flex justify-center items-center bg-white border rounded-lg
-              m-5 mt-24 
-              w-full max-w-[95%]
-              sm:max-w-[85%]
-              lg:max-w-[80%] lg:h-4/5 lg:mt-36 lg:mb-24
-              2xl:max-w-[60%]
-            "
+            className="p-4 bg-white border rounded-lg mt-10 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/6 lg:py-5 lg:mt-24 lg:mb-24 2xl:w-3/5"
           >
             <div className="w-full sm:p-5 lg:flex ">
               
