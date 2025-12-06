@@ -144,7 +144,7 @@ function Signin() {
                                                 message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
                                             },
                                         })}
-                                        icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}}/> : <Eye onClick={(e)=>{setOpeneye(!openeye)}}/> }
+                                        icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/> : <Eye onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/> }
                                     />
                                     {
                                         errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-10 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 lg:-bottom-14 lg:text-sm '>{errors?.pass_field?.message}</span>

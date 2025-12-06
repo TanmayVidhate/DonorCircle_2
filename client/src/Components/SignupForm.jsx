@@ -172,7 +172,7 @@ function SignupForm() {
                                         },
                                     })}
                                     
-                                    icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}}/> :<Eye onClick={(e)=>{setOpeneye(!openeye)}}/>}
+                                    icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/> :<Eye onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/>}
                                 />
                                 {
                                     errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 sm:text-base md:text-lg md:-bottom-12 lg:text-sm lg:-bottom-10'>{errors?.pass_field?.message}</span>
