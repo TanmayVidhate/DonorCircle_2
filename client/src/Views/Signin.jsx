@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router'
 import { DevTool } from '@hookform/devtools'
 
 //Lucid Icon Import
-import { Mail, LockKeyhole } from 'lucide-react';
+import { Mail, Eye, EyeClosed } from 'lucide-react';
 
 //Compoents Import
 import Label from '../Components/Label'
@@ -26,7 +26,7 @@ function Signin() {
 
     const navigate = useNavigate();
 
-
+    const[openeye,setOpeneye] = useState(false);
 
     //react-hook-form
     // const form = useForm()
@@ -133,7 +133,7 @@ function Signin() {
                                 <div className='flex flex-col p-1 relative mt-9 sm:mt-4 '>
                                     <Label title="Password" />
                                     <InputField
-                                        type="password"
+                                        type={openeye ?"text":"password"} 
 
                                         name="pass_field"
                                         {...register("pass_field", {
@@ -144,7 +144,7 @@ function Signin() {
                                                 message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
                                             },
                                         })}
-                                        icon={<LockKeyhole />}
+                                        icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}}/> : <Eye onClick={(e)=>{setOpeneye(!openeye)}}/> }
                                     />
                                     {
                                         errors?.pass_field && <span className='text-red-500 text-sm w-full absolute -bottom-10 sm:text-base sm:-bottom-11 md:text-lg md:-bottom-12 lg:-bottom-14 lg:text-sm '>{errors?.pass_field?.message}</span>

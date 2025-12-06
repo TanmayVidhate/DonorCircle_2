@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { DevTool } from '@hookform/devtools'
 
 //lucid icons
-import { User, Mail, LockKeyhole, Key, BadgeCheck } from 'lucide-react';
+import { User, Mail, BadgeCheck, Eye, EyeClosed } from 'lucide-react';
 
 
 import axios from 'axios'
@@ -21,6 +21,8 @@ import LinkTo from './LinkTo.jsx'
 
 
 function SignupForm() {
+
+    const[openeye,setOpeneye] = useState(false);
 
     //react-hook-form
 
@@ -159,7 +161,7 @@ function SignupForm() {
                             <div className=' p-1  relative mt-5 w-full '>
                                 <Label title="Password" />
                                 <InputField
-                                    type="password"
+                                    type={openeye ?"text":"password"} 
                                     name="pass_field"
                                     {...register("pass_field", {
                                         required: "Password is required",
@@ -169,7 +171,8 @@ function SignupForm() {
                                             message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
                                         },
                                     })}
-                                    icon={<LockKeyhole />}
+                                    
+                                    icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}}/> :<Eye onClick={(e)=>{setOpeneye(!openeye)}}/>}
                                 />
                                 {
                                     errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 sm:text-base md:text-lg md:-bottom-12 lg:text-sm lg:-bottom-10'>{errors?.pass_field?.message}</span>
