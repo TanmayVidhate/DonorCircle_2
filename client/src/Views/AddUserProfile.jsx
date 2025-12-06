@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools'
 import imgurl from "../assets/User_profile_update_img/user_edit_pro.png"
-// import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 //Components Import
 import Label from '../Components/Label'
@@ -74,6 +74,7 @@ function AddUserProfile() {
         }
     }
 
+    const navigate = useNavigate();
 
     const editprofile = async (e) => {
         e.preventDefault();
@@ -93,6 +94,8 @@ function AddUserProfile() {
             toast.success(response?.data?.message);
 
             reset();
+
+            navigate("/showalluers")
 
         }
         catch (error) {
