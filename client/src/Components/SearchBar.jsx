@@ -37,16 +37,16 @@ function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
               setSearchval(e.target.value);
             }}
             placeholder="Search blood group..."
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg
+            className="flex-1 px-4 py-2 border  rounded-lg
                        text-gray-700 w-3/6 text-sm sm:text-base
-                       focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       focus:outline-none focus:ring-0 focus:bg-transparen  "
           />
 
           <button
             onClick={handleSearchval}
             className="px-4 py-2 bg-[#ffd6a5] text-[#c2410c] rounded-lg 
                        text-sm sm:text-base font-semibold
-                       hover:bg-blue-700 transition-all duration-200"
+                       hover:bg-[#f7c789] transition-all duration-200"
           >
             Search
           </button>
