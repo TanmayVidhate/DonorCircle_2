@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
@@ -15,13 +14,10 @@ function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
         return userdata;
       });
 
-    //   console.log("names===", names);
-      const resu = names.filter((name) => {  
+      const resu = names.filter((name) => {
         return name.other_info?.[0]?.blood_group == searchval;
-      }
-    );
+      });
 
-    //   console.log("resu===", resu);
       setStoreobject(resu);
     } catch (error) {
       toast.dismiss();
@@ -31,16 +27,33 @@ function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
 
   return (
     <>
-      <div className="">
-        <input
-          type="text"
-          value={searchval}
-          onChange={(e) => {
-            setSearchval(e.target.value);
-          }}
-        />
-        <button onClick={handleSearchval}>Search</button>
+      <div className="w-full flex justify-center px-3 mt-6 md:w-[90%] md:m-auto md:mt-10  lg:mt-5  ">
+        <div className="w-full max-w-lg flex items-center gap-3 bg-white border rounded-xl shadow-md p-3   ">
+
+          <input
+            type="text"
+            value={searchval}
+            onChange={(e) => {
+              setSearchval(e.target.value);
+            }}
+            placeholder="Search blood group..."
+            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg
+                       text-gray-700 w-3/6 text-sm sm:text-base
+                       focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <button
+            onClick={handleSearchval}
+            className="px-4 py-2 bg-[#ffd6a5] text-[#c2410c] rounded-lg 
+                       text-sm sm:text-base font-semibold
+                       hover:bg-blue-700 transition-all duration-200"
+          >
+            Search
+          </button>
+
+        </div>
       </div>
+
       <Toaster />
     </>
   );

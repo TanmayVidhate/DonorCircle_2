@@ -71,46 +71,51 @@ function ShowAllUser() {
   return (
     <>
       <div className="flex flex-col  bg-[#ffd6a5]  w-screen  min-h-screen ">
-        {/* <Navbar /> */}
+        <Navbar />
 
         <div className="flex-1 grid place-items-center">
-          <SearchBar
-            searchval={searchval}
-            setSearchval={setSearchval}
-            Storeobje={Storeobje}
-            setStoreobject={setStoreobject}
-          />
-
-          <div className=" rounded-lg bg-white  w-5/6 p-3 mt-24 m-5 md:w-4/5  lg:w-3/5 ">
+          <div className="mt-16   mb-5 lg:mt-14  w-full">
+            <div className="w-[90%] sm:w-full md:w-[100%] lg:w-[100%] m-auto">
+              <SearchBar
+                searchval={searchval}
+                setSearchval={setSearchval}
+                Storeobje={Storeobje}
+                setStoreobject={setStoreobject}
+              />
+            </div>
+          </div>
+          <div className=" rounded-lg bg-white  w-5/6 p-3 md:w-4/5  lg:w-3/5 ">
             <div className="w-full h-[550px] overflow-y-auto scrollbar-hide ">
               <div className="w-full flex flex-col justify-center items-center sm:flex sm:justify-center sm:items-center  sm:flex-wrap lg:flex lg:flex-row">
-                {(cardshow.length > 0 && searchval ? cardshow : users).map((user, i) => {
-                  const { name, email, other_info } = user;
-                  const { mobile_no, blood_group, address, age } =
-                    other_info?.[0] || {};
+                {(cardshow.length > 0 && searchval ? cardshow : users).map(
+                  (user, i) => {
+                    const { name, email, other_info } = user;
+                    const { mobile_no, blood_group, address, age } =
+                      other_info?.[0] || {};
 
-                  if (other_info?.length) {
+                    if (other_info?.length) {
+                      return (
+                        <Cards
+                          key={i}
+                          name={name}
+                          email={email}
+                          mobile_no={mobile_no}
+                          blood_group={blood_group}
+                          address={address}
+                          age={age}
+                        />
+                      );
+                    }
+
                     return (
                       <Cards
                         key={i}
                         name={name}
-                        email={email}
-                        mobile_no={mobile_no}
-                        blood_group={blood_group}
-                        address={address}
-                        age={age}
+                        message="Please Add User's Other Info"
                       />
                     );
                   }
-
-                  return (
-                    <Cards
-                      key={i}
-                      name={name}
-                      message="Please Add User's Other Info"
-                    />
-                  );
-                })}
+                )}
 
                 {/* {users.map((user, i) => {
                   const { name, email, other_info } = user;
