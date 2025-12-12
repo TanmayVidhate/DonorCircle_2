@@ -265,11 +265,22 @@ function AddUserProfile() {
                             </div>
 
                             <div className='p-1 mt-8'>
-                                <Button name="Update Profile"
+                                {
+                                    (Object.entries(errors).length>0 ) ? (<Button name="Update Profile"
+                                    disabled={true}
+                                    type="submit"
+                                    onClick={editprofile}
+                                    className="!px-1 !py-2 !rounded-lg !w-full"
+                                />)
+                                :(
+                                    <Button name="Update Profile"
+                                    disabled={false}
                                     type="submit"
                                     onClick={editprofile}
                                     className="!px-1 !py-2 !rounded-lg !w-full"
                                 />
+                                )
+                                }
                             </div>
                         </form>
                         <DevTool control={control} />
