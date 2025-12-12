@@ -207,12 +207,24 @@ function SignupForm() {
                             </div> */}
 
                             <div className='w-full p-1   mt-10 mb-5 sm:mt-11 '>
-                                <Button name="Create Account"
+                                {
+                                    (Object.entries(errors).length > 0) ? (<Button name="Create Account"
+                                    disabled={true}
+                                    hover={true}
+                                    onClick={AddFormData}
+                                    // onClick={handleSubmit(onSubmit)}
+                                    className="!px-5 !py-2 !rounded-lg !w-full"
+                                />)
+                                :(
+                                    <Button name="Create Account"
+                                    disabled={false}
                                     hover={true}
                                     onClick={AddFormData}
                                     // onClick={handleSubmit(onSubmit)}
                                     className="!px-5 !py-2 !rounded-lg !w-full"
                                 />
+                                )
+                                }
                             </div>
 
                             <div className='p-2 flex justify-center items-center sm:-mt-4 '>
