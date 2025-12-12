@@ -38,6 +38,7 @@ function Signin() {
         }
     });
 
+    console.log("err===",errors)
 
     // watches live changes
     const input_email = watch("email_field");
@@ -152,11 +153,19 @@ function Signin() {
                                 </div>
 
                                 <div className='flex justify-center items-center p-1 mt-16 '>
-                                    <Button name="Signin"
+                                    {
+                                        (Object.entries(errors).length > 0 ) ?  (<Button name="Signin"
+                                        disabled={true}
                                         hover={true}
-                                        onClick={isuserisValid}
+                                        onClick={isuserisValid }
                                         className="!px-6 !py-2 !rounded-lg !w-full"
-                                    />
+                                    />) : (<Button name="Signin" 
+                                        disabled={false}
+                                        hover={true}
+                                        onClick={isuserisValid }
+                                        className="!px-6 !py-2 !rounded-lg !w-full"
+                                    />)
+                                    }
                                 </div>
 
                                 <div className='p-1 mt-2'>
