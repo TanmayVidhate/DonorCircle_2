@@ -155,17 +155,19 @@ const adduserallinfo = async (req, res) => {
         if (!email || !age || !mobile_no || !blood_group || !address || !gender ) {
             let msgArr=[];
             !email && msgArr.push("Enter Email Field")
-            !age && msgArr.push("Enter Age Field")
+            !age && msgArr.push("Enter Age Field",)
             !mobile_no && msgArr.push("Enter Mobile No Field")
             !blood_group && msgArr.push("Enter Blood Group Field")
             !address && msgArr.push("Enter Address Field")
             !gender && msgArr.push("Enter Gender Field")
-            // console.log(msgArr);
+
+            const errorMessage = msgArr.join(", ");
+            
             return res.status(400).json({
                 success: false,
                 data: null,
+                message:errorMessage
                 // message: `Enter All fields ${!email || !age || !mobile_no || !blood_group || !address || !gender}..`
-                message:msgArr
             })
         }
         else {
