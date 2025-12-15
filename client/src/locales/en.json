@@ -1,7 +1,22 @@
 {
-    "home": "Home",
-    "about_us": "About US",
-    "contact_us": "Contact US",
-    "faq": "FAQ",
-    "sign_up":"SignUp"
+  "home": "Home",
+  "about_us": "About US",
+  "contact_us": "Contact US",
+  "faq": "FAQ",
+  "sign_up": "SignUp",
+  "join_donorcircle": "Join DonorCircle.",
+  "donor_circle": "Donor Circle",
+  "accidents": "Accidents, Surgeries, Cancer treatments, All need blood. Every single day. Be someone’s miracle.",
+  "donorcircle_in":"DonorCircle.in",
+  "connecting":"Connecting donors and recipients to save lives — every match brings hope and healing.",
+  "quick_links":"Quick Links",
+  "login":"Login",
+  "blood_groups":"Blood Groups",
+  "support":"Support",
+  "a+":"A+",
+  "b+":"B+",
+  "o+":"O+",
+  "ab+":"AB+",
+  "©_2025":"© 2025 DonorCircle.in. All rights reserved."
+  
 }

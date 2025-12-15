@@ -10,13 +10,13 @@ function Translate() {
 
   return (
     <select
-      className="px-2  border border-transparent rounded cursor-pointer bg-[#f7c789] text-white"
+      className=" w-[90px]  py-2 rounded cursor-pointer bg-[#f7c789] text-white"
       value={i18n.language}
       onChange={(e) => changeLanguage(e.target.value)}
     >
       <option value="en">English</option>
-      <option value="mr">Marathi</option>
-      <option value="hi">Hindi</option>
+      <option value="mr">मराठी</option>
+      <option value="hi">हिंदी</option>
     </select>
   );
 }

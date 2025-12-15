@@ -31,7 +31,7 @@ function Navbar() {
                 <div className=''>
                     <img src={img} alt='logo' className='w-2/6 sm:w-2/6 md:w-2/6 lg:w-3/12 ' />
                 </div>
-                <Translate />
+
                 <div className='lg:hidden'>
 
                     <AlignJustify size={30}
@@ -60,6 +60,9 @@ function Navbar() {
                                             return <LinkTo className=" w-full hover:text-amber-600 my-10 !text-black text-xl transition-transform duration-300 hover:scale-125" PageName={label} url={href} key={i} />
                                         })
                                     }
+                                    <div className="w-[100%] m-auto text-center">
+                                    <Translate  />
+                                    </div>
                                 </div>
                             </div>
                         )
@@ -73,7 +76,7 @@ function Navbar() {
                             return <LinkTo className="hover:text-amber-600 lg:text-lg transition-transform duration-300 hover:scale-125 " PageName={label} url={href} key={i} />
                         })
                     }
-
+                    <Translate />
                 </div>
             </div>
         </>

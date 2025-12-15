@@ -10,7 +10,7 @@ import Navbar from "../Components/Navbar";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
 
-
+//Translation
 import { useTranslation } from 'react-i18next';
 
 function LandingPage() {
@@ -25,23 +25,22 @@ function LandingPage() {
 
         <div className="grid flex-1 mt-6 place-items-center">
           <div
-            className="p-4 bg-white border rounded-lg mt-28 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/5 lg:py-5 lg:mt-24 lg:mb-36 2xl:w-3/5"
+            className="p-4 bg-white border rounded-lg mt-28 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/5 lg:py-5 lg:mt-24 lg:mb-24 2xl:w-3/5"
           >
-            <div className="w-full sm:p-5 lg:flex ">
+            <div className="w-full sm:p-5 lg:flex lg:h-[65vh]">
               
               {/* First div */}
-              <div className="w-full p-1 mt-2 sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6">
+              <div className="w-full p-1 mt-2 sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6 ">
                 
                 <div className="text-[#FBA943] text-4xl font-bold uppercase mx-5 tracking-wide sm:mx-1 lg:mt-10">
-                  Donor<br />Circle
+                 {t(`${'donor_circle'}`)}
                 </div>
 
                 <div className="mx-5 my-4 tracking-wide text-gray-700 sm:mx-1 lg:text-base 2xl:w-3/4">
-                  Accidents, Surgeries, Cancer treatments, All need blood. Every
-                  single day. Be someone’s miracle.
+                  {t(`${"accidents"}`)}
                   <br />
-                  <span className="text-[#FBA943] text-2xl font-bold opacity-0 animate-fadeIn mt-5">
-                    Join DonorCircle.
+                  <span className="text-[rgb(251,169,67)] text-2xl font-bold opacity-0 animate-fadeIn mt-5">
+                    {t(`${'join_donorcircle'}`)}
                   </span>
                 </div>
 
