@@ -10,8 +10,13 @@ import Navbar from "../Components/Navbar";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
 
+
+import { useTranslation } from 'react-i18next';
+
 function LandingPage() {
   const navigate = useNavigate();
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -41,7 +46,7 @@ function LandingPage() {
                 </div>
 
                 <Button
-                  name="SignUp"
+                  name={t(`${"sign_up"}`)}
                   className="
                     ml-5 bg-[#FBA943] text-white px-6 py-3 rounded-lg
                     transition-all duration-300 hover:scale-105 

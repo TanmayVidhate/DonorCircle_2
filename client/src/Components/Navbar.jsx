@@ -7,16 +7,22 @@ import { AlignJustify, X } from 'lucide-react';
 
 //Components Import
 import LinkTo from './LinkTo.jsx'
+import Translate from './Translate.jsx';
+
+import { useTranslation } from 'react-i18next';
+import "../i18n.js";
 
 function Navbar() {
+
+    const { t } = useTranslation(); // add this
 
     const [isOpen, setIsopen] = useState(false);
 
     const Pages = [
-        { label: "Home", href: "/" },
-        { label: "About US", href: "/aboutus" },
-        { label: "Contact US", href: "/contactus" },
-        { label: "FAQ", href: "/faq" },
+        { label: t(`${'home'}`), href: "/" },
+        { label: t(`${'about_us'}`), href: "/aboutus" },
+        { label: t(`${"contact_us"}`), href: "/contactus" },
+        { label: t(`${"faq"}`), href: "/faq" },
     ];
 
     return (
@@ -25,6 +31,7 @@ function Navbar() {
                 <div className=''>
                     <img src={img} alt='logo' className='w-2/6 sm:w-2/6 md:w-2/6 lg:w-3/12 ' />
                 </div>
+                <Translate />
                 <div className='lg:hidden'>
 
                     <AlignJustify size={30}
@@ -68,7 +75,6 @@ function Navbar() {
                     }
 
                 </div>
-
             </div>
         </>
     )

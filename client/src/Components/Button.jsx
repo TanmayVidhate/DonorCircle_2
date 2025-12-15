@@ -1,12 +1,19 @@
 import React from "react";
 
+import { useTranslation } from 'react-i18next';
+
+
+
 function Button({ name, onClick, disabled, className, hover }) {
   // alert("User clcieked")
+  // console.log("dd=",onClick);
+  const { t, i18n } = useTranslation();
+  
   return (
     <>
       <input
         type="submit"
-        value={name}
+        value={t(`${name}`)}
         disabled={disabled}
         className={`p-2 uppercase text-lg text-white bg-[#ffac44] ${
           hover
@@ -16,6 +23,7 @@ function Button({ name, onClick, disabled, className, hover }) {
          ${disabled ? "bg-[#e2a355] hover:bg-[#e2a355] hover:cursor-not-allowed " : "hover:cursor-pointer "} 
         `}
         onClick={onClick}
+
       />
     </>
   );

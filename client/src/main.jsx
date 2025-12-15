@@ -9,6 +9,8 @@ import '@fontsource/balsamiq-sans';
 
 import AppRoutes from './routes/AppRoutes.jsx';
 
+import './i18n';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
