@@ -19,8 +19,12 @@ import Button from './Button.jsx'
 import LinkTo from './LinkTo.jsx'
 // import Navbar from './Navbar.jsx';
 
+//Translation
+import { useTranslation } from 'react-i18next';
 
 function SignupForm() {
+
+    const { t, i18n } = useTranslation();
 
     const[openeye,setOpeneye] = useState(false);
 
@@ -80,19 +84,19 @@ function SignupForm() {
 
                     {/* First Div */}
                     <div className=' order-2  lg:order-1 lg:w-2/5 '>
-                        <p className='invisible  text-2xl font-semibold ml-2 tracking-wider lg:visible lg:absolute lg:top-3 lg:left-16   '>Sign Up</p>
+                        <p className='invisible  text-2xl font-semibold ml-2 tracking-wider lg:visible lg:absolute lg:top-3 lg:left-16   '>{t(`${'sign_up'}`)}</p>
                         <Image img_url={imgurl} className=" !w-full !object-scale-down sm:!object-scale-down md:!object-scale-down lg:!object-contain h-4/6  " />
                     </div>
 
                     {/* Second Div */}
                     <div className='order-1 w-full  overflow-y-auto overflow-x-hidden scrollbar-hide lg:order-2 lg:h-full lg:w-96 '>
-                        <p className='visible text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:invisible  '>Sign Up</p>
+                        <p className='visible text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:invisible  '>{t(`${'sign_up'}`)}</p>
                         <form className=' flex flex-col items-center w-full h-[450px] '
                             onSubmit={handleSubmit(onSubmit)}
                         >
 
                             <div className='p-1 relative w-full '>
-                                <Label title="Name"  />
+                                <Label title={t(`${"name"}`)}  />
                                 <InputField
                                     type="text"
                                     placeholder="John Doe"
@@ -117,7 +121,7 @@ function SignupForm() {
                             </div>
 
                             <div className=' p-1 relative mt-8 w-full '>
-                                <Label title="Username" />
+                                <Label title={t(`${"user_name"}`)} />
                                 <InputField
                                     type="text"
                                     placeholder="john_doe"
@@ -139,7 +143,7 @@ function SignupForm() {
                             </div>
 
                             <div className=' p-1 relative mt-8 w-full '>
-                                <Label title="Email" />
+                                <Label title={t(`${"email"}`)} />
                                 <InputField
                                     type="email"
                                     name="email_field"
@@ -159,7 +163,7 @@ function SignupForm() {
                             </div>
 
                             <div className=' p-1  relative mt-5 w-full '>
-                                <Label title="Password" />
+                                <Label title={t(`${"password"}`)} />
                                 <InputField
                                     type={openeye ?"text":"password"} 
                                     name="pass_field"
@@ -208,7 +212,7 @@ function SignupForm() {
 
                             <div className='w-full p-1   mt-10 mb-5 sm:mt-11 '>
                                 {
-                                    (Object.entries(errors).length > 0) ? (<Button name="Create Account"
+                                    (Object.entries(errors).length > 0) ? (<Button name={t(`${"create_acc"}`)}
                                     disabled={true}
                                     hover={true}
                                     onClick={AddFormData}
@@ -216,7 +220,7 @@ function SignupForm() {
                                     className="!px-5 !py-2 !rounded-lg !w-full"
                                 />)
                                 :(
-                                    <Button name="Create Account"
+                                    <Button name={t(`${"create_acc"}`)}
                                     disabled={false}
                                     hover={true}
                                     onClick={AddFormData}
@@ -228,7 +232,7 @@ function SignupForm() {
                             </div>
 
                             <div className='p-2 flex justify-center items-center sm:-mt-4 '>
-                                <LinkTo url={"/signin"} className="capitalize font-normal !text-gray-700 text-center w-full sm:text-lg md:text-xl lg:text-base" >All ready have an account ? <br /> <span className='text-blue-800 hover:text-blue-600  '>Sign in</span></LinkTo>
+                                <LinkTo url={"/signin"} className="capitalize font-normal !text-gray-700 text-center w-full sm:text-lg md:text-xl lg:text-base" >{t(`${'all_ready'}`)} <br /> <span className='text-blue-800 hover:text-blue-600  '>{t(`${'sign_in'}`)}</span></LinkTo>
                             </div>
                         </form>
                         <DevTool control={control} />

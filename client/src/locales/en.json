@@ -17,6 +17,14 @@
   "b+":"B+",
   "o+":"O+",
   "ab+":"AB+",
-  "©_2025":"© 2025 DonorCircle.in. All rights reserved."
+  "©_2025":"© 2025 DonorCircle.in. All rights reserved.",
+  "name":"Name",
+  "user_name":"User Name",
+  "email":"Email",
+  
+  "password":"Password",
+  "create_acc":"Create Account",
+  "all_ready":"All ready have an account ?",
+  "sign_in":"Sign in"
   
 }
