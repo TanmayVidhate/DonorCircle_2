@@ -28,6 +28,16 @@
     "forgot":"पासवर्ड विसरला",
     "don't":"काय तुमचे खाते नाही?",
     "search":"शोध",
-    "search_blood":"रक्तगट शोधा..."
+    "search_blood":"रक्तगट शोधा...",
+    "update_profile":"प्रोफाइल अपडेट करा",
+    "upload_image":"प्रतिमा अपलोड करा",
+    "age":"वय",
+    "mobile_no":"मोबाईल क्रमांक",
+    "gender":"लिंग",
+    "blood_group":"रक्त गट",
+    "address":"पत्ता",
+    "male":"पुरुष",
+    "female":"स्त्री",
+    "select_blood":"रक्तगट निवडा"
     
 }

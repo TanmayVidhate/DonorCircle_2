@@ -28,5 +28,15 @@
   "forgot":"Forgot Password",
   "don't":"Don't  have an account ?",
   "search":"Search",
-  "search_blood":"Search blood group..."
+  "search_blood":"Search blood group...",
+  "update_profile":"Update profile",
+  "upload_image":"Upload Image",
+  "age":"Age",
+  "mobile_no":"Mobile No",
+  "gender":"Gender",
+  "blood_group":"Blood Group",
+  "address":"Address",
+  "male":"Male",
+  "female":"Female",
+  "select_blood":"Select Blood Group"
 }

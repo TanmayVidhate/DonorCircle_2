@@ -24,7 +24,13 @@ import {
   HeartHandshake,
 } from "lucide-react";
 
+//Translation
+import { useTranslation } from 'react-i18next';
+
 function AddUserProfile() {
+
+  const { t, i18n } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -127,14 +133,14 @@ function AddUserProfile() {
           {/* second div */}
           <div className="order-2 w-full  lg:w-2/5 lg:relative ">
             <p className="invisible text-2xl font-semibold ml-2 tracking-wider lg:order-1 lg:visible lg:absolute lg:-top-14 lg:-left-4 ">
-              Update profile
+              {t(`${"update_profile"}`)}
             </p>
             <Image img_url={imgurl} className="w-full  !object-scale-down  " />
           </div>
           {/* first div */}
           <div className="order-1 w-full overflow-y-auto overflow-x-hidden scrollbar-hide  lg:w-96 lg:order-2">
             <p className=" text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-3xl lg:invisible lg:text-2xl  ">
-              Update profile
+              {t(`${"update_profile"}`)}
             </p>
             <form
               className="flex flex-col w-full h-[450px] "
@@ -142,7 +148,7 @@ function AddUserProfile() {
               onSubmit={handleSubmit(upload)}
             >
               <div className="flex flex-col p-1 relative ">
-                <Label title="Upload Image" />
+                <Label title={t(`${"upload_image"}`)} />
                 <UploadFile
                   type="file"
                   name="avatar"
@@ -157,7 +163,7 @@ function AddUserProfile() {
                 )}
               </div>
               <div className="p-1 mt-3 relative ">
-                <Label title="Email" />
+                <Label title={t(`${"email"}`)}  />
                 <InputField
                   type="email"
                   placeholder="example@gmail.com"
@@ -179,7 +185,7 @@ function AddUserProfile() {
               </div>
 
               <div className="p-1 mt-3 relative">
-                <Label title="Age" />
+                <Label title={t(`${"age"}`)}  />
                 <InputField
                   type="number"
                   placeholder="18"
@@ -198,7 +204,7 @@ function AddUserProfile() {
               </div>
 
               <div className="p-1 mt-3 relative">
-                <Label title="Mobile No" />
+                <Label title={t(`${"mobile_no"}`)}  />
                 <InputField
                   type="text"
                   placeholder="7056832147"
@@ -219,7 +225,7 @@ function AddUserProfile() {
               </div>
 
               <div className="p-1 mt-3 relative">
-                <Label title="Gender" />
+                <Label title={t(`${"gender"}`)}  />
 
                 <div className="ml-2">
                   <div className=" p-1  flex justify-start gap-2 ">
@@ -230,7 +236,7 @@ function AddUserProfile() {
                         required: "Gender is Required",
                       })}
                     />
-                    Male
+                    {t(`${'male'}`)}
                     <input
                       type="radio"
                       value="Female"
@@ -238,7 +244,7 @@ function AddUserProfile() {
                         required: "Gender is Required",
                       })}
                     />
-                    Female
+                    {t(`${'female'}`)}
                     {errors?.gender_field && (
                       <span className="text-red-500 text-x w-5/6 absolute left-2 -bottom-5 ">
                         {errors?.gender_field?.message}
@@ -249,7 +255,7 @@ function AddUserProfile() {
               </div>
 
               <div className=" p-1 mt-3 relative">
-                <Label title="Blood Group" />
+                <Label title={t(`${"blood_group"}`)}  />
                 <div className="relative  border-2  rounded-md ">
                   <select
                     {...register("blood_gup_field", {
@@ -260,7 +266,7 @@ function AddUserProfile() {
                     defaultValue={"AB+"}
                   >
                     <option value="" disabled hidden>
-                      Select Blood Group
+                      {t(`${'select_blood'}`)}
                     </option>
                     <option value="A+" className="text-black">A+</option>
                     <option value="A-" className="text-black">A-</option>
@@ -300,7 +306,7 @@ function AddUserProfile() {
               </div>
 
               <div className=" p-1 relative mt-7">
-                <Label title="Address" />
+                <Label title={t(`${'address'}`)} />
                 <InputField
                   type="text"
                   placeholder="M.G Road"
@@ -331,7 +337,7 @@ function AddUserProfile() {
               <div className="p-1 mt-8">
                 {Object.entries(errors).length > 0 ? (
                   <Button
-                    name="Update Profile"
+                    name={t(`${'update_profile'}`)}
                     disabled={true}
                     type="submit"
                     onClick={editprofile}
@@ -339,7 +345,7 @@ function AddUserProfile() {
                   />
                 ) : (
                   <Button
-                    name="Update Profile"
+                    name={t(`${'update_profile'}`)}
                     disabled={false}
                     type="submit"
                     onClick={editprofile}
