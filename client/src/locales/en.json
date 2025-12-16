@@ -21,10 +21,10 @@
   "name":"Name",
   "user_name":"User Name",
   "email":"Email",
-  
   "password":"Password",
   "create_acc":"Create Account",
   "all_ready":"All ready have an account ?",
-  "sign_in":"Sign in"
-  
+  "sign_in":"Sign in",
+  "forgot":"Forgot Password",
+  "don't":"Don't  have an account ?"
 }

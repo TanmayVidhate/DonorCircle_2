@@ -21,10 +21,14 @@ import LinkTo from '../Components/LinkTo';
 
 // import { Navigate } from 'react-router';
 
+//Translation
+import { useTranslation } from 'react-i18next';
 
 function Signin() {
 
     const navigate = useNavigate();
+
+     const { t, i18n } = useTranslation();
 
     const[openeye,setOpeneye] = useState(false);
 
@@ -108,10 +112,10 @@ function Signin() {
                         {/* first div    */}
                         <div className=' '>
                             <form className='lg:w-96 h-[500px] ' onSubmit={handleSubmit(onSubmit)} >
-                                <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl '>Sign In</p>
+                                <p className='text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl '>{t(`${'sign_in'}`)}</p>
 
                                 <div className='flex flex-col p-1 relative '>
-                                    <Label title="Email" />
+                                    <Label title={t(`${"email"}`)} />
                                     <InputField
                                         type="email"
                                         name="email_field"
@@ -132,7 +136,7 @@ function Signin() {
                                 </div>
 
                                 <div className='flex flex-col p-1 relative mt-9 sm:mt-4 '>
-                                    <Label title="Password" />
+                                    <Label title={t(`${"password"}`)} />
                                     <InputField
                                         type={openeye ?"text":"password"} 
 
@@ -154,12 +158,12 @@ function Signin() {
 
                                 <div className='flex justify-center items-center p-1 mt-16 '>
                                     {
-                                        (Object.entries(errors).length > 0 ) ?  (<Button name="Signin"
+                                        (Object.entries(errors).length > 0 ) ?  (<Button name={t(`${"sign_in"}`)}
                                         disabled={true}
                                         hover={true}
                                         onClick={isuserisValid }
                                         className="!px-6 !py-2 !rounded-lg !w-full"
-                                    />) : (<Button name="Signin" 
+                                    />) : (<Button name={t(`${"sign_in"}`)}
                                         disabled={false}
                                         hover={true}
                                         onClick={isuserisValid }
@@ -170,11 +174,11 @@ function Signin() {
 
                                 <div className='p-1 mt-2'>
                                     <div className='mb-2'>
-                                        <LinkTo url={"#"} className="capitalize !text-base !text-blue-800  w-full md:!text-lg  " >Forgot Password </LinkTo>
+                                        <LinkTo url={"#"} className="capitalize !text-base !text-blue-800  w-full md:!text-lg  " >{t(`${'forgot'}`)} </LinkTo>
                                     </div>
 
                                     <div>
-                                        <LinkTo url={"/signup"} className="capitalize font-normal !text-gray-700 w-full sm:text-lg md:text-xl lg:text-base " >Don't  have an account ? <br /> <span className='text-blue-800 hover:text-blue-600 '>Sign up </span></LinkTo>
+                                        <LinkTo url={"/signup"} className="capitalize font-normal !text-gray-700 w-full sm:text-lg md:text-xl lg:text-base " >{t(`${"don't"}`)} <br /> <span className='text-blue-800 hover:text-blue-600 '>{t(`${"sign_up"}`)} </span></LinkTo>
                                     </div>
 
                                 </div>
