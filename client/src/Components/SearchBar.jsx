@@ -2,7 +2,15 @@ import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
+
+//Translation
+import { useTranslation } from 'react-i18next';
+
 function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
+
+  const { t, i18n } = useTranslation();
+
+
   const handleSearchval = async () => {
     try {
       const response = await axios.get(
@@ -36,7 +44,7 @@ function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
             onChange={(e) => {
               setSearchval(e.target.value);
             }}
-            placeholder="Search blood group..."
+            placeholder={t(`${"search_blood"}`)}
             className="flex-1 px-4 py-2 border  rounded-lg
                        text-gray-700 w-3/6 text-sm sm:text-base
                        focus:outline-none focus:ring-0 focus:bg-transparen  "
@@ -48,7 +56,7 @@ function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
                        text-sm sm:text-base font-semibold
                        hover:bg-[#f7c789] transition-all duration-200"
           >
-            Search
+            {t(`${"search"}`)}
           </button>
 
         </div>

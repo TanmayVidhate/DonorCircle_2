@@ -26,5 +26,7 @@
   "all_ready":"All ready have an account ?",
   "sign_in":"Sign in",
   "forgot":"Forgot Password",
-  "don't":"Don't  have an account ?"
+  "don't":"Don't  have an account ?",
+  "search":"Search",
+  "search_blood":"Search blood group..."
 }
