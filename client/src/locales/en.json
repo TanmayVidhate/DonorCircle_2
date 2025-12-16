@@ -38,5 +38,7 @@
   "address":"Address",
   "male":"Male",
   "female":"Female",
-  "select_blood":"Select Blood Group"
+  "select_blood":"Select Blood Group",
+  "full_name":"Full Name",
+  "user_information":"User Information"
 }

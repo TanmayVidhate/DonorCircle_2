@@ -7,7 +7,13 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import Footer from "../Components/Footer";
 
+//Translation
+import { useTranslation } from 'react-i18next';
+
 function ShowAllUserInfo() {
+
+  const { t, i18n } = useTranslation();
+  
   const [user, setUser] = useState({});
 
   let { email } = useParams();
@@ -53,7 +59,7 @@ function ShowAllUserInfo() {
               <div className="w-full max-w-4xl bg-white  p-6 sm:p-8 md:p-10">
                 {/* Title */}
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900">
-                  User Information
+                   {t(`${'user_name'}`)}
                 </h1>
 
                 {/* Always 2 Columns – Even on tiny screens */}
@@ -61,7 +67,7 @@ function ShowAllUserInfo() {
                   {/* Label + Value */}
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Full Name
+                      {t(`${'full_name'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {name}
@@ -70,7 +76,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Username
+                      {t(`${'user_name'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {username}
@@ -79,7 +85,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Address
+                      {t(`${'address'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {address}
@@ -88,7 +94,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Email
+                      {t(`${'email'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {userEmail}
@@ -97,7 +103,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Age
+                      {t(`${'age'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {age} years
@@ -106,7 +112,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Blood Group
+                      {t(`${'blood_group'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-bold text-red-600">
                       {blood_group}
@@ -115,7 +121,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Gender
+                      {t(`${'gender'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {gender}
@@ -124,7 +130,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      Mobile Number
+                      {t(`${'mobile_no'}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {mobile_no}

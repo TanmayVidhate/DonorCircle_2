@@ -38,6 +38,8 @@
     "address":"पत्ता",
     "male":"पुरुष",
     "female":"स्त्री",
-    "select_blood":"रक्तगट निवडा"
+    "select_blood":"रक्तगट निवडा",
+    "full_name":"पूर्ण नाव",
+    "user_information":"वापरकर्ता माहिती"
     
 }

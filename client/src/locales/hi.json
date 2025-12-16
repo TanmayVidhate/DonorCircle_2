@@ -38,6 +38,8 @@
     "address":"पता",
     "male":"पुरुष",
     "female":"महिला",
-    "select_blood":"ब्लड ग्रुप चुनें"
+    "select_blood":"ब्लड ग्रुप चुनें",
+    "full_name":"पूरा नाम",
+    "user_information":"यूजर जानकारी"
     
 }
