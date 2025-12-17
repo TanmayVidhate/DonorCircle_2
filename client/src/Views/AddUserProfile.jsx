@@ -169,10 +169,10 @@ function AddUserProfile() {
                   placeholder="example@gmail.com"
                   name="email"
                   {...register("email_field", {
-                    required: "Email is required",
+                    required: t(`${"email_req"}`),
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-                      message: "Enter a valid email address",
+                      message: t(`${"enter_a_valid_email"}`),
                     },
                   })}
                   icon={<Mail />}
@@ -190,9 +190,9 @@ function AddUserProfile() {
                   type="number"
                   placeholder="18"
                   {...register("age_field", {
-                    required: "Age is required",
-                    min: { value: 18, message: "You must be at least 18" },
-                    max: { value: 100, message: "Age cannot be more than 100" },
+                    required: t(`${"age_is"}`),
+                    min: { value: 18, message: t(`${"you_must"}`) },
+                    max: { value: 100, message: t(`${"age_cannot"}`) },
                   })}
                   icon={<ArrowUp10 />}
                 />
@@ -209,10 +209,10 @@ function AddUserProfile() {
                   type="text"
                   placeholder="7056832147"
                   {...register("mobile_no_field", {
-                    required: "Mobile number is required",
+                    required: t(`${"mobile_req"}`),
                     pattern: {
                       value: /^[6-9]\d{9}$/, // For Indian numbers: starts with 6-9, total 10 digits
-                      message: "Enter a valid 10-digit mobile number",
+                      message: t(`${"enter_a_valid_10"}`),
                     },
                   })}
                   icon={<Phone />}
@@ -311,18 +311,18 @@ function AddUserProfile() {
                   type="text"
                   placeholder="M.G Road"
                   {...register("address_field", {
-                    required: "Address is required",
+                    required: t(`${"address_req"}`),
                     minLength: {
                       value: 4,
-                      message: "Address must be at least 5 characters long",
+                      message: t(`${"address_must_be"}`),
                     },
                     maxLength: {
                       value: 100,
-                      message: "Address cannot exceed 100 characters",
+                      message: t(`${"address_cannot_excees"}`),
                     },
                     pattern: {
                       value: /^[a-zA-Z0-9\s,.'-]{5,}$/,
-                      message: "Enter a valid address",
+                      message: t(`${"address"}`),
                     },
                   })}
                   icon={<MapPinHouse />}

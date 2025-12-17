@@ -40,5 +40,19 @@
   "female":"Female",
   "select_blood":"Select Blood Group",
   "full_name":"Full Name",
-  "user_information":"User Information"
+  "user_information":"User Information",
+  "user_req":"Username required",
+  "3-15_char":"3–15 chars, start with letter, letters/numbers/_ only",
+  "email_req":"Email is required",
+  "enter_a_valid_email":"Enter a valid email address",
+  "password_req":"Password is required",
+  "password_validation":"Min 8 chars, include uppercase, lowercase, number & symbol.",
+  "age_is":"Age is required",
+  "you_must":"You must be at least 18",
+  "age_cannot":"Age cannot be more than 100",
+  "mobile_req":"Mobile number is required",
+  "enter_a_valid_10":"Enter a valid 10-digit mobile number",
+  "address_req":"Address is required",
+  "address_must_be":"Address must be at least 5 characters long",
+  "address_cannot_excees":"Address cannot exceed 100 characters"
 }

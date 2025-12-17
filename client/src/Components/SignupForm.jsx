@@ -128,10 +128,10 @@ function SignupForm() {
                                     name="username_field"
 
                                     {...register("username_field", {
-                                        required: "Username required",
+                                        required: t(`${"user_req"}`),
                                         pattern: {
                                             value: /^[a-zA-Z0-9_-]{3,16}$/,
-                                            message: "3–15 chars, start with letter, letters/numbers/_ only",
+                                            message: t(`${'3-15_char'}`),
                                         },
                                     })}
 
@@ -149,10 +149,10 @@ function SignupForm() {
                                     name="email_field"
                                     placeholder="user@example.com"
                                     {...register("email_field", {
-                                        required: "Email is required",
+                                        required: t(`${'email_req'}`),
                                         pattern: {
                                             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                                            message: "Enter a valid email address",
+                                            message: t(`${"enter_a_valid_email"}`),
                                         },
                                     })}
 
@@ -168,11 +168,11 @@ function SignupForm() {
                                     type={openeye ?"text":"password"} 
                                     name="pass_field"
                                     {...register("pass_field", {
-                                        required: "Password is required",
+                                        required: t(`${"password_req"}`),
 
                                         pattern: {
                                             value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                                            message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
+                                            message: t(`${"password_validation"}`),
                                         },
                                     })}
                                     

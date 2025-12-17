@@ -121,10 +121,10 @@ function Signin() {
                                         name="email_field"
                                         placeholder="user@example.com"
                                         {...register("email_field", {
-                                            required: "Email is required",
+                                            required: t(`${"email_req"}`),
                                             pattern: {
                                                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                                                message: "Enter a valid email address",
+                                                message: t(`${"enter_a_valid_email"}`),
                                             },
                                         })}
 
@@ -142,11 +142,11 @@ function Signin() {
 
                                         name="pass_field"
                                         {...register("pass_field", {
-                                            required: "Password is required",
+                                            required: t(`${"password_req"}`),
 
                                             pattern: {
                                                 value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                                                message: "Min 8 chars, include uppercase, lowercase, number & symbol.",
+                                                message: t(`${"password_validation"}`),
                                             },
                                         })}
                                         icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/> : <Eye onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/> }
