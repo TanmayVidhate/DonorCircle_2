@@ -6,8 +6,7 @@ DonorCircle is a web platform where blood donors can register their details and 
 
 ## Features ✨
 - User registration and login with secure password hashing 🔐  
-- JWT-based authentication and role-based authorization 🛡️  
-- Multi-tenant support with custom landing pages 🏢  
+- JWT-based authentication  🛡️    
 - Dynamic localization without manual JSON updates 🌍  
 - Lazy loading for better performance ⚡  
 - Error boundaries to handle runtime errors smoothly 🚧  
@@ -16,7 +15,7 @@ DonorCircle is a web platform where blood donors can register their details and 
 ---
 
 ## Tech Stack 🛠️
-- Frontend: React, TailwindCSS, Zustand, Immer  
+- Frontend: React, TailwindCSS, 
 - Backend: Node.js, Express.js  
 - Database: MongoDB  
 - Authentication: JWT, bcrypt  
