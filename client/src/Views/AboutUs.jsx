@@ -9,6 +9,13 @@ import Image from "../Components/Image";
 import Footer from "../Components/Footer";
 
 function AboutUs() {
+
+  if(Math.random() > 0.5)
+  {
+    return new Error("Test Error Boundary..")
+  }
+
+
   return (
     <div className="flex flex-col min-h-screen bg-[#ffd6a5] ">
       <Navbar />
