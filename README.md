@@ -20,6 +20,18 @@ DonorCircle is a web platform where blood donors can register their details and 
 ## Purpose
 The goal of DonorCircle is to reduce the time and effort needed to find blood donors by enabling direct and reliable communication.
 
-## ScreenShot
+## ScreenShots
 
 ![DonorCircle Screenshot](./client/src/assets/screenshot/landing_page.png)
+
+---
+
+![main_page](./client/src/assets/screenshot/main_page.png)
+
+---
+
+![sign_in](./client/src/assets/screenshot/sign_in.png)
+
+---
+
+![signup_page](./client/src/assets/screenshot/signup_page.png)
