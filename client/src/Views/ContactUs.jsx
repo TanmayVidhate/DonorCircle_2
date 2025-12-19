@@ -9,7 +9,15 @@ import Footer from "../Components/Footer";
 // Lucide Icons
 import { Phone, Mail, MessageSquare } from "lucide-react";
 
+//Translation
+import { useTranslation } from 'react-i18next';
+
+
+
 function ContactUs() {
+
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="flex flex-col  min-h-screen bg-[#ffd6a5]">
       <Navbar />
@@ -21,13 +29,11 @@ function ContactUs() {
                     "
         >
           {/* Heading */}
-          <p className="text-2xl font-semibold tracking-wider my-5">Get in Touch</p>
+          <p className="text-2xl font-semibold tracking-wider my-5">{t(`${"get_in_touch"}`)}</p>
 
           {/* Sub Text */}
           <p className="font-light mt-2 text-gray-700">
-            We’re committed to assisting you anytime, day or night — every
-            request counts. Whether you’re a donor or someone in need, your
-            concerns are our top priority.
+            {t(`${"we're"}`)}
           </p>
 
           {/* Cards */}
@@ -40,33 +46,33 @@ function ContactUs() {
             <ContactUSCard
               className="bg-cyan-300"
               Icon={Phone}
-              title="Phone Support"
-              info="Speak directly with our support team."
-              mobile="+91 1234567890"
-              action="24/7 Available"
-              btntext="Call Now"
+              title={t(`${"phone_support"}`)}
+              info={t(`${"speak_directly"}`)}
+              mobile={t(`${"no"}`)}
+              action={t(`${"24/7"}`)}
+              btntext={t(`${"call_now"}`)}
               btnbgcolor="bg-cyan-300"
             />
 
             <ContactUSCard
               className="bg-red-300"
               Icon={Mail}
-              title="Email Support"
-              info="Send us detailed queries."
+              title={t(`${"email_support"}`)}
+              info={t(`${"send_us"}`)}
               mobile="support@blooddonor.in"
-              action="Response in 2 hours"
-              btntext="Send Email"
+              action={t(`${"response_in"}`)}
+              btntext={t(`${"send_em"}`)}
               btnbgcolor="bg-red-300"
             />
 
             <ContactUSCard
               className="bg-green-300"
               Icon={MessageSquare}
-              title="WhatsApp"
-              info="Quick support via WhatsApp."
-              mobile="+91 9970714597"
-              action="Business hours"
-              btntext="Message"
+              title={t(`${"whatsapp"}`)}
+              info={t(`${"quick_supp"}`)}
+              mobile={t(`${"no1"}`)}
+              action={t(`${"business_hours"}`)}
+              btntext={t(`${"mess"}`)}
               btnbgcolor="bg-green-300"
             />
           </div>

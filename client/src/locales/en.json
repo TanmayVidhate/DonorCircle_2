@@ -54,5 +54,52 @@
   "enter_a_valid_10":"Enter a valid 10-digit mobile number",
   "address_req":"Address is required",
   "address_must_be":"Address must be at least 5 characters long",
-  "address_cannot_excees":"Address cannot exceed 100 characters"
+  "address_cannot_excees":"Address cannot exceed 100 characters",
+  "get_in_touch":"Get in Touch",
+  "we're":"We’re committed to assisting you anytime, day or night — every request counts. Whether you’re a donor or someone in need, your concerns are our top priority.",
+  "phone_support":"Phone Support",
+  "speak_directly":"Speak directly with our support team.",
+  "no":"+91 1234567890",
+  "24/7":"24/7 Available",
+  "call_now":"Call Now",
+  "email_support":"Email Support",
+  "send_us":"Send us detailed queries.",
+  "response_in":"Response in 2 hours",
+  "send_em":"Send Email",
+  "whatsapp":"WhatsApp",
+  "quick_supp":"Quick support via WhatsApp.",
+  "no1":"+91 9970714597",
+  "business_hours":"Business hours",
+  "mess":"Message",
+  "about_para_1":"Welcome to DonorCircle — a platform created to connect blood donors with those in need. We believe that a single donation can save multiple lives, and our mission is to make the process of finding and contacting donors simple, fast, and reliable.",
+  "about_para_2":"At DonorCircle, donors can easily register their details, and people in need can directly reach out to them without any middleman. We aim to build a community of responsible donors and create a network where help is always just a click away.",
+  "tag_line":"Together, we can make a difference and give the gift of life."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
