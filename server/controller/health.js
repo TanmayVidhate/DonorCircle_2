@@ -2,7 +2,7 @@ const health = (req, res) => {
     res.status(200).json({
         success: true,
         data: null,
-        message: "Server is Running on Port..."
+        message: "DonorCircle's Server is Running on Port..."
     })
 }
 
