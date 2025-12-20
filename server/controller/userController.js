@@ -148,9 +148,9 @@ const adduserallinfo = async (req, res) => {
 
         // console.log("age=", age)
         // console.log("mobile_no=", mobile_no)
-        console.log("gender==", gender);
+        // console.log("gender==", gender);
         // console.log("blood_gup==", blood_group);
-        console.log("address==", address);
+        // console.log("address==", address);
 
         if (!email || !age || !mobile_no || !blood_group || !address || !gender ) {
             let msgArr=[];
@@ -233,25 +233,18 @@ const uploadimg = async (req, res) => {
     const { email } = req.body;
     console.log("email==", email)
 
-    const file = req.file.buffer.toString("base64")
+    const file = req?.file?.buffer?.toString("base64")
+    console.log("file==",file)
+    try 
+        {
+            const updatedUser = await UserSignup.findOneAndUpdate({ email },{$push: {other_info: { userpro: file }}},{ new: true });
+            console.log("u===",updatedUser);
 
-    try {
-        const updatedUser = await UserSignup.findOneAndUpdate({ email: email },
-            {
-                $push: {
-                    // ...updatedUser.profile_updates,
-                    other_info: [{ userpro: file }]
-                }
-            },
-            { new: true }
-        );
-
-        res.status(201).json({
+            res.status(201).json({
             success: true,
             data: updatedUser,
             message: "User profile photo update..."
-        })
-    }
+        })}
     catch (error) {
         res.status(400).json({
             success: true,
