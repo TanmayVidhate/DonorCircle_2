@@ -90,12 +90,13 @@ function ShowAllUser() {
                 {(cardshow.length > 0 && searchval ? cardshow : users).map(
                   (user, i) => {
                     const { name, email, other_info } = user;
-                    const { mobile_no, blood_group, address, age } =
-                      other_info?.[0] || {};
+                    const { mobile_no, blood_group, address, age } = other_info?.[0] || {};
+                    const { userpro } = other_info?.[1] || {};
 
                     if (other_info?.length) {
                       return (
                         <Cards
+                          profileimg = {userpro}
                           key={i}
                           name={name}
                           email={email}
