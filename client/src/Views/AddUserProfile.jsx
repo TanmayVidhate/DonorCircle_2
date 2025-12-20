@@ -57,7 +57,7 @@ function AddUserProfile() {
   const gender = watch("gender_field");
   const blood_gup = watch("blood_gup_field");
   const address = watch("address_field");
-  const userpro = watch("user_profile");
+  const userpro = watch("user_profile")?.[0];
 
   // console.log("e==", email)
   // console.log("age==", age)
@@ -70,11 +70,11 @@ function AddUserProfile() {
   const upload = async (formData) => {
     try {
       const data = new FormData();
-      if (formData.user_profile && formData.user_profile.length > 0) {
-        data.append("avatar", formData.user_profile[0]); // 'avatar' must match multer field name
+      if (formData?.user_profile && formData?.user_profile?.length > 0) {
+        data.append("avatar", formData?.user_profile?.[0]); // 'avatar' must match multer field name
       }
-      data.append("email", formData.email_field);
-
+      data.append("email", formData?.email_field);
+      console.log("dd==", data);
       const res = await axios.post(
         "http://localhost:5001/Users/uploadimage",
         data,
@@ -108,7 +108,6 @@ function AddUserProfile() {
           gender: gender,
           blood_group: blood_gup,
           address: address,
-          userpro: userpro,
         }
       );
 
@@ -144,8 +143,9 @@ function AddUserProfile() {
             </p>
             <form
               className="flex flex-col w-full h-[450px] "
+              method="post"
               encType="multipart/form-data"
-              onSubmit={handleSubmit(upload)}
+              // onSubmit={handleSubmit(upload)}
             >
               <div className="flex flex-col p-1 relative ">
                 <Label title={t(`${"upload_image"}`)} />
@@ -348,7 +348,8 @@ function AddUserProfile() {
                     name={t(`${'update_profile'}`)}
                     disabled={false}
                     type="submit"
-                    onClick={editprofile}
+                    // onClick={editprofile}
+                    onClick={handleSubmit(upload)}
                     className="!px-1 !py-2 !rounded-lg !w-full"
                   />
                 )}
