@@ -37,8 +37,8 @@ const UserSignUp = new Schema({
             userpro: {
                 type: String,
                 required: true, 
-                trim: true,
-                match: /\.(jpg|jpeg|png|webp)$/i
+                // trim: true,
+                // match: /\.(jpg|jpeg|png|webp)$/i
             },
             age: {
                 type: Number,
