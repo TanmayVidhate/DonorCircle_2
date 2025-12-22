@@ -67,37 +67,10 @@ function AddUserProfile() {
   // console.log("address==", address)
   // console.log("userpro==", userpro)
 
-  const upload = async (formData) => {
-    try {
-      const data = new FormData();
-      if (formData?.user_profile && formData?.user_profile?.length > 0) {
-        data.append("avatar", formData?.user_profile?.[0]); // 'avatar' must match multer field name
-      }
-      data.append("email", formData?.email_field);
-      console.log("dd==", data);
-      const res = await axios.post(
-        "http://localhost:5001/Users/uploadimage",
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      console.log("res=", res);
-      toast.success("Profile image uploaded successfully!");
-      reset();
-    } catch (error) {
-      console.log(error);
-      toast.error("Image upload failed");
-    }
-  };
 
   const navigate = useNavigate();
 
-  const editprofile = async (e) => {
-    e.preventDefault();
+  const editprofile = async () => {
     try {
       const response = await axios.put(
         "http://localhost:5001/Users/addprofileinfo",
@@ -145,13 +118,14 @@ function AddUserProfile() {
               className="flex flex-col w-full h-[450px] "
               method="post"
               encType="multipart/form-data"
-              // onSubmit={handleSubmit(upload)}
+              onSubmit={handleSubmit(editprofile)}
             >
-              <div className="flex flex-col p-1 relative ">
+              {/* <div className="flex flex-col p-1 relative ">
                 <Label title={t(`${"upload_image"}`)} />
                 <UploadFile
                   type="file"
                   name="avatar"
+                  onChange={upload}
                   {...register("user_profile", {
                     required: "Upload Photos",
                   })}
@@ -161,9 +135,9 @@ function AddUserProfile() {
                     {errors?.user_profile?.message}
                   </span>
                 )}
-              </div>
+              </div> */}
               <div className="p-1 mt-3 relative ">
-                <Label title={t(`${"email"}`)}  />
+                <Label title={t(`${"email"}`)} />
                 <InputField
                   type="email"
                   placeholder="example@gmail.com"
@@ -185,7 +159,7 @@ function AddUserProfile() {
               </div>
 
               <div className="p-1 mt-3 relative">
-                <Label title={t(`${"age"}`)}  />
+                <Label title={t(`${"age"}`)} />
                 <InputField
                   type="number"
                   placeholder="18"
@@ -204,7 +178,7 @@ function AddUserProfile() {
               </div>
 
               <div className="p-1 mt-3 relative">
-                <Label title={t(`${"mobile_no"}`)}  />
+                <Label title={t(`${"mobile_no"}`)} />
                 <InputField
                   type="text"
                   placeholder="7056832147"
@@ -340,16 +314,15 @@ function AddUserProfile() {
                     name={t(`${'update_profile'}`)}
                     disabled={true}
                     type="submit"
-                    onClick={editprofile}
+                    
                     className="!px-1 !py-2 !rounded-lg !w-full"
                   />
                 ) : (
                   <Button
-                    name={t(`${'update_profile'}`)}
+                    name={t(`${"update_profile"}`)}
                     disabled={false}
-                    type="submit"
-                    // onClick={editprofile}
-                    onClick={handleSubmit(upload)}
+                    type="button"
+                    
                     className="!px-1 !py-2 !rounded-lg !w-full"
                   />
                 )}
