@@ -13,6 +13,7 @@ const ContactUs = lazy(() => import("../Views/ContactUs.jsx"));
 const FAQ = lazy(() => import("../Views/FAQ.jsx"));
 
 import Loader from "../Components/Loader.jsx";
+import UploadImg from "../Views/UploadImg.jsx";
 
 //Components Import
 const SignupForm = lazy(() => import("../Components/SignupForm.jsx"));
@@ -22,10 +23,7 @@ import Fallback from "../Components/FallBackErrorHandle.jsx";
 
 function AppRoutes() {
   return (
-
-    <ErrorBoundary FallbackComponent={Fallback} onReset={() => {
-    }}>
-
+    <ErrorBoundary FallbackComponent={Fallback} onReset={() => {}}>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -33,13 +31,13 @@ function AppRoutes() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/showalluers" element={<ShowAllUser />} />
           <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
+          <Route path="/uploadImg" element={<UploadImg />} />
           <Route path="/adduserprofile" element={<AddUserProfile />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </Suspense>
-
     </ErrorBoundary>
   );
 }
