@@ -19,8 +19,6 @@ function ShowAllUser() {
 
   const [cardshow, setCardshow] = useState("");
 
-  console.log("object==", Storeobje);
-
   const loadUserData = async () => {
     try {
       const response = await axios.get(
