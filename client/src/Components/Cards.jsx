@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import UploadFile from './UploadFile';
-
+import { useNavigate } from "react-router";
 
 //Components Import
 import LinkTo from './LinkTo';
+import Button from "../Components/Button";
 
 //Lucid icon Import
 import { EllipsisVertical, UserPlus, UserRound } from 'lucide-react';
 import axios from 'axios';
 
 function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, message }) {
-    // console.log("e==",email)
-
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
     const secondWord = name?.split(" ")[1]
@@ -54,25 +54,15 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                 <div className='flex justify-between  items-center'>
                     {/* first div */}
                     <div className='w-20 h-20 flex items-center justify-center rounded-full bg-orange-200 text-orange-700 font-bold text-lg'  >
-                        {/* <UploadFile
-                            type="file"
-                            name="avatar"
+                        <Button
+                                name={(`${""}`)}
+                                hover={true}
+                                onClick={() => navigate("/uploadimg")}
+                            />
 
-                            onChange={async (e) => {
-                                const selectedFile = e.target.files[0];
-                                console.log("Selected File:", selectedFile);
-
-                                SetUserProfile({
-                                    ...userprofile,
-                                    userprofile: selectedFile,
-
-                                });
-                                await UploadImg();
-                            }}
-
-                        /> */}
-                        {`${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`}
-                        {/* <img src='' alt="profile_image"/> */}
+                        {
+                            profileimg?.length > 0 ? <img src={`data:image/jpeg;base64,${profileimg}`} alt="profileimg" /> : `${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`
+                        }
                     </div>
 
                     {/* second div */}
