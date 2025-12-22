@@ -230,14 +230,14 @@ const getUserAllinfoByemail = async (req, res) => {
 
 const uploadimg = async (req, res) => {
 
-    const { email } = req.body;
+    const { email } = req?.body;
     console.log("email==", email)
 
     const file = req?.file?.buffer?.toString("base64")
     console.log("file==",file)
     try 
         {
-            const updatedUser = await UserSignup.findOneAndUpdate({ email },{$push: {other_info: { userpro: file }}},{ new: true });
+            const updatedUser = await UserSignup.findOneAndUpdate({ email },{$set: {"other_info.0.userpro": file}},{ new: true, upsert: false });
             console.log("u===",updatedUser);
 
             res.status(201).json({
