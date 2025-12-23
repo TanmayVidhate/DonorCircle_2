@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 //Components Import
 import Navbar from "../Components/Navbar";
-import { useParams } from "react-router";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
 import Footer from "../Components/Footer";
 
 //Translation
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 function ShowAllUserInfo() {
-
   const { t, i18n } = useTranslation();
-  
+
   const [user, setUser] = useState({});
 
   let { email } = useParams();
@@ -59,7 +58,7 @@ function ShowAllUserInfo() {
               <div className="w-full max-w-4xl bg-white  p-6 sm:p-8 md:p-10">
                 {/* Title */}
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900">
-                   {t(`${'user_name'}`)}
+                  {t(`${"user_name"}`)}
                 </h1>
 
                 {/* Always 2 Columns – Even on tiny screens */}
@@ -67,7 +66,7 @@ function ShowAllUserInfo() {
                   {/* Label + Value */}
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'full_name'}`)}
+                      {t(`${"full_name"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {name}
@@ -76,7 +75,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'user_name'}`)}
+                      {t(`${"user_name"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {username}
@@ -85,7 +84,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'address'}`)}
+                      {t(`${"address"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {address}
@@ -94,7 +93,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'email'}`)}
+                      {t(`${"email"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {userEmail}
@@ -103,7 +102,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'age'}`)}
+                      {t(`${"age"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {age} years
@@ -112,7 +111,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'blood_group'}`)}
+                      {t(`${"blood_group"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-bold text-red-600">
                       {blood_group}
@@ -121,7 +120,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'gender'}`)}
+                      {t(`${"gender"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {gender}
@@ -130,7 +129,7 @@ function ShowAllUserInfo() {
 
                   <div>
                     <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${'mobile_no'}`)}
+                      {t(`${"mobile_no"}`)}
                     </p>
                     <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
                       {mobile_no}
