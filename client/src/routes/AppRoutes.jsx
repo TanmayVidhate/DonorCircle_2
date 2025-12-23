@@ -31,7 +31,7 @@ function AppRoutes() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/showalluers" element={<ShowAllUser />} />
           <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
-          <Route path="/uploadImg" element={<UploadImg />} />
+          <Route path="/uploadImg/:email" element={<UploadImg />} />
           <Route path="/adduserprofile" element={<AddUserProfile />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
