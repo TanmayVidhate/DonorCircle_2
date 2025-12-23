@@ -53,20 +53,24 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
 
                 <div className='flex justify-between  items-center'>
                     {/* first div */}
-                    <div className='w-20 h-20 flex items-center justify-center rounded-full bg-orange-200 text-orange-700 font-bold text-lg'  >
+                    <div className='w-20 h-20 relative  rounded-full bg-orange-200 text-orange-700 font-bold text-lg'  >
+                        <div className='absolute'> 
+                            {
+                                profileimg?.length > 0 ? <img src={`data:image/jpeg;base64,${profileimg}`} className='w-20 h-20 object-contain rounded-full' alt="profileimg" /> : <p className='relative top-6 left-6'>{`${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`}</p>
+                            }
+                        </div>
+                        
+                        
                         <Button
-                                name={(`${""}`)}
-                                hover={true}
-                                onClick={() => navigate("/uploadimg")}
-                            />
-
-                        {
-                            profileimg?.length > 0 ? <img src={`data:image/jpeg;base64,${profileimg}`} alt="profileimg" /> : `${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`
-                        }
+                            className="absolute left-0  rounded-full w-full h-full bg-transparent hover:bg-transparent "
+                            name={(`${" "}`)}
+                            hover={true}
+                            onClick={() => navigate("/uploadimg")}
+                        />
                     </div>
 
                     {/* second div */}
-                    <p className='text-lg font-bold text-gray-900'>{name}</p>
+                    <p className='text-lg font-bold text-gray-900 '>{name}</p>
                 </div>
 
                 <div className='text-center leading-6  mt-5'>
