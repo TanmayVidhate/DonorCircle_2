@@ -38,7 +38,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                                 <ul className="" onClick={() => { setOpen(() => { false }) }}>
                                     <div className='flex justify-between items-center rounded-sm hover:bg-blue-100 p-1'>
                                         <UserPlus />
-                                        <LinkTo PageName="Add User info" url="/adduserprofile" className='!mr-0 !text-black !text-center  !capitalize !text-sm  p-1 cursor-pointer   ' />
+                                        <LinkTo PageName="Add User info" url={`/adduserprofile/${email}`} className='!mr-0 !text-black !text-center  !capitalize !text-sm  p-1 cursor-pointer   ' />
                                     </div>
                                     <div className='flex justify-between items-center rounded-sm hover:bg-blue-100 p-1'>
                                         <UserRound />
