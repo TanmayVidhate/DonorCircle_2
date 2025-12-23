@@ -9,9 +9,12 @@ import Footer from "../Components/Footer";
 
 //Translation
 import { useTranslation } from "react-i18next";
+import SkeletonShowAllUserInfo from "../Components/SkeletonShowAllUserInfo";
 
 function ShowAllUserInfo() {
   const { t, i18n } = useTranslation();
+
+  const [isloading, setIsloading] = useState(true);
 
   const [user, setUser] = useState({});
 
@@ -30,6 +33,7 @@ function ShowAllUserInfo() {
       // console.log("r==", records.data.data)
 
       setUser(() => records.data.data);
+      setIsloading(!isloading);
     } catch (error) {
       toast.dismiss();
       toast.error(error?.response?.data?.message);
@@ -54,90 +58,94 @@ function ShowAllUserInfo() {
         <div className="flex-1 grid place-items-center">
           <div className="p-4 bg-white border rounded-lg mt-28 mb-16 max-w-[95%] min-h-max sm:w-3/4 sm:px-5 lg:w-4/5 lg:py-5 lg:mt-24 lg:mb-36 2xl:w-3/6">
             {/* card */}
-            <div className="flex-1 flex justify-center items-start p-4 sm:p-6 md:p-10">
-              <div className="w-full max-w-4xl bg-white  p-6 sm:p-8 md:p-10">
-                {/* Title */}
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900">
-                  {t(`${"user_name"}`)}
-                </h1>
+            {isloading ? (
+              <SkeletonShowAllUserInfo />
+            ) : (
+              <div className="flex-1 flex justify-center items-start p-4 sm:p-6 md:p-10">
+                <div className="w-full max-w-4xl bg-white  p-6 sm:p-8 md:p-10">
+                  {/* Title */}
+                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900">
+                    {t(`${"user_name"}`)}
+                  </h1>
 
-                {/* Always 2 Columns – Even on tiny screens */}
-                <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-10">
-                  {/* Label + Value */}
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"full_name"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {name}
-                    </p>
-                  </div>
+                  {/* Always 2 Columns – Even on tiny screens */}
+                  <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-10">
+                    {/* Label + Value */}
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"full_name"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {name}
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"user_name"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {username}
-                    </p>
-                  </div>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"user_name"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {username}
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"address"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {address}
-                    </p>
-                  </div>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"address"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {address}
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"email"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {userEmail}
-                    </p>
-                  </div>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"email"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {userEmail}
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"age"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {age} years
-                    </p>
-                  </div>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"age"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {age} years
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"blood_group"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-bold text-red-600">
-                      {blood_group}
-                    </p>
-                  </div>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"blood_group"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-bold text-red-600">
+                        {blood_group}
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"gender"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {gender}
-                    </p>
-                  </div>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"gender"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {gender}
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500 font-semibold">
-                      {t(`${"mobile_no"}`)}
-                    </p>
-                    <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
-                      {mobile_no}
-                    </p>
+                    <div>
+                      <p className="text-xs sm:text-sm text-gray-500 font-semibold">
+                        {t(`${"mobile_no"}`)}
+                      </p>
+                      <p className="text-sm sm:text-lg md:text-xl font-medium text-gray-900">
+                        {mobile_no}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 

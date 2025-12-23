@@ -20,7 +20,7 @@ function ShowAllUser() {
 
   const [cardshow, setCardshow] = useState("");
 
-  const [isloading, setLoadiing] = useState(true);
+  const [isloading, setIsloading] = useState(true);
 
   const loadUserData = async () => {
     try {
@@ -31,7 +31,7 @@ function ShowAllUser() {
       toast.success("Data fetch 👍");
       // console.log(response?.data)
       setUsers(response?.data?.data);
-      setLoadiing(!isloading);
+      setIsloading(!isloading);
     } catch (error) {
       toast.dismiss();
       toast.error(error?.response?.data?.message || error?.message);
