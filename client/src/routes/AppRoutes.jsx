@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -23,22 +24,24 @@ import Fallback from "../Components/FallBackErrorHandle.jsx";
 
 function AppRoutes() {
   return (
-    <ErrorBoundary FallbackComponent={Fallback} onReset={() => {}}>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/showalluers" element={<ShowAllUser />} />
-          <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
-          <Route path="/uploadImg/:email" element={<UploadImg />} />
-          <Route path="/adduserprofile/:email" element={<AddUserProfile />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/faq" element={<FAQ />} />
-        </Routes>
-      </Suspense>
-    </ErrorBoundary>
+    <SkeletonTheme color="#202020" highlightColor="#bbb">
+      <ErrorBoundary FallbackComponent={Fallback} onReset={() => {}}>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/showalluers" element={<ShowAllUser />} />
+            <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
+            <Route path="/uploadImg/:email" element={<UploadImg />} />
+            <Route path="/adduserprofile/:email" element={<AddUserProfile />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/faq" element={<FAQ />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
+    </SkeletonTheme>
   );
 }
 

@@ -7,6 +7,7 @@ import axios from "axios";
 import Navbar from "../Components/Navbar.jsx";
 import Cards from "../Components/Cards.jsx";
 import SearchBar from "../Components/SearchBar.jsx";
+import SkeletonCard from "../Components/SkeletonCard.jsx";
 
 function ShowAllUser() {
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ function ShowAllUser() {
 
   const [cardshow, setCardshow] = useState("");
 
+  const [isloading, setLoadiing] = useState(true);
+
   const loadUserData = async () => {
     try {
       const response = await axios.get(
@@ -28,6 +31,7 @@ function ShowAllUser() {
       toast.success("Data fetch 👍");
       // console.log(response?.data)
       setUsers(response?.data?.data);
+      setLoadiing(!isloading);
     } catch (error) {
       toast.dismiss();
       toast.error(error?.response?.data?.message || error?.message);
@@ -85,34 +89,47 @@ function ShowAllUser() {
           <div className=" rounded-lg bg-white  w-5/6 p-3 md:w-4/5  lg:w-3/5 ">
             <div className="w-full h-[550px] overflow-y-auto scrollbar-hide ">
               <div className="w-full flex flex-col justify-center items-center sm:flex sm:justify-center sm:items-center  sm:flex-wrap lg:flex lg:flex-row">
-                {(cardshow.length > 0 && searchval ? cardshow : users).map(
-                  (user, i) => {
-                    const { name, email, other_info } = user;
-                    const { userpro,mobile_no, blood_group, address, age } = other_info?.[0] || {};
+                {isloading ? (
+                  <>
+                    <SkeletonCard />
+                    <SkeletonCard />
+                    <SkeletonCard />
+                    <SkeletonCard />
+                    <SkeletonCard />
+                    <SkeletonCard />
+                  </>
+                ) 
+                : (
+                  (cardshow.length > 0 && searchval ? cardshow : users).map(
+                    (user, i) => {
+                      const { name, email, other_info } = user;
+                      const { userpro, mobile_no, blood_group, address, age } =
+                        other_info?.[0] || {};
 
-                    if (other_info?.length) {
+                      if (other_info?.length) {
+                        return (
+                          <Cards
+                            profileimg={userpro}
+                            key={i}
+                            name={name}
+                            email={email}
+                            mobile_no={mobile_no}
+                            blood_group={blood_group}
+                            address={address}
+                            age={age}
+                          />
+                        );
+                      }
+
                       return (
                         <Cards
-                          profileimg = {userpro}
                           key={i}
                           name={name}
-                          email={email}
-                          mobile_no={mobile_no}
-                          blood_group={blood_group}
-                          address={address}
-                          age={age}
+                          message="Please Add User's Other Info"
                         />
                       );
                     }
-
-                    return (
-                      <Cards
-                        key={i}
-                        name={name}
-                        message="Please Add User's Other Info"
-                      />
-                    );
-                  }
+                  )
                 )}
 
                 {/* {users.map((user, i) => {
