@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router";
 
 //Components imports
 import Label from "../Components/Label";
@@ -18,10 +19,12 @@ import { Mail } from "lucide-react";
 //Translation
 import { useTranslation } from "react-i18next";
 
-
 function UploadImg() {
   const { t, i18n } = useTranslation();
-  
+
+  const [user, setUser] = useState({});
+  let { email } = useParams();
+
   const navigate = useNavigate();
 
   const {
@@ -40,19 +43,21 @@ function UploadImg() {
   });
 
   // watches live changes
-  const email = watch("email_field");
+  const emaill = watch("email_field");
   const userpro = watch("user_profile");
 
   const upload = async () => {
     try {
+      /*valid for email and image*/
+      if (!emaill && userpro[0]) {
+        throw new Error("Email and Avatar cannot be empty");
+      }
+
       const data = new FormData();
       if (userpro && userpro?.length > 0) {
         data.append("avatar", userpro?.[0]); // 'avatar' must match multer field name
       }
-      data.append("email", email);
-
-      console.log(data.get("email"));
-      console.log(data.get("avatar"));
+      data.append("email", emaill);
 
       const res = await axios.post(
         "http://localhost:5001/Users/uploadimage",
@@ -74,6 +79,36 @@ function UploadImg() {
       toast.error("Image upload failed");
     }
   };
+
+  const getUserAllInfoByemail = async (email) => {
+    toast.loading("Data is Loading ⌛...");
+    try {
+      toast.dismiss();
+      const records = await axios.get(
+        `${import.meta.env.VITE_API_URL}/Users/user/${email}`
+      );
+      toast.dismiss();
+      toast.success("Data is Fetch 👍");
+      // console.log("r==", records.data.data)
+
+      setUser(() => records.data.data);
+    } catch (error) {
+      toast.dismiss();
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  useEffect(() => {
+    getUserAllInfoByemail(email);
+  }, []);
+
+  useEffect(() => {
+    if (user?.email) {
+      reset({
+        email_field: user.email,
+      });
+    }
+  }, [user, reset]);
 
   return (
     <>
@@ -106,15 +141,16 @@ function UploadImg() {
               <div className="p-1 mt-3 mb-8  relative ">
                 <Label title={t(`${"email"}`)} />
                 <InputField
+                  disabled={true}
                   type="email"
                   placeholder="example@gmail.com"
                   name="email"
                   {...register("email_field", {
-                    required: t(`${"email_req"}`),
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-                      message: t(`${"enter_a_valid_email"}`),
-                    },
+                    // required: t(`${"email_req"}`),
+                    // pattern: {
+                    //   value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                    //   message: t(`${"enter_a_valid_email"}`),
+                    // },
                   })}
                   icon={<Mail />}
                 />
