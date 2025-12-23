@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import UploadFile from './UploadFile';
+import React, { useState,useEffect } from 'react'
 import { useNavigate } from "react-router";
+import axios from 'axios';
+
 
 //Components Import
 import LinkTo from './LinkTo';
@@ -8,7 +9,6 @@ import Button from "../Components/Button";
 
 //Lucid icon Import
 import { EllipsisVertical, UserPlus, UserRound } from 'lucide-react';
-import axios from 'axios';
 
 function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, message }) {
     const navigate = useNavigate();
@@ -65,7 +65,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                             className="absolute left-0  rounded-full w-full h-full bg-transparent hover:bg-transparent "
                             name={(`${" "}`)}
                             hover={true}
-                            onClick={() => navigate("/uploadimg")}
+                            onClick={() => navigate(`/uploadimg/${email}`)}
                         />
                     </div>
 
