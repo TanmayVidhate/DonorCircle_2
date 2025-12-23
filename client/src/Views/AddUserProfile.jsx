@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import imgurl from "../assets/User_profile_update_img/user_edit_pro.png";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router";
 
 //Components Import
 import Label from "../Components/Label";
@@ -25,11 +26,14 @@ import {
 } from "lucide-react";
 
 //Translation
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 function AddUserProfile() {
-
   const { t, i18n } = useTranslation();
+
+  const [user, setUser] = useState({});
+
+  const { email } = useParams();
 
   const {
     register,
@@ -51,7 +55,7 @@ function AddUserProfile() {
   });
 
   // watches live changes
-  const email = watch("email_field");
+  const emaill = watch("email_field");
   const age = watch("age_field");
   const mobile = watch("mobile_no_field");
   const gender = watch("gender_field");
@@ -67,7 +71,6 @@ function AddUserProfile() {
   // console.log("address==", address)
   // console.log("userpro==", userpro)
 
-
   const navigate = useNavigate();
 
   const editprofile = async () => {
@@ -75,7 +78,7 @@ function AddUserProfile() {
       const response = await axios.put(
         "http://localhost:5001/Users/addprofileinfo",
         {
-          email: email,
+          emaill: emaill,
           age: age,
           mobile_no: mobile,
           gender: gender,
@@ -96,6 +99,36 @@ function AddUserProfile() {
       toast.error(error?.response?.data?.message);
     }
   };
+
+  const getUserAllInfoByemail = async (email) => {
+    toast.loading("Data is Loading ⌛...");
+    try {
+      toast.dismiss();
+      const records = await axios.get(
+        `${import.meta.env.VITE_API_URL}/Users/user/${email}`
+      );
+      toast.dismiss();
+      toast.success("Data is Fetch 👍");
+      // console.log("r==", records.data.data)
+
+      setUser(() => records.data.data);
+    } catch (error) {
+      toast.dismiss();
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  useEffect(() => {
+    getUserAllInfoByemail(email);
+  }, []);
+
+  useEffect(() => {
+    if (user?.email) {
+      reset({
+        email_field: user.email,
+      });
+    }
+  }, [user, reset]);
 
   return (
     <>
@@ -120,25 +153,10 @@ function AddUserProfile() {
               encType="multipart/form-data"
               onSubmit={handleSubmit(editprofile)}
             >
-              {/* <div className="flex flex-col p-1 relative ">
-                <Label title={t(`${"upload_image"}`)} />
-                <UploadFile
-                  type="file"
-                  name="avatar"
-                  onChange={upload}
-                  {...register("user_profile", {
-                    required: "Upload Photos",
-                  })}
-                />
-                {errors?.user_profile && (
-                  <span className="text-red-500 text-x w-5/6 absolute left-2 -bottom-5 ">
-                    {errors?.user_profile?.message}
-                  </span>
-                )}
-              </div> */}
               <div className="p-1 mt-3 relative ">
                 <Label title={t(`${"email"}`)} />
                 <InputField
+                  disabled={true}
                   type="email"
                   placeholder="example@gmail.com"
                   name="email"
@@ -199,7 +217,7 @@ function AddUserProfile() {
               </div>
 
               <div className="p-1 mt-3 relative">
-                <Label title={t(`${"gender"}`)}  />
+                <Label title={t(`${"gender"}`)} />
 
                 <div className="ml-2">
                   <div className=" p-1  flex justify-start gap-2 ">
@@ -210,7 +228,7 @@ function AddUserProfile() {
                         required: "Gender is Required",
                       })}
                     />
-                    {t(`${'male'}`)}
+                    {t(`${"male"}`)}
                     <input
                       type="radio"
                       value="Female"
@@ -218,7 +236,7 @@ function AddUserProfile() {
                         required: "Gender is Required",
                       })}
                     />
-                    {t(`${'female'}`)}
+                    {t(`${"female"}`)}
                     {errors?.gender_field && (
                       <span className="text-red-500 text-x w-5/6 absolute left-2 -bottom-5 ">
                         {errors?.gender_field?.message}
@@ -229,7 +247,7 @@ function AddUserProfile() {
               </div>
 
               <div className=" p-1 mt-3 relative">
-                <Label title={t(`${"blood_group"}`)}  />
+                <Label title={t(`${"blood_group"}`)} />
                 <div className="relative  border-2  rounded-md ">
                   <select
                     {...register("blood_gup_field", {
@@ -240,16 +258,32 @@ function AddUserProfile() {
                     defaultValue={"AB+"}
                   >
                     <option value="" disabled hidden>
-                      {t(`${'select_blood'}`)}
+                      {t(`${"select_blood"}`)}
                     </option>
-                    <option value="A+" className="text-black">A+</option>
-                    <option value="A-" className="text-black">A-</option>
-                    <option value="B+" className="text-black">B+</option>
-                    <option value="B+" className="text-black">B-</option>
-                    <option value="AB+" className="text-black">AB+</option>
-                    <option value="AB-" className="text-black">AB-</option>
-                    <option value="O+" className="text-black">O+</option>
-                    <option value="O-" className="text-black">O-</option>
+                    <option value="A+" className="text-black">
+                      A+
+                    </option>
+                    <option value="A-" className="text-black">
+                      A-
+                    </option>
+                    <option value="B+" className="text-black">
+                      B+
+                    </option>
+                    <option value="B+" className="text-black">
+                      B-
+                    </option>
+                    <option value="AB+" className="text-black">
+                      AB+
+                    </option>
+                    <option value="AB-" className="text-black">
+                      AB-
+                    </option>
+                    <option value="O+" className="text-black">
+                      O+
+                    </option>
+                    <option value="O-" className="text-black">
+                      O-
+                    </option>
                   </select>
 
                   {errors?.blood_gup_field && (
@@ -280,7 +314,7 @@ function AddUserProfile() {
               </div>
 
               <div className=" p-1 relative mt-7">
-                <Label title={t(`${'address'}`)} />
+                <Label title={t(`${"address"}`)} />
                 <InputField
                   type="text"
                   placeholder="M.G Road"
@@ -311,10 +345,9 @@ function AddUserProfile() {
               <div className="p-1 mt-8">
                 {Object.entries(errors).length > 0 ? (
                   <Button
-                    name={t(`${'update_profile'}`)}
+                    name={t(`${"update_profile"}`)}
                     disabled={true}
                     type="submit"
-                    
                     className="!px-1 !py-2 !rounded-lg !w-full"
                   />
                 ) : (
@@ -322,7 +355,6 @@ function AddUserProfile() {
                     name={t(`${"update_profile"}`)}
                     disabled={false}
                     type="button"
-                    
                     className="!px-1 !py-2 !rounded-lg !w-full"
                   />
                 )}
