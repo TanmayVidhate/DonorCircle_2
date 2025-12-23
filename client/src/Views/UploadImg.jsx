@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 //Components imports
 import Label from "../Components/Label";
@@ -17,8 +18,11 @@ import { Mail } from "lucide-react";
 //Translation
 import { useTranslation } from "react-i18next";
 
+
 function UploadImg() {
   const { t, i18n } = useTranslation();
+  
+  const navigate = useNavigate();
 
   const {
     register,
@@ -40,7 +44,6 @@ function UploadImg() {
   const userpro = watch("user_profile");
 
   const upload = async () => {
-    alert("upload functions ....");
     try {
       const data = new FormData();
       if (userpro && userpro?.length > 0) {
@@ -64,6 +67,8 @@ function UploadImg() {
       console.log("res=", res);
       toast.success("Profile image uploaded successfully!");
       reset();
+
+      navigate("/showalluers");
     } catch (error) {
       console.log(error);
       toast.error("Image upload failed");
@@ -98,7 +103,7 @@ function UploadImg() {
                 )}
               </div>
 
-              <div className="p-1 mt-3 relative ">
+              <div className="p-1 mt-3 mb-8  relative ">
                 <Label title={t(`${"email"}`)} />
                 <InputField
                   type="email"
@@ -121,7 +126,7 @@ function UploadImg() {
               </div>
 
               <Button
-                name={t(`${"update_profile"}`)}
+                name={t(`${"update_photo"}`)}
                 disabled={false}
                 type="button"
                 className="!px-1 !py-2 !rounded-lg !w-full"
