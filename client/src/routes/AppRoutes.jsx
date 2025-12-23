@@ -32,7 +32,7 @@ function AppRoutes() {
           <Route path="/showalluers" element={<ShowAllUser />} />
           <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
           <Route path="/uploadImg/:email" element={<UploadImg />} />
-          <Route path="/adduserprofile" element={<AddUserProfile />} />
+          <Route path="/adduserprofile/:email" element={<AddUserProfile />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/faq" element={<FAQ />} />
