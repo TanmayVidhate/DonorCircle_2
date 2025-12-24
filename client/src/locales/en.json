@@ -74,8 +74,16 @@
   "about_para_1":"Welcome to DonorCircle — a platform created to connect blood donors with those in need. We believe that a single donation can save multiple lives, and our mission is to make the process of finding and contacting donors simple, fast, and reliable.",
   "about_para_2":"At DonorCircle, donors can easily register their details, and people in need can directly reach out to them without any middleman. We aim to build a community of responsible donors and create a network where help is always just a click away.",
   "tag_line":"Together, we can make a difference and give the gift of life.",
-  "update_photo":"Update Photo"
-
+  "update_photo":"Update Photo",
+  "frequently_asked_questions":"Frequently Asked Questions",
+  "what_is_donorCircle?":"What is DonorCircle?",
+  "donorCircle_helps":"DonorCircle helps connect blood donors directly with people in need.",
+  "is_my_data":"Is my data secure?",
+  "yes_your":"Yes, your data is securely stored and only shared when necessary.",
+  "what_blood":"What blood groups are supported?",
+  "all_major":"All major blood groups (A+, A−, B+, B−, AB+, AB−, O+, O−) are supported.",
+  "is_donorcircle":"Is DonorCircle free to use?",
+  "yes_donor":"Yes, DonorCircle is completely free for both donors and recipients.There are no hidden charges or subscription fees."
 
 
 

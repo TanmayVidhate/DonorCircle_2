@@ -7,34 +7,29 @@ import Footer from "../Components/Footer";
 //Translation
 import { useTranslation } from "react-i18next";
 
-const faqs = [
-  {
-    question: "What is DonorCircle?",
-    answer:
-      "DonorCircle helps connect blood donors directly with people in need.",
-  },
-  {
-    question: "How can I register as a donor?",
-    answer:
-      "You can sign up using the registration form and provide your blood details.",
-  },
-  {
-    question: "Is my data secure?",
-    answer: "Yes, your data is securely stored and only shared when necessary.",
-  },
-  {
-    question: "What blood groups are supported?",
-    answer:
-      "All major blood groups (A+, A−, B+, B−, AB+, AB−, O+, O−) are supported.",
-  },
-  {
-    question: "Is DonorCircle free to use?",
-    answer:"Yes, DonorCircle is completely free for both donors and recipients.There are no hidden charges or subscription fees.",
-  },
-];
+
 
 function FAQ() {
   const { t, i18n } = useTranslation();
+
+  const faqs = [
+  {
+    question: t(`${"what_is_donorCircle?"}`) ,
+    answer: t(`${"donorCircle_helps"}`)
+  },
+  {
+    question: t(`${"is_my_data"}`),
+    answer: t(`${"yes_your"}`) ,
+  },
+  {
+    question: t(`${"what_blood"}`) ,
+    answer:t(`${"all_major"}`) ,
+  },
+  {
+    question: t(`${"is_donorcircle"}`),
+    answer:t(`${"yes_donor"}`),
+  },
+];
 
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -52,10 +47,10 @@ function FAQ() {
             {/* First div */}
             {/* <div className="w-full p-1 mt-2 sm:py-7 md:px-4 lg:w-4/6 xl:w-5/6 xl:h-5/6 "> */}
             <div className="w-full h-[450px] overflow-y-auto scrollbar-hide ">
-              <div className="max-w-2xl mx-auto mt-10 w-full p-2">
                 <h2 className="text-2xl font-bold mb-6">
-                  Frequently Asked Questions
+                  {t(`${"frequently_asked_questions"}`)}
                 </h2>
+              <div className="max-w-2xl mx-auto mt-10 w-full p-2">
 
                 {faqs.map((faq, index) => (
                   <div key={index} className="border rounded mb-3">
