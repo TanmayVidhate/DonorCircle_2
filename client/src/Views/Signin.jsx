@@ -67,10 +67,14 @@ function Signin() {
         // alert("bnt clciked...")
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signin`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signin`,{
                 email: input_email,
                 password: input_password
-            })
+              },
+              {
+                withCredentials: true,
+              }
+            );
 
             // console.log(response?.data);
 
