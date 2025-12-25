@@ -96,7 +96,7 @@ function Navbar() {
                                             &&
                                             <Button
                                                 type="button"
-                                                name="Sigin out"
+                                                name="sigin_out"
                                                 onClick={()=>handleSiginOut()}
                                                 className="w-[20%] m-2 rounded  "
                                             />
@@ -123,7 +123,7 @@ function Navbar() {
                         &&
                         <Button
                             type="button"
-                            name="Sigin out"
+                            name="sigin_out"
                             onClick={()=>handleSiginOut()}
                             className="w-[100%] m-2 rounded "
                         />
