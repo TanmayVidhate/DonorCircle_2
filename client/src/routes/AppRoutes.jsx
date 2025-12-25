@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
@@ -23,13 +23,16 @@ const LandingPage = lazy(() => import("../Views/LandingPage.jsx"));
 import Fallback from "../Components/FallBackErrorHandle.jsx";
 
 function AppRoutes() {
+  
+  const isChkSigninUp = JSON.parse(localStorage.getItem("keepLoggedIn")) === true;
+
   return (
     <SkeletonTheme color="#202020" highlightColor="#bbb">
       <ErrorBoundary FallbackComponent={Fallback} onReset={() => {}}>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/" element={isChkSigninUp ? <Navigate to="/showalluers" replace /> : <LandingPage />  } />
+            <Route path="/signup" element={ <SignupForm />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/showalluers" element={<ShowAllUser />} />
             <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />
