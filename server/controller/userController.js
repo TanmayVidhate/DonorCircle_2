@@ -127,10 +127,10 @@ const signinUser = async (req, res) => {
             else {
                 const token = jwt.sign({ email: isexistUser?.email, password: isexistUser?.password }, process.env.SECURITY_KEY,{expiresIn:'1d'});
                 
-                //add cookie in backend when token is created
+                //set cookie in backend when token is created
                 res.cookie("token",token,{
                     httpOnly:true,
-                    secure:false,
+                    secure:true,
                     sameSite:"Lax",
                     maxAge:1*24*60*60*1000
                 })
