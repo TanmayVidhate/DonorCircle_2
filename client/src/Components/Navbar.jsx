@@ -23,6 +23,8 @@ function Navbar() {
 
     const [isOpen, setIsopen] = useState(false);
 
+    const isChkSigninUp = localStorage.getItem("keepLoggedIn") === "true" 
+
     const Pages = [
         { label: t(`${'home'}`), href: "/" },
         { label: t(`${'about_us'}`), href: "/aboutus" },
@@ -40,8 +42,8 @@ function Navbar() {
                 }
             );
             toast.success(response?.data?.message);
-
             navigate("/signin");
+            localStorage.clear();
         }
         catch(error){
             console.log(error)
@@ -83,18 +85,23 @@ function Navbar() {
                                             return <LinkTo className=" w-full hover:text-amber-600 my-10 !text-black text-xl transition-transform duration-300 hover:scale-125" PageName={label} url={href} key={i} />
                                         })
                                     }
-                                    <div className="w-[100%] m-auto text-center">
-                                        <Button
-                                            type="button"
-                                            name="Sigin out"
-                                            onClick={()=>handleSiginOut()}
-                                            className="w-[28%] m-2 rounded "
-                                            />
-                                    </div>
                                     
                                     <div className="w-[100%] m-auto text-center">
-                                    <Translate  />
+                                        <Translate  />
                                     </div>
+
+                                    <div className="w-[100%] m-auto text-center">
+                                        {
+                                            isChkSigninUp 
+                                            &&
+                                            <Button
+                                                type="button"
+                                                name="Sigin out"
+                                                onClick={()=>handleSiginOut()}
+                                                className="w-[20%] m-2 rounded  "
+                                            />
+                                        }
+                                    </div> 
                                 </div>
                             </div>
                         )
@@ -109,13 +116,19 @@ function Navbar() {
                         })
                     }
 
-                    <Button
-                    type="button"
-                    name="Sigin out"
-                    onClick={()=>handleSiginOut()}
-                    className="w-[20%] m-2 rounded "
-                    />
                     <Translate />
+                    <div >
+                    {
+                        isChkSigninUp
+                        &&
+                        <Button
+                            type="button"
+                            name="Sigin out"
+                            onClick={()=>handleSiginOut()}
+                            className="w-[100%] m-2 rounded "
+                        />
+                    }
+                    </div>
                 </div>
                 <Toaster/>
             </div>
