@@ -6,6 +6,7 @@ import cors from 'cors';
 import { userRouter } from './router/userAPI.js';
 import { health } from './controller/health.js';
 import { invalid } from './controller/invalid.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(cors({
 // app.options("*", cors());
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("image"))
 
