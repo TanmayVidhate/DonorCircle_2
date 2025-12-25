@@ -80,6 +80,8 @@ function Signin() {
 
             console.log("urel==", import.meta.env.VITE_API_URL)
 
+            localStorage.setItem("keepLoggedIn",JSON.stringify(true));
+            
             setIsSignIn(response?.data?.success);
 
             // console.log("isSignIn==:::::", isSignIn)
