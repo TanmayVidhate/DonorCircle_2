@@ -125,7 +125,7 @@ const signinUser = async (req, res) => {
                 });
             }
             else {
-                const token = jwt.sign({ email: isexistUser?.email, password: isexistUser?.password }, process.env.SECURITY_KEY);
+                const token = jwt.sign({ email: isexistUser?.email, password: isexistUser?.password }, process.env.SECURITY_KEY,{expiresIn:'1d'});
 
                 return res.status(201).json({
                     success: true,
