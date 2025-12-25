@@ -84,6 +84,15 @@ function Navbar() {
                                         })
                                     }
                                     <div className="w-[100%] m-auto text-center">
+                                        <Button
+                                            type="button"
+                                            name="Sigin out"
+                                            onClick={()=>handleSiginOut()}
+                                            className="w-[28%] m-2 rounded "
+                                            />
+                                    </div>
+                                    
+                                    <div className="w-[100%] m-auto text-center">
                                     <Translate  />
                                     </div>
                                 </div>
