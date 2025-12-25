@@ -157,11 +157,11 @@ const signinUser = async (req, res) => {
 const siginoutUser = async(req,res) =>{
     try{
         res.cookie("token","",{
-            httpOnly:true,
-            secure:true,
-            sameSite:"Lax",
-            expires:new Date(0)
-        });
+                    httpOnly:true,
+                    secure:true,
+                    sameSite:"Lax",
+                    expires:new Date(0)
+                })
 
         return res.status(200).json({
             success:true,

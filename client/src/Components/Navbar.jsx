@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import img from '../assets/Landing_image/logo.png'
+import toast, { Toaster } from 'react-hot-toast';
 
 //Lucid components
 import { AlignJustify, X } from 'lucide-react';
@@ -11,8 +12,12 @@ import Translate from './Translate.jsx';
 
 import { useTranslation } from 'react-i18next';
 import "../i18n.js";
+import Button from './Button.jsx';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 function Navbar() {
+    const navigate = useNavigate();
 
     const { t } = useTranslation(); // add this
 
@@ -24,6 +29,24 @@ function Navbar() {
         { label: t(`${"contact_us"}`), href: "/contactus" },
         { label: t(`${"faq"}`), href: "/faq" },
     ];
+
+    const handleSiginOut = async () =>{
+        try
+        {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signinout`,
+                {},
+                {
+                    withCredentials:true
+                }
+            );
+            toast.success(response?.data?.message);
+
+            navigate("/signin");
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
 
     return (
         <>
@@ -69,15 +92,23 @@ function Navbar() {
                     }
                 </div>
                     {/* full width */}
-                <div className=' hidden sm:hidden md:hidden lg:visible lg:flex lg:justify-center lg:items-center  '>
+                <div className='hidden sm:hidden md:hidden lg:w-1/2 lg:visible lg:flex lg:justify-center lg:items-center  '>
                     {
                         Pages.map((page, i) => {
                             const { label, href } = page;
                             return <LinkTo className="hover:text-amber-600 lg:text-lg transition-transform duration-300 hover:scale-125 " PageName={label} url={href} key={i} />
                         })
                     }
+
+                    <Button
+                    type="button"
+                    name="Sigin out"
+                    onClick={()=>handleSiginOut()}
+                    className="w-[20%] m-2 rounded "
+                    />
                     <Translate />
                 </div>
+                <Toaster/>
             </div>
         </>
     )
