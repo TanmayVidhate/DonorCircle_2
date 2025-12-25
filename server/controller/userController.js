@@ -154,6 +154,26 @@ const signinUser = async (req, res) => {
     }
 }
 
+const signinoutUser = async(req,res) =>{
+    try{
+        res.cookie("token","",{
+            httpOnly:true,
+            secure:true,
+            sameSite:"Lax",
+            expires:new Date(0)
+        });
+
+        return res.status(200).json({
+            success:true,
+            data:null,
+            message:"Logout Sucessfully.."
+        })
+    }
+    catch(error){
+        console.log(error.message)
+    }
+}
+
 const adduserallinfo = async (req, res) => {
     try {
         // const { email } = req.params;
@@ -313,6 +333,6 @@ const getUserImageByEmail = async (req, res) => {
 }
 
 export {
-    getallUsers, addUser, signinUser, adduserallinfo, uploadimg, getUserAllinfoByemail, getUserImageByEmail
+    getallUsers, addUser, signinUser, signinoutUser, adduserallinfo, uploadimg, getUserAllinfoByemail, getUserImageByEmail
 }
 

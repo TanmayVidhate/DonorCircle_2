@@ -2,7 +2,7 @@ import express from "express"
 import multer from 'multer'
 
 
-import {  getallUsers, addUser, signinUser,  adduserallinfo, getUserAllinfoByemail, uploadimg, getUserImageByEmail } from '../controller/userController.js';
+import {  getallUsers, addUser, signinUser, signinoutUser, adduserallinfo, getUserAllinfoByemail, uploadimg, getUserImageByEmail } from '../controller/userController.js';
 
 
 let userRouter = express.Router();
@@ -12,6 +12,8 @@ userRouter.get("/", getallUsers);
 userRouter.post("/signup", addUser);
 
 userRouter.post("/signin", signinUser);
+
+userRouter.post("/signinout",signinoutUser)
 
 userRouter.put("/addprofileinfo", adduserallinfo);
 
