@@ -108,7 +108,7 @@ function Navbar() {
                     }
                 </div>
                     {/* full width */}
-                <div className='hidden sm:hidden md:hidden lg:w-1/2 lg:visible lg:flex lg:justify-center lg:items-center  '>
+                <div className='hidden sm:hidden md:hidden lg:w-[60%] lg:visible lg:flex lg:justify-center lg:items-center  '>
                     {
                         Pages.map((page, i) => {
                             const { label, href } = page;
