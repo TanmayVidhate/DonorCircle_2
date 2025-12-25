@@ -154,7 +154,7 @@ const signinUser = async (req, res) => {
     }
 }
 
-const signinoutUser = async(req,res) =>{
+const siginoutUser = async(req,res) =>{
     try{
         res.cookie("token","",{
             httpOnly:true,
@@ -166,7 +166,7 @@ const signinoutUser = async(req,res) =>{
         return res.status(200).json({
             success:true,
             data:null,
-            message:"Logout Sucessfully.."
+            message:"Sigin out User Sucessfully.."
         })
     }
     catch(error){
@@ -333,6 +333,6 @@ const getUserImageByEmail = async (req, res) => {
 }
 
 export {
-    getallUsers, addUser, signinUser, signinoutUser, adduserallinfo, uploadimg, getUserAllinfoByemail, getUserImageByEmail
+    getallUsers, addUser, signinUser, siginoutUser, adduserallinfo, uploadimg, getUserAllinfoByemail, getUserImageByEmail
 }
 
