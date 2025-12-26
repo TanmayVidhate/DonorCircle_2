@@ -48,7 +48,7 @@ function ForgotPassword() {
             <div className="">
               <form className="lg:w-96 h-[500px] ">
                 <p className="text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl ">
-                  {t(`${"Forgot Password"}`)}
+                  {t(`${"forgot"}`)}
                 </p>
 
                 <div className="mt-24">
@@ -78,7 +78,7 @@ function ForgotPassword() {
                   <div className="flex justify-center items-center p-1 mt-12  ">
                     {Object.entries(errors).length > 0 ? (
                       <Button
-                        name={t(`${"sign_in"}`)}
+                        name={t(`${"new_password"}`)}
                         disabled={true}
                         hover={true}
                         // onClick={isuserisValid }
@@ -86,7 +86,7 @@ function ForgotPassword() {
                       />
                     ) : (
                       <Button
-                        name={t(`${"sign_in"}`)}
+                        name={t(`${"new_password"}`)}
                         disabled={false}
                         hover={true}
                         // onClick={isuserisValid }
