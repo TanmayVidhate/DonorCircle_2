@@ -12,6 +12,7 @@ const ShowAllUserinfo = lazy(() => import("../Views/ShowAllUserInfo.jsx"));
 const AboutUs = lazy(() => import("../Views/AboutUs.jsx"));
 const ContactUs = lazy(() => import("../Views/ContactUs.jsx"));
 const FAQ = lazy(() => import("../Views/FAQ.jsx"));
+const ForgotPassword = lazy(()=> import("../Views/ForgotPassword.jsx"));
 
 import Loader from "../Components/Loader.jsx";
 import UploadImg from "../Views/UploadImg.jsx";
@@ -33,6 +34,7 @@ function AppRoutes() {
           <Routes>
             <Route path="/" element={isChkSigninUp ? <Navigate to="/showalluers" replace /> : <LandingPage />  } />
             <Route path="/signup" element={ <SignupForm />} />
+            <Route path="/forgotpassword" element={ <ForgotPassword/>} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/showalluers" element={<ShowAllUser />} />
             <Route path="/showuserinfo/:email" element={<ShowAllUserinfo />} />

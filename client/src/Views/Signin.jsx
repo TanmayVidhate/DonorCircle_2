@@ -180,7 +180,7 @@ function Signin() {
 
                                 <div className='p-1 mt-2'>
                                     <div className='mb-2'>
-                                        <LinkTo url={"#"} className="capitalize !text-base !text-blue-800  w-full md:!text-lg  " >{t(`${'forgot'}`)} </LinkTo>
+                                        <LinkTo url={"/forgotpassword"} className="capitalize !text-base !text-blue-800  w-full md:!text-lg  " >{t(`${'forgot'}`)} </LinkTo>
                                     </div>
 
                                     <div>
