@@ -62,7 +62,7 @@ const addUser = async (req, res) => {
           process.env.SECURITY_KEY
         );
 
-        res.status(201).json({
+       return res.status(201).json({
           success: true,
           data: newData,
           token: token,
@@ -197,7 +197,7 @@ const forgotPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
   const { email, token } = req.params;
-  console.log("tttttttttttttt==========", token);
+//   console.log("tttttttttttttt==========", token);
   try {
     const User = await UserSignup.findOne({ email });
     if (!User) {
@@ -209,15 +209,16 @@ const resetPassword = async (req, res) => {
     }
 
     try {
-      console.log("hooooooooooo");
+    //   console.log("hooooooooooo");
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
-      console.log("v===", verify);
+      return res.render("index.ejs",{email:verify.email})
     } catch (error) {
-      res.send(error.message);
+      return res.send(error.message);
     }
     res.send("Done....");
-  } catch (error) {
-    res.status(400).json({
+  } 
+  catch (error) {
+    return res.status(400).json({
       success: false,
       data: null,
       message: error?.message,
