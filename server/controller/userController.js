@@ -62,7 +62,7 @@ const addUser = async (req, res) => {
           process.env.SECURITY_KEY
         );
 
-       return res.status(201).json({
+        return res.status(201).json({
           success: true,
           data: newData,
           token: token,
@@ -197,7 +197,7 @@ const forgotPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
   const { email, token } = req.params;
-//   console.log("tttttttttttttt==========", token);
+  //   console.log("tttttttttttttt==========", token);
   try {
     const User = await UserSignup.findOne({ email });
     if (!User) {
@@ -209,15 +209,62 @@ const resetPassword = async (req, res) => {
     }
 
     try {
-    //   console.log("hooooooooooo");
+      //   console.log("hooooooooooo");
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
-      return res.render("index.ejs",{email:verify.email})
+      return res.render("index.ejs", { email: verify.email });
     } catch (error) {
       return res.send(error.message);
     }
     res.send("Done....");
-  } 
-  catch (error) {
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      data: null,
+      message: error?.message,
+    });
+  }
+};
+
+const postResetPassword = async (req, res) => {
+  const { email, token } = req.params;
+  const {password} = req.body;
+  try {
+    const User = await UserSignup.findOne({ email });
+    if (!User) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        message: "User not Found!",
+      });
+    }
+
+    try {
+      
+      const verify = jwt.verify(token, process.env.SECURITY_KEY);
+      const encryptedPassword = await bcrypt.hash(password,10);
+
+      await UserSignup.updateOne(
+        {email: email},
+        {
+            $set:{
+                password:encryptedPassword,
+            }
+        }
+
+      );
+
+      return res.status(200).json({
+        success:true,
+        message:"Password Updated..."
+      })
+    } catch (error) {
+        return res.status(400).json({
+        success: false,
+        data: null,
+        message: error?.message,
+    });
+    }
+  } catch (error) {
     return res.status(400).json({
       success: false,
       data: null,
@@ -384,6 +431,7 @@ export {
   siginoutUser,
   forgotPassword,
   resetPassword,
+  postResetPassword,
   adduserallinfo,
   uploadimg,
   getUserAllinfoByemail,

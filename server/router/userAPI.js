@@ -2,7 +2,7 @@ import express from "express"
 import multer from 'multer'
 
 
-import {  getallUsers, addUser, signinUser, siginoutUser, forgotPassword, resetPassword, adduserallinfo, getUserAllinfoByemail, uploadimg, getUserImageByEmail } from '../controller/userController.js';
+import {  getallUsers, addUser, signinUser, siginoutUser, forgotPassword, resetPassword,postResetPassword, adduserallinfo, getUserAllinfoByemail, uploadimg, getUserImageByEmail } from '../controller/userController.js';
 
 
 let userRouter = express.Router();
@@ -18,6 +18,8 @@ userRouter.post("/signinout",siginoutUser)
 userRouter.post("/forgot-password", forgotPassword)
 
 userRouter.get("/reset-password/:email/:token",resetPassword);
+
+userRouter.post("/reset-password/:email/:token",postResetPassword);
 
 userRouter.put("/addprofileinfo", adduserallinfo);
 
