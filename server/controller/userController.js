@@ -1,338 +1,390 @@
-import UserSignup from '../model/UserSignup.js'
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import multer from 'multer'
-
+import UserSignup from "../model/UserSignup.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import multer from "multer";
 
 const getallUsers = async (req, res) => {
-    try {
-        const records = await UserSignup.find()
+  try {
+    const records = await UserSignup.find();
 
-        if (!records) {
-            res.status(404).json({
-                success: false,
-                data: null,
-                message: "Data not found..."
-            })
-        }
-        else {
-            res.status(200).json({
-                success: true,
-                data: records,
-                message: "Data Fetch Successfully... "
-            })
-        }
+    if (!records) {
+      res.status(404).json({
+        success: false,
+        data: null,
+        message: "Data not found...",
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        data: records,
+        message: "Data Fetch Successfully... ",
+      });
     }
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            data: null,
-            message: error.message
-        })
-    }
-}
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: error.message,
+    });
+  }
+};
 
 const addUser = async (req, res) => {
-    try {
-        const { name, username, email, password } = req.body;  
+  try {
+    const { name, username, email, password } = req.body;
 
-        // console.log("name=", name)
-        // console.log("username=", username)
-        // console.log("email==", email);
-        // console.log("password==", password);
+    // console.log("name=", name)
+    // console.log("username=", username)
+    // console.log("email==", email);
+    // console.log("password==", password);
 
+    if (!name || !username || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: "Enter All fields..",
+      });
+    } else {
+      const record = await UserSignup.findOne({ email: email });
 
-        if (!name || !username || !email || !password) {
-            return res.status(400).json({
-                success: false,
-                data: null,
-                message: "Enter All fields.."
-            })
-        }
-        else {
-            const record = await UserSignup.findOne({ email: email });
+      if (!record) {
+        const hasedPassword = await bcrypt.hash(password, 10);
 
-            if (!record) {
-                const hasedPassword = await bcrypt.hash(password, 10)
+        const newData = await UserSignup.create({
+          name,
+          username,
+          email,
+          password: hasedPassword,
+        });
 
-                const newData = await UserSignup.create({
-                    name,
-                    username,
-                    email,
-                    password: hasedPassword,
-                })
+        const token = jwt.sign(
+          { email: newData.email, password: newData.password },
+          process.env.SECURITY_KEY
+        );
 
-                const token = jwt.sign({ email: newData.email, password: newData.password }, process.env.SECURITY_KEY);
-
-                res.status(201).json({
-                    success: true,
-                    data: newData,
-                    token: token,
-                    message: "Data Stored in DB..."
-                })
-            }
-            else {
-                return res.status(409).json({
-                    success: false,
-                    data: null,
-                    message: "Data is allready Present..."
-                })
-            }
-        }
-
+        res.status(201).json({
+          success: true,
+          data: newData,
+          token: token,
+          message: "Data Stored in DB...",
+        });
+      } else {
+        return res.status(409).json({
+          success: false,
+          data: null,
+          message: "Data is allready Present...",
+        });
+      }
     }
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            data: null,
-            message: error?.message,
-        })
-    }
-
-
-}
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: error?.message,
+    });
+  }
+};
 
 const signinUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    console.log("e=", email, "pp=", password);
+
+    if ((!email, !password)) {
+      return res.status(400).json({
+        success: false,
+        message: "Enter All Fields.",
+      });
+    }
+
+    const isexistUser = await UserSignup.findOne({ email: email });
+    // console.log(record)
+
+    if (!isexistUser) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: "Data Not found...",
+      });
+    } else {
+      const match_pass = await bcrypt.compare(password, isexistUser?.password);
+
+      if (!match_pass) {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid password",
+        });
+      } else {
+        const token = jwt.sign(
+          { email: isexistUser?.email, password: isexistUser?.password },
+          process.env.SECURITY_KEY,
+          { expiresIn: "1d" }
+        );
+
+        //set cookie in backend when token is created
+        res.cookie("token", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "Lax",
+          maxAge: 1 * 24 * 60 * 60 * 1000,
+        });
+
+        return res.status(201).json({
+          success: true,
+          data: isexistUser,
+          token: token,
+          message: "User Signin...",
+        });
+      }
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: error?.message,
+    });
+  }
+};
+
+const siginoutUser = async (req, res) => {
+  try {
+    res.cookie("token", "", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "Lax",
+      expires: new Date(0),
+    });
+
+    return res.status(200).json({
+      success: true,
+      data: null,
+      message: "Sigin out User Sucessfully..",
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const User = await UserSignup.findOne({ email });
+    if (!User) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        message: "User not Found!",
+      });
+    }
+    const token = jwt.sign({ email: User.email }, process.env.SECURITY_KEY, {
+      expiresIn: "5m",
+    });
+    const link = `http://localhost:5001/Users/reset-password/${User.email}/${token}`;
+
+    res.json({
+      success: true,
+      message: link,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: error?.message,
+    });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  const { email, token } = req.params;
+  console.log("tttttttttttttt==========", token);
+  try {
+    const User = await UserSignup.findOne({ email });
+    if (!User) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        message: "User not Found!",
+      });
+    }
+
     try {
-        const { email, password } = req.body;
-        console.log("e=",email ,"pp=",password )
-
-        if(! email,!password){
-            return res.status(400).json({
-                success:false,
-                message:"Enter All Fields."
-            })
-        }
-
-        const isexistUser = await UserSignup.findOne({ email: email })
-        // console.log(record)
-
-        if (!isexistUser) {
-            return res.status(400).json({
-                success: false,
-                data: null,
-                message: "Data Not found..."
-            })
-        }
-        else {
-            const match_pass = await bcrypt.compare(password, isexistUser?.password)
-
-            if (!match_pass) {
-
-                return res.status(401).json({
-                    success: false,
-                    message: "Invalid password",
-                });
-            }
-            else {
-                const token = jwt.sign({ email: isexistUser?.email, password: isexistUser?.password }, process.env.SECURITY_KEY,{expiresIn:'1d'});
-                
-                //set cookie in backend when token is created
-                res.cookie("token",token,{
-                    httpOnly:true,
-                    secure:true,
-                    sameSite:"Lax",
-                    maxAge:1*24*60*60*1000
-                })
-                
-                return res.status(201).json({
-                    success: true,
-                    data: isexistUser,
-                    token: token,
-                    message: "User Signin..."
-                })
-            }
-        }
-
+      console.log("hooooooooooo");
+      const verify = jwt.verify(token, process.env.SECURITY_KEY);
+      console.log("v===", verify);
+    } catch (error) {
+      res.send(error.message);
     }
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            data: null,
-            message: error?.message
-        })
-    }
-}
-
-const siginoutUser = async(req,res) =>{
-    try{
-        res.cookie("token","",{
-                    httpOnly:true,
-                    secure:true,
-                    sameSite:"Lax",
-                    expires:new Date(0)
-                })
-
-        return res.status(200).json({
-            success:true,
-            data:null,
-            message:"Sigin out User Sucessfully.."
-        })
-    }
-    catch(error){
-        console.log(error.message)
-    }
-}
+    res.send("Done....");
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: error?.message,
+    });
+  }
+};
 
 const adduserallinfo = async (req, res) => {
-    try {
-        // const { email } = req.params;
-        // console.log("e=",email)
+  try {
+    // const { email } = req.params;
+    // console.log("e=",email)
 
-        const { email, age, mobile_no, blood_group, address, gender} = req.body;
+    const { email, age, mobile_no, blood_group, address, gender } = req.body;
 
-        // console.log("age=", age)
-        // console.log("mobile_no=", mobile_no)
-        // console.log("gender==", gender);
-        // console.log("blood_gup==", blood_group);
-        // console.log("address==", address);
+    // console.log("age=", age)
+    // console.log("mobile_no=", mobile_no)
+    // console.log("gender==", gender);
+    // console.log("blood_gup==", blood_group);
+    // console.log("address==", address);
 
-        if (!email || !age || !mobile_no || !blood_group || !address || !gender ) {
-            let msgArr=[];
-            !email && msgArr.push("Enter Email Field")
-            !age && msgArr.push("Enter Age Field",)
-            !mobile_no && msgArr.push("Enter Mobile No Field")
-            !blood_group && msgArr.push("Enter Blood Group Field")
-            !address && msgArr.push("Enter Address Field")
-            !gender && msgArr.push("Enter Gender Field")
+    if (!email || !age || !mobile_no || !blood_group || !address || !gender) {
+      let msgArr = [];
+      !email && msgArr.push("Enter Email Field");
+      !age && msgArr.push("Enter Age Field");
+      !mobile_no && msgArr.push("Enter Mobile No Field");
+      !blood_group && msgArr.push("Enter Blood Group Field");
+      !address && msgArr.push("Enter Address Field");
+      !gender && msgArr.push("Enter Gender Field");
 
-            const errorMessage = msgArr.join(", ");
-            
-            return res.status(400).json({
-                success: false,
-                data: null,
-                message:errorMessage
-                // message: `Enter All fields ${!email || !age || !mobile_no || !blood_group || !address || !gender}..`
-            })
-        }
-        else {
-            const updatedUser = await UserSignup.findOneAndUpdate({ email: email },
-                {
-                    $set: {
-                        other_info: {
-                            email,
-                            age,
-                            mobile_no,
-                            gender,
-                            blood_group,
-                            address,
-                        }
-                    }
-                },
-                { new: true }
-            );
-            console.log("updateUser==", updatedUser)
-            res.status(201).json({
-                success: true,
-                data: updatedUser,
-                message: "User profile update..."
-            })
-        }
+      const errorMessage = msgArr.join(", ");
 
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: errorMessage,
+        // message: `Enter All fields ${!email || !age || !mobile_no || !blood_group || !address || !gender}..`
+      });
+    } else {
+      const updatedUser = await UserSignup.findOneAndUpdate(
+        { email: email },
+        {
+          $set: {
+            other_info: {
+              email,
+              age,
+              mobile_no,
+              gender,
+              blood_group,
+              address,
+            },
+          },
+        },
+        { new: true }
+      );
+      console.log("updateUser==", updatedUser);
+      res.status(201).json({
+        success: true,
+        data: updatedUser,
+        message: "User profile update...",
+      });
     }
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            data: null,
-            message: error?.message,
-        })
-    }
-
-}
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: error?.message,
+    });
+  }
+};
 
 const getUserAllinfoByemail = async (req, res) => {
-    try {
-        const { email } = req.params
-        const record = await UserSignup.findOne({ email: email }).select("-_id -password -__v -createdAt -updatedAt -profile_updates._id");
+  try {
+    const { email } = req.params;
+    const record = await UserSignup.findOne({ email: email }).select(
+      "-_id -password -__v -createdAt -updatedAt -profile_updates._id"
+    );
 
-        (record) ? res.status(200).json({
-            success: true,
-            data: record,
-            message: "Data Found..."
-        }) :
-            res.status(400).json({
-                success: false,
-                data: null,
-                message: "Data Not Found..."
-            })
-    }
-    catch (error) {
-        console.log(error.message)
-    }
-
-}
-
+    record
+      ? res.status(200).json({
+          success: true,
+          data: record,
+          message: "Data Found...",
+        })
+      : res.status(400).json({
+          success: false,
+          data: null,
+          message: "Data Not Found...",
+        });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 const uploadimg = async (req, res) => {
+  const { email } = req?.body;
+  console.log("email==", email);
 
-    const { email } = req?.body;
-    console.log("email==", email)
+  const file = req?.file?.buffer?.toString("base64");
+  console.log("file==", file);
+  try {
+    const updatedUser = await UserSignup.findOneAndUpdate(
+      { email },
+      { $set: { "other_info.0.userpro": file } },
+      { new: true, upsert: false }
+    );
+    console.log("u===", updatedUser);
 
-    const file = req?.file?.buffer?.toString("base64")
-    console.log("file==",file)
-    try 
-        {
-            const updatedUser = await UserSignup.findOneAndUpdate({ email },{$set: {"other_info.0.userpro": file}},{ new: true, upsert: false });
-            console.log("u===",updatedUser);
+    res.status(201).json({
+      success: true,
+      data: updatedUser,
+      message: "User profile photo update...",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: true,
+      data: null,
+      message: error.message,
+    });
+  }
 
-            res.status(201).json({
-            success: true,
-            data: updatedUser,
-            message: "User profile photo update..."
-        })}
-    catch (error) {
-        res.status(400).json({
-            success: true,
-            data: null,
-            message: error.message
-        })
-    }
-
-    // console.log("body=", req.body)
-    // console.log("file=", req.file)
-
-}
+  // console.log("body=", req.body)
+  // console.log("file=", req.file)
+};
 
 const getUserImageByEmail = async (req, res) => {
-    try {
-        const { email } = req.params
-        console.log(email)
+  try {
+    const { email } = req.params;
+    console.log(email);
 
-        const record = await UserSignup.find({ email: email })
-        console.log("record=", record)
+    const record = await UserSignup.find({ email: email });
+    console.log("record=", record);
 
+    // const image = record.profile_updates;
 
-        // const image = record.profile_updates;
-
-        // console.log("img=",image)
-        // if (image) {
-        //     res.status(200).json({
-        //         success: true,
-        //         data: image,
-        //         message: "Image Found.."
-        //     })
-        // }
-        // else {
-        //     res.status(400).json({
-        //         success: false,
-        //         data: null,
-        //         message: "Image Not Found.."
-        //     })
-        // }
-
-    }
-
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            data: null,
-            message: "Image Not Found..."
-        })
-
-    }
-}
+    // console.log("img=",image)
+    // if (image) {
+    //     res.status(200).json({
+    //         success: true,
+    //         data: image,
+    //         message: "Image Found.."
+    //     })
+    // }
+    // else {
+    //     res.status(400).json({
+    //         success: false,
+    //         data: null,
+    //         message: "Image Not Found.."
+    //     })
+    // }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: "Image Not Found...",
+    });
+  }
+};
 
 export {
-    getallUsers, addUser, signinUser, siginoutUser, adduserallinfo, uploadimg, getUserAllinfoByemail, getUserImageByEmail
-}
-
+  getallUsers,
+  addUser,
+  signinUser,
+  siginoutUser,
+  forgotPassword,
+  resetPassword,
+  adduserallinfo,
+  uploadimg,
+  getUserAllinfoByemail,
+  getUserImageByEmail,
+};
