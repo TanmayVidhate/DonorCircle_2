@@ -124,6 +124,7 @@ function ShowAllUser() {
                       return (
                         <Cards
                           key={i}
+                          email={email}
                           name={name}
                           message="Please Add User's Other Info"
                         />
