@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        let status = '<%- JSON.stringify(status)%>'
+
+        if(JSON.parse(status) == "verify")
+        {
+            if(confirm("Do You want Login...")){
+                window.location.href = "http://localhost:5173/signin"
+            }
+        }
+    </script>
 </head>
 <body>
     <h1><%= email%></h1>
