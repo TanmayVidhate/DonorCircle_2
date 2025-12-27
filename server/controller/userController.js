@@ -184,7 +184,8 @@ const forgotPassword = async (req, res) => {
 
     return res.json({
       success: true,
-      message: link,
+      data:link,
+      message:"link created..." ,
     });
   } catch (error) {
     return res.status(400).json({
@@ -211,7 +212,7 @@ const resetPassword = async (req, res) => {
     try {
       //   console.log("hooooooooooo");
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
-      return res.render("index.ejs", { email: verify.email });
+      res.render("index.ejs", { email: verify.email,status:"not verify" });
     } catch (error) {
       return res.send(error.message);
     }
@@ -252,11 +253,13 @@ const postResetPassword = async (req, res) => {
         }
 
       );
+        res.render("index",{email:verify.email,status:"verify"})
 
-      return res.status(200).json({
-        success:true,
-        message:"Password Updated..."
-      })
+        // res.status(200).json({
+        //   success:true,
+        //   message:"Password Updated..."
+        // })
+
     } catch (error) {
         return res.status(400).json({
         success: false,
