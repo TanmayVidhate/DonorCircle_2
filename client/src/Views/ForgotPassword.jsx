@@ -22,10 +22,14 @@ import LinkTo from "../Components/LinkTo";
 
 //Translation
 import { useTranslation } from "react-i18next";
+import { use } from "react";
+import { useState } from "react";
 
 function ForgotPassword() {
   const { t, i18n } = useTranslation();
 
+  const [forgotLink,setForgotLink] = useState("");
+  
   const {
     register,
     handleSubmit,
@@ -39,6 +43,27 @@ function ForgotPassword() {
       pass_field: "",
     },
   });
+
+  // watches live changes
+  const input_email = watch("email_field");
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/Users/forgot-password`,
+        {
+          email: input_email,
+        }
+      );
+
+      setForgotLink(response?.data?.message);
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <>
       <div className="flex flex-col w-screen min-h-screen bg-[#ffd6a5] ">
@@ -46,7 +71,7 @@ function ForgotPassword() {
           <div className="border rounded-lg bg-white w-5/6 my-4 p-4 lg:flex lg:justify-center lg:items-center lg:w-3/5 ">
             {/* first div    */}
             <div className="">
-              <form className="lg:w-96 h-[500px] ">
+              <form className="lg:w-96 h-[500px]">
                 <p className="text-2xl font-semibold ml-2 tracking-wider sm:text-3xl md:text-4xl lg:text-2xl ">
                   {t(`${"forgot"}`)}
                 </p>
@@ -81,7 +106,7 @@ function ForgotPassword() {
                         name={t(`${"new_password"}`)}
                         disabled={true}
                         hover={true}
-                        // onClick={isuserisValid }
+                        // onClick={handleForgotPassword }
                         className="!px-6 !py-2 !rounded-lg !w-full"
                       />
                     ) : (
@@ -89,7 +114,7 @@ function ForgotPassword() {
                         name={t(`${"new_password"}`)}
                         disabled={false}
                         hover={true}
-                        // onClick={isuserisValid }
+                        onClick={handleForgotPassword}
                         className="!px-6 !py-2 !rounded-lg !w-full"
                       />
                     )}
