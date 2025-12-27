@@ -182,12 +182,12 @@ const forgotPassword = async (req, res) => {
     });
     const link = `http://localhost:5001/Users/reset-password/${User.email}/${token}`;
 
-    res.json({
+    return res.json({
       success: true,
       message: link,
     });
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
       data: null,
       message: error?.message,
@@ -215,7 +215,7 @@ const resetPassword = async (req, res) => {
     } catch (error) {
       return res.send(error.message);
     }
-    res.send("Done....");
+    
   } catch (error) {
     return res.status(400).json({
       success: false,
