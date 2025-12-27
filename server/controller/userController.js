@@ -2,6 +2,7 @@ import UserSignup from "../model/UserSignup.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import multer from "multer";
+import nodemailer from "nodemailer"
 
 const getallUsers = async (req, res) => {
   try {
@@ -182,9 +183,34 @@ const forgotPassword = async (req, res) => {
     });
     const link = `http://localhost:5001/Users/reset-password/${User.email}/${token}`;
 
+    //nodemailer code
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'tanmayvidhate7@gmail.com',
+        pass: 'shmt nhui czrf gdev'
+      }
+    });
+
+    let mailOptions = {
+      from: 'tanmayvidhate7@gmail.com',
+      to: `${email}`,
+      subject: 'Reset The Password.',
+      text: link
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+
     return res.json({
       success: true,
-      data:link,
+      // data:link,
       message:"link created..." ,
     });
   } catch (error) {
