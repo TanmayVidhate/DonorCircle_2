@@ -58,10 +58,13 @@ function ForgotPassword() {
         }
       );
 
-      setForgotLink(response?.data?.message);
+      setForgotLink(response?.data?.data);
+      console.log(response?.data?.data)
+      toast.success(response?.data?.message);
 
     } catch (error) {
-      console.log(error.message);
+      toast.dismiss();
+      toast.error(error?.response?.data?.message)
     }
   };
   return (
@@ -132,6 +135,7 @@ function ForgotPassword() {
             </div>
           </div>
         </div>
+        <Toaster/>
       </div>
     </>
   );
