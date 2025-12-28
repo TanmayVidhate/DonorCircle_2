@@ -207,7 +207,7 @@ const forgotPassword = async (req, res) => {
       }
     });
 
-    console.log(link)
+    console.log("link==",link)
     return res.status(200).json({
       success: true,
       data:link,
