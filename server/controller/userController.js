@@ -181,8 +181,18 @@ const forgotPassword = async (req, res) => {
     const token = jwt.sign({ email: User.email }, process.env.SECURITY_KEY, {
       expiresIn: "5m",
     });
-    const link = `${process.env.BASE_URL}/Users/reset-password/${User.email}/${token}`;
 
+    let baseUrl;
+
+    if (process.env.NODE_ENV === "production") {
+      baseUrl = "https://donorcircle-server.onrender.com";
+    } else {
+      baseUrl = "http://localhost:5001";
+    }
+
+
+    const link = `${baseUrl}/Users/reset-password/${User.email}/${token}`;
+    console.log(`${baseUrl}`)
     //nodemailer code
     let transporter = nodemailer.createTransport({
       service: 'gmail',
