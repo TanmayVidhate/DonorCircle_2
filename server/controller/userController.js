@@ -307,7 +307,7 @@ const adduserallinfo = async (req, res) => {
     // const { email } = req.params;
     // console.log("e=",email)
 
-    const { email, age, mobile_no, blood_group, address, gender } = req.body;
+    const { emaill, age, mobile_no, blood_group, address, gender } = req.body;
 
     // console.log("age=", age)
     // console.log("mobile_no=", mobile_no)
@@ -315,9 +315,9 @@ const adduserallinfo = async (req, res) => {
     // console.log("blood_gup==", blood_group);
     // console.log("address==", address);
 
-    if (!email || !age || !mobile_no || !blood_group || !address || !gender) {
+    if (!emaill || !age || !mobile_no || !blood_group || !address || !gender) {
       let msgArr = [];
-      !email && msgArr.push("Enter Email Field");
+      !emaill && msgArr.push("Enter Email Field");
       !age && msgArr.push("Enter Age Field");
       !mobile_no && msgArr.push("Enter Mobile No Field");
       !blood_group && msgArr.push("Enter Blood Group Field");
@@ -334,11 +334,11 @@ const adduserallinfo = async (req, res) => {
       });
     } else {
       const updatedUser = await UserSignup.findOneAndUpdate(
-        { email: email },
+        { email: emaill },
         {
           $set: {
             other_info: {
-              email,
+              emaill,
               age,
               mobile_no,
               gender,
