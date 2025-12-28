@@ -109,7 +109,6 @@ function AddUserProfile() {
       );
       toast.dismiss();
       toast.success("Data is Fetch 👍");
-      // console.log("r==", records.data.data)
 
       setUser(() => records.data.data);
     } catch (error) {
