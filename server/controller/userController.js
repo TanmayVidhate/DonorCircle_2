@@ -181,7 +181,7 @@ const forgotPassword = async (req, res) => {
     const token = jwt.sign({ email: User.email }, process.env.SECURITY_KEY, {
       expiresIn: "5m",
     });
-    const link = `http://localhost:5001/Users/reset-password/${User.email}/${token}`;
+    const link = `${process.env.BASE_URL}/Users/reset-password/${User.email}/${token}`;
 
     //nodemailer code
     let transporter = nodemailer.createTransport({
@@ -207,8 +207,8 @@ const forgotPassword = async (req, res) => {
       }
     });
 
-
-    return res.json({
+    console.log(link)
+    return res.status(200).json({
       success: true,
       // data:link,
       message:"link created..." ,
