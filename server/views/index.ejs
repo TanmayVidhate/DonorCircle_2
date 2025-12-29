@@ -7,10 +7,17 @@
     <script>
         let status = '<%- JSON.stringify(status)%>'
 
+        let baseUrl;
+        if (process.env.NODE_ENV === "production") {
+        baseUrl = "https://donorcircle-server.onrender.com"; // your deployed frontend
+        } else {
+        baseUrl = "http://localhost:5173"; // local frontend
+        }
+
         if(JSON.parse(status) == "verify")
         {
             if(confirm("Do You want Login...")){
-                window.location.href = "http://localhost:5173/signin"
+                window.location.href = `${baseUrl}/signin`
             }
         }
     </script>
