@@ -298,14 +298,8 @@ const postResetPassword = async (req, res) => {
         }
 
       );
-        let baseUrl;
-        if (process.env.NODE_ENV === "production") {
-        baseUrl = "https://donorcircle-server.onrender.com"; // your deployed frontend
-        } else {
-        baseUrl = "http://localhost:5173"; // local frontend
-        }
 
-        res.render("index",{email:verify.email,baseUrl,status:"verify"})
+        res.render("index",{email:verify.email,status:"verify"})
 
         // res.status(200).json({
         //   success:true,

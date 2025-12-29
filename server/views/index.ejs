@@ -6,11 +6,10 @@
     <title>Document</title>
     <script>
         let status = '<%- JSON.stringify(status)%>'
-        let baseUrl = '<%- baseUrl %>';
         if(JSON.parse(status) == "verify")
         {
             if(confirm("Do You want Login...")){
-                window.location.href = `${baseUrl}/signin`
+                window.location.href = "http://localhost:5173/signin"
             }
         }
     </script>
