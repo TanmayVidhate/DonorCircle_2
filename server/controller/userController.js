@@ -202,6 +202,7 @@ const forgotPassword = async (req, res) => {
       }
     });
 
+    console.log("eeeee===",email)
     let mailOptions = {
       from: 'tanmayvidhate7@gmail.com',
       to: `${email}`,
