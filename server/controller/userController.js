@@ -201,7 +201,7 @@ const forgotPassword = async (req, res) => {
       service: 'gmail',
       auth: {
         user: 'tanmayvidhate7@gmail.com',
-        pass: 'shmt nhui czrf gdev'
+        pass: 'shmtnhuiczrfgdev'
       },
       connectionTimeout: 20000,
       greetingTimeout: 20000,
