@@ -195,6 +195,9 @@ const forgotPassword = async (req, res) => {
     console.log(`${baseUrl}`)
     //nodemailer code
     let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
       service: 'gmail',
       auth: {
         user: 'tanmayvidhate7@gmail.com',
