@@ -1,0 +1,12 @@
+{
+    "routes":[
+        {
+            "src":"/",
+            "dest":"/"
+        },
+        {
+            "src":"https://donorcircle-2.onrender.com/signup",
+            "dest":"/"
+        }
+    ]
+}
