@@ -94,11 +94,20 @@ const signinUser = async (req, res) => {
     console.log("e=", email, "pp=", password);
 
     if ((!email, !password)) {
+      let msgArr = [];
+      !email && msgArr.push("Enter Email Field");
+      !password && msgArr.push("Enter Password Field");
+      
+      const errorMessage = msgArr.join(", ");
       return res.status(400).json({
         success: false,
-        message: "Enter All Fields.",
+        data:null,
+        message: errorMessage,
       });
     }
+
+    
+
 
     const isexistUser = await UserSignup.findOne({ email: email });
     // console.log(record)
