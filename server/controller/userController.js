@@ -198,6 +198,9 @@ const forgotPassword = async (req, res) => {
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
+      requireTLS: true,
+      logger:true,
+      debug:true,
       service: 'gmail',
       auth: {
         user: 'tanmayvidhate7@gmail.com',
