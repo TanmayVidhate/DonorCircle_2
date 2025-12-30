@@ -192,7 +192,7 @@ const forgotPassword = async (req, res) => {
 
 
     const link = `${baseUrl}/Users/reset-password/${User.email}/${token}`;
-    console.log(`${baseUrl}`)
+    console.log(`link === ${baseUrl}`)
     //nodemailer code
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -257,11 +257,11 @@ const resetPassword = async (req, res) => {
     try {
       //   console.log("hooooooooooo");
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
-
+      console.log("......hiiii in conditions......")
       const baseUrl = process.env.NODE_ENV ===
        "production" ? "https://donorcircle-server.onrender.com":"http://localhost:5173";
 
-
+      console.log("in userController====",baseUrl)
       res.render("index.ejs", { email: verify.email,status:"not verify",url:baseUrl });
     } catch (error) {
       return res.send(error.message);
