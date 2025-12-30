@@ -43,6 +43,7 @@ function AppRoutes() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="*" element={<div>Error 404 Page not found!</div>} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
