@@ -1,31 +1,23 @@
 import UserSignup from "../model/UserSignup.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import multer from "multer";
+
 import nodemailer from "nodemailer"
 
 const getallUsers = async (req, res) => {
   try {
-    const records = await UserSignup.find();
-
-    if (!records) {
-      res.status(404).json({
-        success: false,
-        data: null,
-        message: "Data not found...",
-      });
-    } else {
-      res.status(200).json({
-        success: true,
-        data: records,
-        message: "Data Fetch Successfully... ",
-      });
-    }
+    const users = await UserSignup.find();
+    
+    return res.status(500).json({
+      success:true,
+      data:users,
+      message:users.length ? "Data is found.." : "No users found.."
+    })
   } catch (error) {
-    res.status(400).json({
+    res.status(500).json({
       success: false,
       data: null,
-      message: error.message,
+      message: "Internal server error.",
     });
   }
 };
@@ -39,16 +31,26 @@ const addUser = async (req, res) => {
     // console.log("email==", email);
     // console.log("password==", password);
 
-    if (!name || !username || !email || !password) {
+    if(!name || !username || !email || !password){
+      let msgArr = [];
+      !name && msgArr.push("Enter Name Field");
+      !username && msgArr.push("Enter Username Field");
+      !email && msgArr.push("Enter Email Field");
+      !password && msgArr.push("Enter Password Field");
+      
+      const errorMessage = msgArr.join(", ");
+
       return res.status(400).json({
         success: false,
         data: null,
-        message: "Enter All fields..",
+        message: errorMessage,
       });
-    } else {
-      const record = await UserSignup.findOne({ email: email });
 
-      if (!record) {
+    }
+    else {
+      const user = await UserSignup.findOne({ email: email });
+
+      if (!user) {
         const hasedPassword = await bcrypt.hash(password, 10);
 
         const newData = await UserSignup.create({
