@@ -43,7 +43,6 @@ function AppRoutes() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="*" element={<LandingPage />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
