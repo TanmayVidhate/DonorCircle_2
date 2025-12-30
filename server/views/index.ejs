@@ -6,6 +6,10 @@
     <title>Document</title>
     <script>
         let status = '<%- JSON.stringify(status)%>'
+        let BASEurl = '<%- JSON.stringify(url) %>';
+
+        console.log("url==",BASEurl);
+
         if(JSON.parse(status) == "verify")
         {
             if(confirm("Do You want Login...")){

@@ -257,7 +257,12 @@ const resetPassword = async (req, res) => {
     try {
       //   console.log("hooooooooooo");
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
-      res.render("index.ejs", { email: verify.email,status:"not verify" });
+
+      const baseUrl = process.env.NODE_ENV ===
+       "production" ? "https://donorcircle-server.onrender.com":"http://localhost:5173";
+
+
+      res.render("index.ejs", { email: verify.email,status:"not verify",url:baseUrl });
     } catch (error) {
       return res.send(error.message);
     }
