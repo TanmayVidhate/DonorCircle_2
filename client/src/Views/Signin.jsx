@@ -48,15 +48,6 @@ function Signin() {
     const input_email = watch("email_field");
     const input_password = watch("pass_field");
 
-    // console.log("y=",input_email);
-    // console.log("u=",input_password);
-
-
-    // const [formdata, setFormdata] = useState({
-    //     email: "",
-    //     password: ""
-    // })
-
     const [isSignIn, setIsSignIn] = useState(false);
 
     // console.log("after usestate isSignIn==:::::", isSignIn)
@@ -164,12 +155,15 @@ function Signin() {
 
                                 <div className='flex justify-center items-center p-1 mt-16 '>
                                     {
-                                        (Object.entries(errors).length > 0 ) ?  (<Button name={t(`${"sign_in"}`)}
+                                        (Object.entries(errors).length > 0 ) 
+                                        ?  
+                                        (<Button name={t(`${"sign_in"}`)}
                                         disabled={true}
                                         hover={true}
                                         onClick={isuserisValid }
-                                        className="!px-6 !py-2 !rounded-lg !w-full"
-                                    />) : (<Button name={t(`${"sign_in"}`)}
+                                        className="!px-6 !py-2 !rounded-lg !w-full"/>) 
+                                        : 
+                                        (<Button name={t(`${"sign_in"}`)}
                                         disabled={false}
                                         hover={true}
                                         onClick={isuserisValid }
