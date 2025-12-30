@@ -8,13 +8,13 @@ const getallUsers = async (req, res) => {
   try {
     const users = await UserSignup.find();
     
-    return res.status(500).json({
+    return res.status(200).json({
       success:true,
       data:users,
       message:users.length ? "Data is found.." : "No users found.."
     })
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       data: null,
       message: "Internal server error.",
