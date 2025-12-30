@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        let status = '<%- JSON.stringify(status)%>'
-        let BASEurl = '<%- JSON.stringify(url)%>'
+        // Safely embed server-side values as JSON
+        let status = <%- JSON.stringify(status) %>;
+        let BASEurl = <%- JSON.stringify(url) %>;
 
-        console.log("url==",BASEurl);
+        console.log("url==", BASEurl);
 
-        if(JSON.parse(status) == "verify")
-        {
-            console.log("=======url2===",BASEurl);
-            if(confirm("Do You want Login...")){
-                window.location.href = `${BASEurl}/signin`
+        if (status === "verify") {
+            console.log("Redirecting to signin:", BASEurl);
+            if (confirm("Do you want to login?")) {
+                window.location.href = BASEurl + "/signin";
             }
         }
     </script>

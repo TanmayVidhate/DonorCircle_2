@@ -303,8 +303,10 @@ const postResetPassword = async (req, res) => {
         }
 
       );
+        const baseUrl = process.env.NODE_ENV ===
+       "production" ? "https://donorcircle-2.onrender.com":"http://localhost:5173";
 
-        res.render("index",{email:verify.email,status:"verify"})
+        res.render("index",{email:verify.email,status:"verify",url:baseUrl})
 
         // res.status(200).json({
         //   success:true,
@@ -434,7 +436,7 @@ const uploadimg = async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      success: true,
+      success: false,
       data: null,
       message: error.message,
     });
