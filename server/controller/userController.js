@@ -259,7 +259,7 @@ const resetPassword = async (req, res) => {
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
       console.log("......hiiii in conditions......")
       const baseUrl = process.env.NODE_ENV ===
-       "production" ? "https://donorcircle-server.onrender.com":"http://localhost:5173";
+       "production" ? "https://donorcircle-2.onrender.com":"http://localhost:5173";
 
       console.log("in userController====",baseUrl)
       res.render("index.ejs", { email: verify.email,status:"not verify",url:baseUrl });
