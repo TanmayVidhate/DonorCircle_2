@@ -12,8 +12,9 @@
 
         if(JSON.parse(status) == "verify")
         {
+            console.log("=======url2===",BASEurl);
             if(confirm("Do You want Login...")){
-                window.location.href = "http://localhost:5173/signin"
+                window.location.href = `${BASEurl}/signin`
             }
         }
     </script>
