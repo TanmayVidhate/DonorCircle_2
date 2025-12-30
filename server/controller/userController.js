@@ -242,6 +242,7 @@ const forgotPassword = async (req, res) => {
 };
 
 const resetPassword = async (req, res) => {
+  console.log("==============resetPassword ====================")
   const { email, token } = req.params;
   //   console.log("tttttttttttttt==========", token);
   try {
@@ -277,6 +278,7 @@ const resetPassword = async (req, res) => {
 };
 
 const postResetPassword = async (req, res) => {
+  console.log("==============postResetPassword ====================")
   const { email, token } = req.params;
   const {password} = req.body;
   try {
