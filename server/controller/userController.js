@@ -185,7 +185,7 @@ const forgotPassword = async (req, res) => {
     let baseUrl;
 
     if (process.env.NODE_ENV === "production") {
-      baseUrl = "https://donorcircle-server.onrender.com";
+      baseUrl = "https://donorcircle-2.onrender.com";
     } else {
       baseUrl = "http://localhost:5001";
     }
