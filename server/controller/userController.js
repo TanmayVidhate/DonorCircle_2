@@ -91,8 +91,7 @@ const addUser = async (req, res) => {
 const signinUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log("e=", email, "pp=", password);
-
+    
     if ((!email, !password)) {
       let msgArr = [];
       !email && msgArr.push("Enter Email Field");
