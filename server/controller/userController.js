@@ -377,7 +377,6 @@ const adduserallinfo = async (req, res) => {
         {
           $set: {
             other_info: {
-              emaill,
               age,
               mobile_no,
               gender,
