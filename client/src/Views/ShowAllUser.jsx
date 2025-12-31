@@ -16,9 +16,11 @@ function ShowAllUser() {
 
   const [searchval, setSearchval] = useState(""); //search bar value
 
-  const [Storeobje, setStoreobject] = useState("");
+  const [searchobject, setSearchObject] = useState("");
 
   const [cardshow, setCardshow] = useState("");
+
+  const [notFound, setNotFound] = useState(false);
 
   const [isloading, setIsloading] = useState(true);
 
@@ -38,22 +40,24 @@ function ShowAllUser() {
     }
   };
 
-  const showCards = async () => {
+  const searchCardsResult = async () => {
     try {
-      const response = await axios.get(
+      const Users = await axios.get(
         `${import.meta.env.VITE_API_URL}/Users/`
       );
       // toast.dismiss();
-      // toast.success("Data fetch 👍");
+      // toast.success("Search Result Get 🔍");
       // console.log("res==", response?.data.data);
       // setUsers(response?.data?.data);
-      const cardshow = response.data.data.filter((userDatas) => {
-        return userDatas === Storeobje;
+
+      const cardshow = Users.data.data.filter((u) => {
+        return u === searchobject;
       });
 
-      // console.log("uu=",cardshow)
+      // console.log("searchobject==",searchobject[0]._id)
+      console.log("cardshow===",cardshow)
 
-      setCardshow(Storeobje);
+      setCardshow(searchobject)
     } catch (error) {
       toast.dismiss();
       toast.error(error?.response?.data?.message || error?.message);
@@ -65,8 +69,8 @@ function ShowAllUser() {
   }, []);
 
   useEffect(() => {
-    showCards();
-  }, [Storeobje]);
+    searchCardsResult();
+  }, [searchobject]);
 
   // console.log("cardshow==", cardshow);
   // console.log("searchval==",searchval)
@@ -81,8 +85,9 @@ function ShowAllUser() {
               <SearchBar
                 searchval={searchval}
                 setSearchval={setSearchval}
-                Storeobje={Storeobje}
-                setStoreobject={setStoreobject}
+                searchobject={searchobject}
+                setSearchObject={setSearchObject}
+                setNotFound={setNotFound}
               />
             </div>
           </div>
@@ -100,7 +105,7 @@ function ShowAllUser() {
                   </>
                 ) 
                 : (
-                  (cardshow.length > 0 && searchval ? cardshow : users).map(
+                  (cardshow?.length > 0 && searchval ? cardshow : users).map(
                     (user, i) => {
                       const { name, email, other_info } = user;
                       const { userpro, mobile_no, blood_group, address, age } =

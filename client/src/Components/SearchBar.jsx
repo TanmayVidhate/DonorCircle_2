@@ -2,31 +2,44 @@ import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
+//import components
+import Button from "./Button";
 
 //Translation
 import { useTranslation } from 'react-i18next';
 
-function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
+function SearchBar({ searchval, setSearchval, searchobject, setSearchObject, setNotFound }) {
 
   const { t, i18n } = useTranslation();
 
 
   const handleSearchval = async () => {
     try {
-      const response = await axios.get(
+      const Users = await axios.get(
         `${import.meta.env.VITE_API_URL}/Users/`
       );
-      console.log(response?.data.data);
+      console.log(Users?.data.data);
 
-      const names = response?.data.data.map((userdata) => {
+      const getAllUsers = Users?.data.data.map((userdata) => {
         return userdata;
       });
 
-      const resu = names.filter((name) => {
-        return name.other_info?.[0]?.blood_group == searchval;
+      console.log("getAllUsers==",getAllUsers)
+
+      const searchResult = getAllUsers.filter((user) => {
+        return user.other_info?.[0]?.blood_group == searchval;
       });
 
-      setStoreobject(resu);
+      console.log("searchResult=======",searchResult)
+
+      if((Object.keys(searchResult).length != 0 )){
+        setSearchObject(searchResult);
+        setNotFound(false);
+      }
+      else{
+        setNotFound(true);
+      }
+      // setStoreobject(resu);
     } catch (error) {
       toast.dismiss();
       toast.error(error?.response?.data?.message || error?.message);
@@ -50,14 +63,16 @@ function SearchBar({ searchval, setSearchval, Storeobje, setStoreobject }) {
                        focus:outline-none focus:ring-0 focus:bg-transparen  "
           />
 
-          <button
+          <Button
+            name={t(`${"search"}`)}
             onClick={handleSearchval}
-            className="px-4 py-2 bg-[#ffd6a5] text-[#c2410c] rounded-lg 
+            disabled={searchval === "" && true  }
+            className="!w-1/4 px-4 py-2 bg-[#ffd6a5] text-[#c2410c] rounded-lg 
                        text-sm sm:text-base font-semibold
                        hover:bg-[#f7c789] transition-all duration-200"
           >
-            {t(`${"search"}`)}
-          </button>
+            
+          </Button>
 
         </div>
       </div>
