@@ -18,19 +18,19 @@ function SearchBar({ searchval, setSearchval, searchobject, setSearchObject, set
       const Users = await axios.get(
         `${import.meta.env.VITE_API_URL}/Users/`
       );
-      console.log(Users?.data.data);
+      // console.log(Users?.data.data);
 
       const getAllUsers = Users?.data.data.map((userdata) => {
         return userdata;
       });
 
-      console.log("getAllUsers==",getAllUsers)
+      // console.log("getAllUsers==",getAllUsers)
 
       const searchResult = getAllUsers.filter((user) => {
         return user.other_info?.[0]?.blood_group == searchval;
       });
 
-      console.log("searchResult=======",searchResult)
+      // console.log("searchResult=======",searchResult)
 
       if((Object.keys(searchResult).length != 0 )){
         setSearchObject(searchResult);
