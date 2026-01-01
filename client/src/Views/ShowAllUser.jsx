@@ -13,15 +13,9 @@ function ShowAllUser() {
   const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
-
   const [searchval, setSearchval] = useState(""); //search bar value
-
-  const [searchobject, setSearchObject] = useState("");
-
-  const [cardshow, setCardshow] = useState("");
-
+  const [searchobject, setSearchObject] = useState({});
   const [notFound, setNotFound] = useState(false);
-
   const [isloading, setIsloading] = useState(true);
 
   const loadUserData = async () => {
@@ -33,47 +27,61 @@ function ShowAllUser() {
       toast.success("Data fetch 👍");
       // console.log(response?.data)
       setUsers(response?.data?.data);
-      setIsloading(!isloading);
+      setIsloading(false);
     } catch (error) {
       toast.dismiss();
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
-  const searchCardsResult = async () => {
-    try {
-      const Users = await axios.get(
-        `${import.meta.env.VITE_API_URL}/Users/`
-      );
-      // toast.dismiss();
-      // toast.success("Search Result Get 🔍");
-      // console.log("res==", response?.data.data);
-      // setUsers(response?.data?.data);
+  const filterRecord = () =>{
+        let filterResult = users?.filter((user)=>{
+        return user?.other_info[0]?.blood_group === searchval;
+      })
 
-      const cardshow = Users.data.data.filter((u) => {
-        return u === searchobject;
-      });
-
-      // console.log("searchobject==",searchobject[0]._id)
-      // console.log("cardshow===",cardshow)
-
-      setCardshow(searchobject)
-    } catch (error) {
-      toast.dismiss();
-      toast.error(error?.response?.data?.message || error?.message);
+    if(filterResult.length === 0){
+      setNotFound(true)
     }
-  };
+    else{
+      setSearchObject(filterResult)
+      setNotFound(false);
+    }
+  }
+    
+  // const searchCardsResult = async () => {
+  //   try {
+  //     const Users = await axios.get(
+  //       `${import.meta.env.VITE_API_URL}/Users/`
+  //     );
+  //     // toast.dismiss();
+  //     // toast.success("Search Result Get 🔍");
+  //     // console.log("res==", response?.data.data);
+  //     // setUsers(response?.data?.data);
+
+  //     const cardshow = Users.data.data.filter((u) => {
+  //       return u === searchobject;
+  //     });
+
+  //     // console.log("searchobject==",searchobject[0]._id)
+  //     // console.log("cardshow===",cardshow)
+
+  //     setCardshow(searchobject)
+  //   } catch (error) {
+  //     toast.dismiss();
+  //     toast.error(error?.response?.data?.message || error?.message);
+  //   }
+  // };
 
   useEffect(() => {
     loadUserData();
   }, []);
 
-  useEffect(() => {
-    searchCardsResult();
-  }, [searchobject]);
+  // useEffect(() => {
+  //   searchCardsResult();
+  // }, [searchobject]);
 
   // console.log("cardshow==", cardshow);
-  // console.log("searchval==",searchval)
+  console.log("searchval==",searchval)
   return (
     <>
       <div className="flex flex-col  bg-[#ffd6a5]  w-screen  min-h-screen ">
@@ -85,37 +93,36 @@ function ShowAllUser() {
               <SearchBar
                 searchval={searchval}
                 setSearchval={setSearchval}
-                searchobject={searchobject}
-                setSearchObject={setSearchObject}
-                setNotFound={setNotFound}
+                filterRecord = {filterRecord}
               />
             </div>
           </div>
           <div className=" rounded-lg bg-white  w-5/6 p-3 md:w-4/5  lg:w-3/5 ">
             <div className="w-full h-[550px] overflow-y-auto scrollbar-hide ">
               <div className="w-full flex flex-col justify-center items-center sm:flex sm:justify-center sm:items-center  sm:flex-wrap lg:flex lg:flex-row">
-                {isloading ? (
+                {
+                  isloading ? (
                   <>
-                    <SkeletonCard />
-                    <SkeletonCard />
-                    <SkeletonCard />
-                    <SkeletonCard />
-                    <SkeletonCard />
-                    <SkeletonCard />
+                    {[...Array(6)].map((_, i) => (
+                      <SkeletonCard key={i} />
+                    ))}
                   </>
-                ) 
-                : (
-                  (cardshow?.length > 0 && searchval ? cardshow : users).map(
-                    (user, i) => {
-                      const { name, email, other_info } = user;
-                      const { userpro, mobile_no, blood_group, address, age } =
-                        other_info?.[0] || {};
+                  ) 
+                  : 
+                  (notFound && searchval) ? 
+                  <p className="text-gray-500 text-lg">Data not Found...</p> 
+                  :
+                  (
+                    (searchobject?.length > 0 && searchval ? searchobject : users).map(
+                      (user, i) => {
+                        const { name, email, other_info } = user;
+                        const { userpro, mobile_no, blood_group, address, age } =
+                          other_info?.[0] || {};
 
-                      if (other_info?.length) {
-                        return (
+                        return other_info?.length ? (
                           <Cards
+                            key={email}   // ✅ better key
                             profileimg={userpro}
-                            key={i}
                             name={name}
                             email={email}
                             mobile_no={mobile_no}
@@ -123,20 +130,16 @@ function ShowAllUser() {
                             address={address}
                             age={age}
                           />
-                        );
-                      }
-
-                      return (
-                        <Cards
-                          key={i}
-                          email={email}
-                          name={name}
-                          message="Please Add User's Other Info"
-                        />
-                      );
-                    }
+                        ) : (
+                          <Cards
+                            key={email}
+                            name={name}
+                            email={email}
+                            message="Please Add User's Other Info"
+                          />
+                        );})
                   )
-                )}
+                }
 
                 {/* {users.map((user, i) => {
                   const { name, email, other_info } = user;

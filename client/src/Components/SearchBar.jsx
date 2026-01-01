@@ -8,43 +8,43 @@ import Button from "./Button";
 //Translation
 import { useTranslation } from 'react-i18next';
 
-function SearchBar({ searchval, setSearchval, searchobject, setSearchObject, setNotFound }) {
+function SearchBar({ searchval, setSearchval, filterRecord}) {
 
   const { t, i18n } = useTranslation();
 
 
-  const handleSearchval = async () => {
-    try {
-      const Users = await axios.get(
-        `${import.meta.env.VITE_API_URL}/Users/`
-      );
-      // console.log(Users?.data.data);
+  // const handleSearchval = async () => {
+  //   try {
+  //     const Users = await axios.get(
+  //       `${import.meta.env.VITE_API_URL}/Users/`
+  //     );
+  //     // console.log(Users?.data.data);
 
-      const getAllUsers = Users?.data.data.map((userdata) => {
-        return userdata;
-      });
+  //     const getAllUsers = Users?.data.data.map((userdata) => {
+  //       return userdata;
+  //     });
 
-      // console.log("getAllUsers==",getAllUsers)
+  //     // console.log("getAllUsers==",getAllUsers)
 
-      const searchResult = getAllUsers.filter((user) => {
-        return user.other_info?.[0]?.blood_group == searchval;
-      });
+  //     const searchResult = getAllUsers.filter((user) => {
+  //       return user.other_info?.[0]?.blood_group == searchval;
+  //     });
 
-      // console.log("searchResult=======",searchResult)
+  //     // console.log("searchResult=======",searchResult)
 
-      if((Object.keys(searchResult).length != 0 )){
-        setSearchObject(searchResult);
-        setNotFound(false);
-      }
-      else{
-        setNotFound(true);
-      }
-      // setStoreobject(resu);
-    } catch (error) {
-      toast.dismiss();
-      toast.error(error?.response?.data?.message || error?.message);
-    }
-  };
+  //     if((Object.keys(searchResult).length != 0 )){
+  //       setSearchObject(searchResult);
+  //       setNotFound(false);
+  //     }
+  //     else{
+  //       setNotFound(true);
+  //     }
+  //     // setStoreobject(resu);
+  //   } catch (error) {
+  //     toast.dismiss();
+  //     toast.error(error?.response?.data?.message || error?.message);
+  //   }
+  // };
 
   return (
     <>
@@ -65,7 +65,7 @@ function SearchBar({ searchval, setSearchval, searchobject, setSearchObject, set
 
           <Button
             name={t(`${"search"}`)}
-            onClick={handleSearchval}
+            onClick={filterRecord}
             disabled={searchval === "" && true  }
             className="!w-1/4 px-4 py-2 bg-[#ffd6a5] text-[#c2410c] rounded-lg 
                        text-sm sm:text-base font-semibold
