@@ -41,6 +41,7 @@ app.get("/health", health);
 
 app.use("/Users", userRouter);
 
+app.use(express.static("public"));
 
 
 // app.use("/{*any}",invalid);
