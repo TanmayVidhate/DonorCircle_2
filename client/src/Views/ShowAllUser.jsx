@@ -33,10 +33,9 @@ function ShowAllUser() {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
-
   const filterRecord = () =>{
         let filterResult = users?.filter((user)=>{
-        return user?.other_info[0]?.blood_group === searchval;
+        return user?.other_info[0]?.blood_group === searchval.toUpperCase();
       })
 
     if(filterResult.length === 0){
@@ -48,39 +47,10 @@ function ShowAllUser() {
     }
   }
     
-  // const searchCardsResult = async () => {
-  //   try {
-  //     const Users = await axios.get(
-  //       `${import.meta.env.VITE_API_URL}/Users/`
-  //     );
-  //     // toast.dismiss();
-  //     // toast.success("Search Result Get 🔍");
-  //     // console.log("res==", response?.data.data);
-  //     // setUsers(response?.data?.data);
-
-  //     const cardshow = Users.data.data.filter((u) => {
-  //       return u === searchobject;
-  //     });
-
-  //     // console.log("searchobject==",searchobject[0]._id)
-  //     // console.log("cardshow===",cardshow)
-
-  //     setCardshow(searchobject)
-  //   } catch (error) {
-  //     toast.dismiss();
-  //     toast.error(error?.response?.data?.message || error?.message);
-  //   }
-  // };
-
   useEffect(() => {
     loadUserData();
   }, []);
 
-  // useEffect(() => {
-  //   searchCardsResult();
-  // }, [searchobject]);
-
-  // console.log("cardshow==", cardshow);
   console.log("searchval==",searchval)
   return (
     <>
@@ -140,34 +110,6 @@ function ShowAllUser() {
                         );})
                   )
                 }
-
-                {/* {users.map((user, i) => {
-                  const { name, email, other_info } = user;
-                  const { mobile_no, blood_group, address, age } =
-                    other_info?.[0] || {};
-                  // console.log("tt=", other_info?.length)
-                  if (other_info?.length) {
-                    return (
-                      <Cards
-                        name={name}
-                        email={email}
-                        mobile_no={mobile_no}
-                        blood_group={blood_group}
-                        address={address}
-                        age={age}
-                        key={i}
-                      />
-                    );
-                  } else {
-                    return (
-                      <Cards
-                        name={name}
-                        key={i}
-                        message="Please Add User's Other Info"
-                      />
-                    );
-                  }
-                })} */}
               </div>
             </div>
           </div>
