@@ -11,30 +11,30 @@ body {
 }
 
 .my-div {
-  display: flex;             /* flex */
-  flex-direction: column;    /* flex-col */
-  width: 100%;               /* w-full */
-  min-height: 100vh;         /* min-h-screen */
-  background-color: #ffd6a5; /* bg-[#ffd6a5] */
+  display: flex;   
+  flex-direction: column;
+  width: 100%;         
+  min-height: 100vh;         
+  background-color: #ffd6a5; 
 }
 
 .center-grid {
-  display: grid;           /* grid layout */
-  flex: 1 1 0%;            /* flex-1 */
-  margin-top: 1.5rem;      /* mt-6 */
-  place-items: center;     /* center content horizontally and vertically */
+  display: grid;           
+  flex: 1 1 0%;       
+  margin-top: 1.5rem;
+  place-items: center;     
 }
 
 .my-button {
-  padding: 0.5rem;             /* p-2 → 0.5rem = 8px */
-  text-transform: uppercase;    /* uppercase */
+  padding: 0.5rem;             
+  text-transform: uppercase;    
   font-size: 1.125rem;   
-  font-weight: bold;       /* text-lg → 18px approx */
-  color: #ffffff;               /* text-white */
-  background-color: #ffac44;    /* bg-[#ffac44] */
-  border: none;                 /* optional: remove default border */
-  border-radius: 0.25rem;       /* optional: small rounded corners */
-  cursor: pointer;              /* pointer on hover */
+  font-weight: bold;       
+  color: #ffffff;
+  background-color: #ffac44;
+  border: none;                 
+  border-radius: 0.25rem;       
+  cursor: pointer;
   margin-top: 15px;
 }
 
@@ -51,27 +51,27 @@ body {
 }
 
 .textbox {
-  position: relative;          /* relative */
-  border: 2px solid #000;      /* border-2 */
-  border-radius: 0.375rem;     /* rounded-md */
-  margin: 0.25rem;             /* m-1 */
-  padding: 0.5rem;             /* p-2 */
-  width: 80%;                  /* w-4/5 */
-  font-size: 1rem;             /* default font size */
+  position: relative;  
+  border: 2px solid #000;
+  border-radius: 0.375rem;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  width: 80%;       
+  font-size: 1rem;             
 }
 
 .textbox:focus {
-  outline: none;               /* focus:outline-none */
+  outline: none;               
 }
 
 .custom-div {
-  border: 1px solid #000;      /* border */
-  border-radius: 0.5rem;       /* rounded-lg */
-  background-color: #fff;      /* bg-white */
-  width: 83.333333%;           /* w-5/6 */
-  margin-top: 1rem;            /* my-4 */
-  margin-bottom: 1rem;         /* my-4 */
-  padding: 1rem;               /* p-4 */
+  border: 1px solid #000;  
+  border-radius: 0.5rem;       
+  background-color: #fff;    
+  width: 83.333333%;      
+  margin-top: 1rem;      
+  
+  padding: 1rem;        
   height: 70vh;
   position: relative;
 }
@@ -87,10 +87,10 @@ body {
 /* Responsive styles for large screens (lg ≥ 1024px) */
 @media (min-width: 1024px) {
   .custom-div {
-    display: flex;             /* lg:flex */
-    justify-content: center;   /* lg:justify-center */
-    align-items: center;       /* lg:items-center */
-    width: 60%;                /* lg:w-3/5 */
+    display: flex;   
+    justify-content: center;   
+    align-items: center;     
+    width: 60%;       
   }
 }
 
@@ -103,14 +103,14 @@ body {
 }
 
 /* Responsive font sizes */
-@media (min-width: 640px) {   /* sm */
+@media (min-width: 640px){
   .textbox {
-    font-size: 1.125rem;       /* text-lg */
+    font-size: 1.125rem;       
   }
 }
 
-@media (min-width: 1024px) {  /* lg */
+@media (min-width: 1024px){
   .textbox {
-    font-size: 0.875rem;       /* text-sm */
+    font-size: 0.875rem;       
   }
 }
