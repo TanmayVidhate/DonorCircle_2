@@ -61,7 +61,7 @@ function Cards({ name, email, mobile_no, age, blood_group, address, profileimg, 
                     <div className='w-20 h-20 relative  rounded-full bg-orange-200 text-orange-700 font-bold text-lg'  >
                         <div className='absolute'> 
                             {
-                                profileimg?.length > 0 ? <img src={`data:image/jpeg;base64,${profileimg}`} className='w-20 h-20 object-contain rounded-full' alt="profileimg" /> : <p className='relative top-6 left-6'>{`${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`}</p>
+                                profileimg?.length > 0 ? <img src={`data:image/jpeg;base64,${profileimg}`} className='w-20 h-20 object-cover rounded-full' alt="profileimg" /> : <p className='relative top-6 left-6'>{`${name[0]?.toUpperCase()} ${secondWord?.[0] ? secondWord?.[0].toUpperCase() : " "}`}</p>
                             }
                         </div>
                         
