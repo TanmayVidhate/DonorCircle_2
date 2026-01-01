@@ -376,14 +376,12 @@ const adduserallinfo = async (req, res) => {
         { email: emaill },
         {
           $set: {
-            other_info: {
-              age,
-              mobile_no,
-              gender,
-              blood_group,
-              address,
+                "other_info.0.age":age,
+                "other_info.0.mobile_no":mobile_no,
+                "other_info.0.gender":gender,
+                "other_info.0.blood_group":blood_group,
+                "other_info.0.address":address,
             },
-          },
         },
         { new: true }
       );
