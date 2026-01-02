@@ -34,7 +34,7 @@ function Signin() {
 
     //react-hook-form
     // const form = useForm()
-    const { register, handleSubmit, formState: { errors }, watch, control } = useForm({
+    const { register,reset, handleSubmit, formState: { errors }, watch, control } = useForm({
         mode: "onChange",
         defaultValues: {
             email_field: "",
@@ -42,7 +42,6 @@ function Signin() {
         }
     });
 
-    console.log("err===",errors)
 
     // watches live changes
     const input_email = watch("email_field");
@@ -50,12 +49,9 @@ function Signin() {
 
     const [isSignIn, setIsSignIn] = useState(false);
 
-    // console.log("after usestate isSignIn==:::::", isSignIn)
-
     const isuserisValid = async (e) => {
         e.preventDefault();
 
-        // alert("bnt clciked...")
 
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signin`,{
@@ -67,15 +63,9 @@ function Signin() {
               }
             );
 
-            // console.log(response?.data);
-
-            console.log("urel==", import.meta.env.VITE_API_URL)
-
             localStorage.setItem("keepLoggedIn",JSON.stringify(true));
             
             setIsSignIn(response?.data?.success);
-
-            // console.log("isSignIn==:::::", isSignIn)
 
             toast.success(response?.data?.message);
 
@@ -84,7 +74,7 @@ function Signin() {
 
         catch (error) {
             toast.dismiss();
-            toast.error(error?.response?.data?.message)
+            toast.error(error?.message)
         }
     }
 

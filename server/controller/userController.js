@@ -104,9 +104,8 @@ const signinUser = async (req, res) => {
         message: errorMessage,
       });
     }
-
+   
     const isexistUser = await UserSignup.findOne({ email: email });
-    // console.log(record)
 
     if (!isexistUser) {
       return res.status(404).json({
@@ -120,6 +119,7 @@ const signinUser = async (req, res) => {
       if (!match_pass) {
         return res.status(401).json({
           success: false,
+          data:null,
           message: "Invalid password",
         });
       } else {
@@ -146,7 +146,7 @@ const signinUser = async (req, res) => {
       }
     }
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
       data: null,
       message: error?.message,
