@@ -98,7 +98,7 @@ function Navbar() {
                                                 type="button"
                                                 name="sigin_out"
                                                 onClick={()=>handleSiginOut()}
-                                                className="w-[20%] m-2 rounded  "
+                                                className="w-2/5 m-2 rounded  "
                                             />
                                         }
                                     </div> 
