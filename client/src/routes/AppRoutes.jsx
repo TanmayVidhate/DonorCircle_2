@@ -32,7 +32,7 @@ function AppRoutes() {
       <ErrorBoundary FallbackComponent={Fallback} onReset={() => {}}>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={isChkSigninUp ? <Navigate to="/showalluers" replace /> : <LandingPage />  } />
+            <Route path="/" element={isChkSigninUp ? <Navigate to="/showalluers"  /> : <LandingPage />  } />
             <Route path="/signup" element={ <SignupForm />} />
             <Route path="/forgotpassword" element={ <ForgotPassword/>} />
             <Route path="/signin" element={<Signin />} />
