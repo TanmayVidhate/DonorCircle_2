@@ -124,7 +124,7 @@ function Navbar() {
                         <Button
                             type="button"
                             name="sigin_out"
-                            onClick={()=>handleSiginOut()}
+                            onClick={()=>handleSiginOut}
                             className="w-[100%] m-2 rounded "
                         />
                     }
