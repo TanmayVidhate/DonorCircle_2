@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { model, Schema } = mongoose;
 
 
-const UserSignUp = new Schema({
+const Users = new Schema({
     name: {
         type: String,
         required: true,
@@ -86,6 +86,6 @@ const UserSignUp = new Schema({
 }, { timestamps: true })
 
 
-const Donor = model('appusers', UserSignUp);
+const Donor = model('appusers', Users);
 
 export default Donor;
