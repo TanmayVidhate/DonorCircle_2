@@ -1,4 +1,4 @@
-import UserSignup from "../model/UserSignup.js";
+import Users from "../model/Users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -6,7 +6,7 @@ import nodemailer from "nodemailer"
 
 const getallUsers = async (req, res) => {
   try {
-    const users = await UserSignup.find();
+    const users = await Users.find();
     
     return res.status(200).json({
       success:true,
@@ -48,7 +48,7 @@ const addUser = async (req, res) => {
 
     }
     else {
-      const user = await UserSignup.findOne({ email: email });
+      const user = await Users.findOne({ email: email });
 
       if (!user) {
         const hasedPassword = await bcrypt.hash(password, 10);
@@ -105,7 +105,7 @@ const signinUser = async (req, res) => {
       });
     }
    
-    const isexistUser = await UserSignup.findOne({ email: email });
+    const isexistUser = await Users.findOne({ email: email });
 
     if (!isexistUser) {
       return res.status(404).json({
@@ -177,7 +177,7 @@ const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
   try {
-    const User = await UserSignup.findOne({ email });
+    const User = await Users.findOne({ email });
     if (!User) {
       return res.status(404).json({
         success: false,
@@ -256,7 +256,7 @@ const resetPassword = async (req, res) => {
   const { email, token } = req.params;
   //   console.log("tttttttttttttt==========", token);
   try {
-    const User = await UserSignup.findOne({ email });
+    const User = await Users.findOne({ email });
     if (!User) {
       return res.status(404).json({
         success: false,
@@ -292,7 +292,7 @@ const postResetPassword = async (req, res) => {
   const { email, token } = req.params;
   const {password} = req.body;
   try {
-    const User = await UserSignup.findOne({ email });
+    const User = await Users.findOne({ email });
     if (!User) {
       return res.status(404).json({
         success: false,
@@ -306,7 +306,7 @@ const postResetPassword = async (req, res) => {
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
       const encryptedPassword = await bcrypt.hash(password,10);
 
-      await UserSignup.updateOne(
+      await Users.updateOne(
         {email: email},
         {
             $set:{
@@ -372,7 +372,7 @@ const adduserallinfo = async (req, res) => {
         // message: `Enter All fields ${!email || !age || !mobile_no || !blood_group || !address || !gender}..`
       });
     } else {
-      const updatedUser = await UserSignup.findOneAndUpdate(
+      const updatedUser = await Users.findOneAndUpdate(
         { email: emaill },
         {
           $set: {
@@ -431,7 +431,7 @@ const uploadimg = async (req, res) => {
   const file = req?.file?.buffer?.toString("base64");
   console.log("file==", file);
   try {
-    const updatedUser = await UserSignup.findOneAndUpdate(
+    const updatedUser = await Users.findOneAndUpdate(
       { email },
       { $set: { "other_info.0.userpro": file } },
       { new: true, upsert: false }
@@ -460,7 +460,7 @@ const getUserImageByEmail = async (req, res) => {
     const { email } = req.params;
     console.log(email);
 
-    const record = await UserSignup.find({ email: email });
+    const record = await Users.find({ email: email });
     console.log("record=", record);
 
     // const image = record.profile_updates;
