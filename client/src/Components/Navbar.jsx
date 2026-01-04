@@ -33,6 +33,7 @@ function Navbar() {
     ];
 
     const handleSiginOut = async () =>{
+        alert("HIIIIII")
         try
         {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signinout`,
@@ -97,7 +98,7 @@ function Navbar() {
                                             <Button
                                                 type="button"
                                                 name="sigin_out"
-                                                onClick={()=>handleSiginOut()}
+                                                onClick={handleSiginOut}
                                                 className="w-2/5 m-2 rounded  "
                                             />
                                         }
@@ -124,7 +125,7 @@ function Navbar() {
                         <Button
                             type="button"
                             name="sigin_out"
-                            onClick={()=>handleSiginOut}
+                            onClick={handleSiginOut}
                             className="w-[100%] m-2 rounded "
                         />
                     }
