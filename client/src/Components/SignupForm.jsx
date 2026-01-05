@@ -26,7 +26,7 @@ function SignupForm() {
 
     const { t, i18n } = useTranslation();
 
-    const[openeye,setOpeneye] = useState(false);
+    const [openeye, setOpeneye] = useState(false);
 
     //react-hook-form
 
@@ -36,6 +36,7 @@ function SignupForm() {
             fullname: "",
             username: "",
             email: "",
+            role:"",
             password: "",
             // confirm_pass: ""
         }
@@ -45,12 +46,13 @@ function SignupForm() {
     const fullname = watch("fullname");
     const username = watch("username_field");
     const email = watch("email_field");
+    const role = watch("role_field");
     const password = watch("pass_field");
 
     // console.log("uuuu=",fullname)
 
     const AddFormData = async (e) => {
-       
+
         e.preventDefault();
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/Users/signup`, {
@@ -58,6 +60,7 @@ function SignupForm() {
                 username: username,
                 email: email,
                 password: password,
+                role:role
                 // confirm_pass: confirm_pass
             });
             console.log(response?.data)
@@ -96,7 +99,7 @@ function SignupForm() {
                         >
 
                             <div className='p-1 relative w-full '>
-                                <Label title={t(`${"name"}`)}  />
+                                <Label title={t(`${"name"}`)} />
                                 <InputField
                                     type="text"
                                     placeholder="John Doe"
@@ -162,10 +165,40 @@ function SignupForm() {
                                 }
                             </div>
 
+                            <div className=" p-1 relative mt-8 w-full ">
+                                <Label title={t(`${"role"}`)} />
+
+                                <div className="">
+                                    <div className=" p-1  flex justify-start gap-2 ">
+                                        <input
+                                            type="radio"
+                                            value="donor"
+                                            {...register("role_field", {
+                                                required: "Role is Required",
+                                            })}
+                                        />
+                                        {t(`${"donor"}`)}
+                                        <input
+                                            type="radio"
+                                            value="reciver"
+                                            {...register("role_field", {
+                                                required: "Role is Required",
+                                            })}
+                                        />
+                                        {t(`${"reciver"}`)}
+                                        {errors?.gender_field && (
+                                            <span className="text-red-500 text-x w-5/6 absolute left-2 -bottom-5 ">
+                                                {errors?.gender_field?.message}
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className=' p-1  relative mt-5 w-full '>
                                 <Label title={t(`${"password"}`)} />
                                 <InputField
-                                    type={openeye ?"text":"password"} 
+                                    type={openeye ? "text" : "password"}
                                     name="pass_field"
                                     {...register("pass_field", {
                                         required: t(`${"password_req"}`),
@@ -175,8 +208,8 @@ function SignupForm() {
                                             message: t(`${"password_validation"}`),
                                         },
                                     })}
-                                    
-                                    icon={openeye ? <EyeClosed onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/> :<Eye onClick={(e)=>{setOpeneye(!openeye)}} className="cursor-pointer"/>}
+
+                                    icon={openeye ? <EyeClosed onClick={(e) => { setOpeneye(!openeye) }} className="cursor-pointer" /> : <Eye onClick={(e) => { setOpeneye(!openeye) }} className="cursor-pointer" />}
                                 />
                                 {
                                     errors?.pass_field && <span className='text-red-500 text-sm w-full absolute  -bottom-10 sm:text-base md:text-lg md:-bottom-12 lg:text-sm lg:-bottom-10'>{errors?.pass_field?.message}</span>
@@ -213,21 +246,21 @@ function SignupForm() {
                             <div className='w-full p-1   mt-10 mb-5 sm:mt-11 '>
                                 {
                                     (Object.entries(errors).length > 0) ? (<Button name={t(`${"create_acc"}`)}
-                                    disabled={true}
-                                    hover={true}
-                                    onClick={AddFormData}
-                                    // onClick={handleSubmit(onSubmit)}
-                                    className="!px-5 !py-2 !rounded-lg !w-full"
-                                />)
-                                :(
-                                    <Button name={t(`${"create_acc"}`)}
-                                    disabled={false}
-                                    hover={true}
-                                    onClick={AddFormData}
-                                    // onClick={handleSubmit(onSubmit)}
-                                    className="!px-5 !py-2 !rounded-lg !w-full"
-                                />
-                                )
+                                        disabled={true}
+                                        hover={true}
+                                        onClick={AddFormData}
+                                        // onClick={handleSubmit(onSubmit)}
+                                        className="!px-5 !py-2 !rounded-lg !w-full"
+                                    />)
+                                        : (
+                                            <Button name={t(`${"create_acc"}`)}
+                                                disabled={false}
+                                                hover={true}
+                                                onClick={AddFormData}
+                                                // onClick={handleSubmit(onSubmit)}
+                                                className="!px-5 !py-2 !rounded-lg !w-full"
+                                            />
+                                        )
                                 }
                             </div>
 
