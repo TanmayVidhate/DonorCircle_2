@@ -7,11 +7,11 @@ import nodemailer from "nodemailer"
 const getallUsers = async (req, res) => {
   try {
     const users = await Users.find();
-    
+
     return res.status(200).json({
-      success:true,
-      data:users,
-      message:users.length ? "Data is found.." : "No users found.."
+      success: true,
+      data: users,
+      message: users.length ? "Data is found.." : "No users found.."
     })
   } catch (error) {
     return res.status(500).json({
@@ -22,6 +22,45 @@ const getallUsers = async (req, res) => {
   }
 };
 
+const getallDonors = async (req, res) => {
+  try {
+    const donorUsers = await Users.find({role:"donor"});
+
+    return res.status(200).json({
+      success: true,
+      data: donorUsers,
+      message: donorUsers.length ? "Data is found.." : "No users found.."
+    })
+
+  }
+  catch (error) {
+    return res.status(500).json({
+      success: false,
+      data: null,
+      message: "Internal server error.",
+    });
+  }
+}
+
+const getallReciver = async (req, res) => {
+  try {
+    const reciverUsers = await Users.find({role:"reciver"});
+
+    return res.status(200).json({
+      success: true,
+      data: reciverUsers,
+      message: reciverUsers.length ? "Data is found.." : "No users found.."
+    })
+  }
+  catch (error) {
+    return res.status(500).json({
+      success: false,
+      data: null,
+      message: "Internal server error.",
+    });
+  }
+}
+
 const addUser = async (req, res) => {
   try {
     const { name, username, email, role, password } = req.body;
@@ -31,14 +70,14 @@ const addUser = async (req, res) => {
     // console.log("email==", email);
     // console.log("password==", password);
 
-    if(!name || !username || !email || !role || !password){
+    if (!name || !username || !email || !role || !password) {
       let msgArr = [];
       !name && msgArr.push("Enter Name Field");
       !username && msgArr.push("Enter Username Field");
       !email && msgArr.push("Enter Email Field");
       !role && msgArr.push("Enter Role Field");
       !password && msgArr.push("Enter Password Field");
-      
+
       const errorMessage = msgArr.join(", ");
 
       return res.status(400).json({
@@ -93,20 +132,20 @@ const addUser = async (req, res) => {
 const signinUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    
+
     if ((!email, !password)) {
       let msgArr = [];
       !email && msgArr.push("Enter Email Field");
       !password && msgArr.push("Enter Password Field");
-      
+
       const errorMessage = msgArr.join(", ");
       return res.status(400).json({
         success: false,
-        data:null,
+        data: null,
         message: errorMessage,
       });
     }
-   
+
     const isexistUser = await Users.findOne({ email: email });
 
     if (!isexistUser) {
@@ -121,7 +160,7 @@ const signinUser = async (req, res) => {
       if (!match_pass) {
         return res.status(401).json({
           success: false,
-          data:null,
+          data: null,
           message: "Invalid password",
         });
       } else {
@@ -208,8 +247,8 @@ const forgotPassword = async (req, res) => {
       port: 587,
       secure: false,
       requireTLS: true,
-      logger:true,
-      debug:true,
+      logger: true,
+      debug: true,
       service: 'gmail',
       auth: {
         user: 'tanmayvidhate7@gmail.com',
@@ -230,7 +269,7 @@ const forgotPassword = async (req, res) => {
       text: link
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
       } else {
@@ -238,11 +277,11 @@ const forgotPassword = async (req, res) => {
       }
     });
 
-    console.log("link==",link)
+    console.log("link==", link)
     return res.status(200).json({
       success: true,
-      data:link,
-      message:"link created..." ,
+      data: link,
+      message: "link created...",
     });
   } catch (error) {
     return res.status(400).json({
@@ -272,14 +311,14 @@ const resetPassword = async (req, res) => {
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
       console.log("......hiiii in conditions......")
       const baseUrl = process.env.NODE_ENV ===
-       "production" ? "https://donorcircle-2.onrender.com":"http://localhost:5173";
+        "production" ? "https://donorcircle-2.onrender.com" : "http://localhost:5173";
 
-      console.log("in userController====",baseUrl)
-      res.render("index.ejs", { email: verify.email,status:"not verify",url:baseUrl });
+      console.log("in userController====", baseUrl)
+      res.render("index.ejs", { email: verify.email, status: "not verify", url: baseUrl });
     } catch (error) {
       return res.send(error.message);
     }
-    
+
   } catch (error) {
     return res.status(400).json({
       success: false,
@@ -292,7 +331,7 @@ const resetPassword = async (req, res) => {
 const postResetPassword = async (req, res) => {
   console.log("==============postResetPassword ====================")
   const { email, token } = req.params;
-  const {password} = req.body;
+  const { password } = req.body;
   try {
     const User = await Users.findOne({ email });
     if (!User) {
@@ -304,35 +343,35 @@ const postResetPassword = async (req, res) => {
     }
 
     try {
-      
+
       const verify = jwt.verify(token, process.env.SECURITY_KEY);
-      const encryptedPassword = await bcrypt.hash(password,10);
+      const encryptedPassword = await bcrypt.hash(password, 10);
 
       await Users.updateOne(
-        {email: email},
+        { email: email },
         {
-            $set:{
-                password:encryptedPassword,
-            }
+          $set: {
+            password: encryptedPassword,
+          }
         }
 
       );
-        const baseUrl = process.env.NODE_ENV ===
-       "production" ? "https://donorcircle-2.onrender.com":"http://localhost:5173";
+      const baseUrl = process.env.NODE_ENV ===
+        "production" ? "https://donorcircle-2.onrender.com" : "http://localhost:5173";
 
-        res.render("index",{email:verify.email,status:"verify",url:baseUrl})
+      res.render("index", { email: verify.email, status: "verify", url: baseUrl })
 
-        // res.status(200).json({
-        //   success:true,
-        //   message:"Password Updated..."
-        // })
+      // res.status(200).json({
+      //   success:true,
+      //   message:"Password Updated..."
+      // })
 
     } catch (error) {
-        return res.status(400).json({
+      return res.status(400).json({
         success: false,
         data: null,
         message: error?.message,
-    });
+      });
     }
   } catch (error) {
     return res.status(400).json({
@@ -378,12 +417,12 @@ const adduserallinfo = async (req, res) => {
         { email: emaill },
         {
           $set: {
-                "other_info.0.age":age,
-                "other_info.0.mobile_no":mobile_no,
-                "other_info.0.gender":gender,
-                "other_info.0.blood_group":blood_group,
-                "other_info.0.address":address,
-            },
+            "other_info.0.age": age,
+            "other_info.0.mobile_no": mobile_no,
+            "other_info.0.gender": gender,
+            "other_info.0.blood_group": blood_group,
+            "other_info.0.address": address,
+          },
         },
         { new: true }
       );
@@ -412,15 +451,15 @@ const getUserAllinfoByemail = async (req, res) => {
 
     record
       ? res.status(200).json({
-          success: true,
-          data: record,
-          message: "Data Found...",
-        })
+        success: true,
+        data: record,
+        message: "Data Found...",
+      })
       : res.status(400).json({
-          success: false,
-          data: null,
-          message: "Data Not Found...",
-        });
+        success: false,
+        data: null,
+        message: "Data Not Found...",
+      });
   } catch (error) {
     console.log(error.message);
   }
@@ -494,6 +533,8 @@ const getUserImageByEmail = async (req, res) => {
 export {
   getallUsers,
   addUser,
+  getallDonors,
+  getallReciver,
   signinUser,
   siginoutUser,
   forgotPassword,
