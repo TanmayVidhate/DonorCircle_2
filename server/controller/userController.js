@@ -24,18 +24,19 @@ const getallUsers = async (req, res) => {
 
 const addUser = async (req, res) => {
   try {
-    const { name, username, email, password } = req.body;
+    const { name, username, email, role, password } = req.body;
 
     // console.log("name=", name)
     // console.log("username=", username)
     // console.log("email==", email);
     // console.log("password==", password);
 
-    if(!name || !username || !email || !password){
+    if(!name || !username || !email || !role || !password){
       let msgArr = [];
       !name && msgArr.push("Enter Name Field");
       !username && msgArr.push("Enter Username Field");
       !email && msgArr.push("Enter Email Field");
+      !role && msgArr.push("Enter Role Field");
       !password && msgArr.push("Enter Password Field");
       
       const errorMessage = msgArr.join(", ");
@@ -53,10 +54,11 @@ const addUser = async (req, res) => {
       if (!user) {
         const hasedPassword = await bcrypt.hash(password, 10);
 
-        const newData = await UserSignup.create({
+        const newData = await Users.create({
           name,
           username,
           email,
+          role,
           password: hasedPassword,
         });
 

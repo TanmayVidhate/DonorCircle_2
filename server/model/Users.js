@@ -25,7 +25,14 @@ const Users = new Schema({
         trim: true,
         match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address']
     },
-
+    // date_of_birth: {
+    //     type: Date,
+    //     required: true,
+    // },
+    role:{
+        type: String,
+        required:true,
+    },
     password: {
         type: String,
         required: true,
