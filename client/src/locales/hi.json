@@ -87,7 +87,10 @@
     "sigin_out":"साइन आउट",
     "new_password":"नया पासवर्ड",
     "add_user_info":"उपयोगकर्ता जानकारी जोड़ें",
-    "view_details":"विवरण देखें"
+    "view_details":"विवरण देखें",
+    "role":"भूमिका",
+    "donor":"देनेवाला",
+    "reciver":"रिसीवर"
 
 
 

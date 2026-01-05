@@ -87,7 +87,10 @@
   "sigin_out":"Sigin out",
   "new_password":"New Password",
   "add_user_info":"Add User info",
-  "view_details":"View Details"
+  "view_details":"View Details",
+  "role":"Role",
+  "donor":"Donor",
+  "reciver":"Reciver"
 
 
 
