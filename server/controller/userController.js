@@ -406,7 +406,7 @@ const adduserallinfo = async (req, res) => {
 const getUserAllinfoByemail = async (req, res) => {
   try {
     const { email } = req.params;
-    const record = await UserSignup.findOne({ email: email }).select(
+    const record = await Users.findOne({ email: email }).select(
       "-_id -password -__v -createdAt -updatedAt -profile_updates._id"
     );
 
