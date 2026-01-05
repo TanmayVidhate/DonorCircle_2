@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-import {UserContext} from "../Context/UserContext.jsx";
 
 //import components
 import Button from "./Button";
@@ -13,7 +12,6 @@ import { useTranslation } from 'react-i18next';
 
 function SearchBar({ searchval, setSearchval, filterRecord }) {
 
-  const { role, setRole } = useContext(UserContext);
 
   const { t, i18n } = useTranslation();
 
@@ -34,7 +32,7 @@ function SearchBar({ searchval, setSearchval, filterRecord }) {
                        focus:outline-none focus:ring-0 focus:bg-transparen  "
           />
           <div className=" z-50" >
-            <FilterUsers role={role} setRole={setRole} />
+            <FilterUsers />
           </div>
           <Button
             name={t(`${"search"}`)}

@@ -1,8 +1,12 @@
 import React, { useContext, useState } from 'react'
 
+import {UserContext} from "../Context/UserContext.jsx";
+
 //Lucide import
 import { FunnelPlus } from 'lucide-react';
-function FilterUsers({role,setRole}) {
+function FilterUsers() {
+
+    const { role, setRole } = useContext(UserContext);
 
     const [isOpen, setIsOpen] = useState(false);
     
