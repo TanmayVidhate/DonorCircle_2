@@ -42,7 +42,7 @@ const getallDonors = async (req, res) => {
   }
 }
 
-const getallReciver = async (req, res) => {
+const getallRecivers = async (req, res) => {
   try {
     const reciverUsers = await Users.find({role:"reciver"});
 
@@ -534,7 +534,7 @@ export {
   getallUsers,
   addUser,
   getallDonors,
-  getallReciver,
+  getallRecivers,
   signinUser,
   siginoutUser,
   forgotPassword,
