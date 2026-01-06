@@ -21,7 +21,7 @@ function ShowAllUser() {
   const [isloading, setIsloading] = useState(true);
   const [role, setRole] = useState("");
 
-  const loadUserData = async () => {
+  const loadAllUsers = async () => {
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_API_URL}/Users/`
@@ -84,16 +84,16 @@ function ShowAllUser() {
     }
   }
 
-  useEffect(() => {
-    loadUserData();
-  }, []);
 
   useEffect(() => {
     if (role === "donor") {
       loadDonorUsers();
     } else if (role === "receiver") {
       loadReciverUsers();
+    } else {
+      loadAllUsers();
     }
+
   }, [role]);
 
   return (
