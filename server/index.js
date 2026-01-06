@@ -1,12 +1,12 @@
 import express, { json } from 'express';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
+
 import cors from 'cors';
 
 import path from "path";
 import { fileURLToPath } from "url";
 
-
+import connectDB from "./Config/db.js"
 import { userRouter } from './router/userAPI.js';
 import { health } from './controller/health.js';
 import { invalid } from './controller/invalid.js';
@@ -15,6 +15,7 @@ import cookieParser from 'cookie-parser';
 dotenv.config();
 
 const app = express();
+
 
 app.use(cors({
     origin:  ["http://localhost:5173","https://donorcircle-2.onrender.com"],
@@ -46,18 +47,9 @@ app.use(express.static("public"));
 
 // app.use("/{*any}",invalid);
 
+connectDB();
 
-
-mongoose.connect(process.env.MONGODB_URL)
-    .then(() => {
-        console.log("Database is connected...")
-
-        const PORT = process.env.PORT || 5006;
-
-        app.listen(PORT, () => {
-            console.log(`http://localhost:${PORT}`)
-        })
-    })
-    .catch((error) => {
-        console.log("error=", error.message)
-    })
+const PORT = process.env.PORT || 5006;
+    app.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
