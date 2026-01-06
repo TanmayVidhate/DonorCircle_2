@@ -19,7 +19,7 @@ function ShowAllUser() {
   const [searchobject, setSearchObject] = useState({});
   const [notFound, setNotFound] = useState(false);
   const [isloading, setIsloading] = useState(true);
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("all");
 
   const loadAllUsers = async () => {
     try {
