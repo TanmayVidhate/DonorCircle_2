@@ -50,6 +50,7 @@ app.use(express.static("public"));
 connectDB();
 
 const PORT = process.env.PORT || 5006;
-    app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
-    });
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
