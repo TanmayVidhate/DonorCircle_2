@@ -20,6 +20,13 @@ function FilterUsers() {
                     <div className='absolute mt-2 px-2 py-2 rounded cursor-pointer bg-[#f7c789] text-white'>
                         <div>
                             <label  >
+                                <input className='m-1' type="radio" name="role" value="all" checked={role === "all"} onChange={(e) => setRole(e.target.value)} />
+                                All
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label  >
                                 <input className='m-1' type="radio" name="role" value="donor" checked={role === "donor"} onChange={(e) => setRole(e.target.value)} />
                                 Donors
                             </label>
