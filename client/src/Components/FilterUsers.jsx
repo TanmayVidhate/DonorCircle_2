@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 
-import { UserContext } from "../Context/UserContext.jsx";
+import { UserRoleContext } from "../Context/UserRoleContext.jsx";
 
 //Lucide import
 import { FunnelPlus } from 'lucide-react';
 function FilterUsers() {
 
-    const { role, setRole } = useContext(UserContext);
+    const { role, setRole } = useContext(UserRoleContext);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -21,13 +21,13 @@ function FilterUsers() {
                         <div>
                             <label  >
                                 <input className='m-1' type="radio" name="role" value="donor" checked={role === "donor"} onChange={(e) => setRole(e.target.value)} />
-                                    Donors
+                                Donors
                             </label>
                         </div>
                         <div>
                             <label>
                                 <input className='m-1' type="radio" name="role" value="receiver" checked={role === "receiver"} onChange={(e) => setRole(e.target.value)} />
-                                    Receivers
+                                Receivers
                             </label>
                         </div>
                     </div>
